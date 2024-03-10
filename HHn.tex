@@ -5,12 +5,22 @@
 
 \usepackage{lmodern}
 \usepackage{pxfonts}
+\usepackage{xcolor}
+\usepackage[]{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!40!black},
+	citecolor={green!40!black},
+	urlcolor={blue!40!black},
+}
+\usepackage[icon=Note,color=yellow,open=true]{pdfcomment}
 
 \newcommand{\Exp}{\operatorname{Exp}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\g}{\mathfrak}
 \newcommand{\ad}{\operatorname{ad}}
 \newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\tr}{\operatorname{tr}}
 \newcommand{\Span}{\operatorname{span}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -42,7 +52,7 @@ Quaternions are a normed real division algebra,
 Product consists in applying asociative and distributive properties to expressions as before, 
 taking into account that $\mathbf{i}^2=\mathbf{j}^2=\mathbf{k}^2=-1$, $\mathbf{i}\mathbf{j}=\mathbf{k}=-\mathbf{j}\mathbf{i}$, and real numbers commute with the symbols 
 $\mathbf{i}$, $\mathbf{j}$, $\mathbf{k}$. 
-Product is associative, has identity element $1$, and any element has an inverse.
+Product is associative, has identity element $1$, and any nonzero element has an inverse.
 
 Let $q=t+\mathbf{i}x+\mathbf{j}y+\mathbf{k}z$ be a quaternion. 
 The real or scalar part is $\Re{q}=t$ and the imaginary or vector part is 
@@ -89,14 +99,15 @@ Therefore, $\varphi$ is a covering of Lie groups.
 Moreover, it follows easily that $\ker\varphi={\pm 1}$, and hence, $\mathsf{SO}(3)=\Sp(1)/\mathbb{Z}_2\cong\R\mathsf{P}^3$.
 \end{remark}
 
-\section{Quaternionic vector spaces}
+\section{Quaternionic vector spaces}\label{sec:vector-spaces}
 
 A quaternionic vector space is, in fact, a right $\H$-module.
+In particular, $\H^n$ is quaternion vector space.
 
 Let $V$ and $W$ be two quaternion vector spaces. 
-A map $L\colon V\to W$ is $\H$-linear if $L(\mathbf{v}q)=L(\mathbf{v})q$ for ach $\mathbf{v}\in V$ and $q\in\H$. Let $\{\mathbf{v}_1,\dots,\mathbf{v}_n\}$ be a basis of $V$ and $\{\mathbf{w}_1,\dots,\mathbf{w}_m\}$ a basis of $W$. 
+A map $L\colon V\to W$ is $\H$-linear if $L(\mathbf{v}q)=L(\mathbf{v})q$ for each $\mathbf{v}\in V$ and $q\in\H$. Let $\{\mathbf{v}_1,\dots,\mathbf{v}_n\}$ be a basis of $V$ and $\{\mathbf{w}_1,\dots,\mathbf{w}_m\}$ a basis of $W$. 
 We may write $L(\mathbf{v}_j)=\sum_i \mathbf{w}_i a_{ij}$, with $a_{ij}\in\H$. 
-If $\mathbf{v}=\sum_j \mathbf{v}_j\lambda_j\in V$, $\lambda_j\in\H$ we have 
+If $\mathbf{v}=\sum_j \mathbf{v}_j\lambda_j\in V$, $\lambda_j\in\H$, we have 
 \[
 L(\mathbf{v})
 =L\Bigl(\sum_j \mathbf{v}_j\lambda_j\Bigr)
@@ -118,27 +129,56 @@ a_{m1} & \cdots & a_{mn}
 \]
 With this convention, composition of $\H$-linear maps corresponds to multiplication of quaternion matrices.
 
-A quaternion product is a map $(\,\cdot\,,\,\cdot\,\,)\colon V\times V\to\H$ such that:
-\begin{enumerate}
-\item $(\mathbf{x}+\mathbf{y},\mathbf{z})
-=(\mathbf{x},\mathbf{z})+(\mathbf{y},\mathbf{z})$,
-$(\mathbf{x},\mathbf{y}+\mathbf{z})
-=(\mathbf{x},\mathbf{y})+(\mathbf{x},\mathbf{z})$,
-\item $(\mathbf{x}q,\mathbf{y})=\overline{q}(\mathbf{x},\mathbf{y})$, $(\mathbf{x},\mathbf{y}q)=(\mathbf{x},\mathbf{y}) q$,
-\item $(\mathbf{x},\mathbf{y})=\overline{(\mathbf{y},\mathbf{x})}$,
-\item $(\mathbf{x},\mathbf{x})\geq 0$, with equality if and only if $\mathbf{x}=\mathbf{0}$,
-\end{enumerate}
-for all $\mathbf{x}$, $\mathbf{y}$, $\mathbf{z}\in V$, $q\in H$.
+We define the general quaternion linear group $\mathsf{GL}(n,\H)$ as the group of invertible quaternion matrices; it is isomorphic to the group of invertible $\H$-linear endomorphisms of $\H^n$. 
 
-Note that $\langle\mathbf{x},\mathbf{y}\rangle=\Re(\mathbf{x},\mathbf{y})$ defines an inner product in $V$.
+We can identify $\H^n$ with $\C^n\oplus\C^n$ by means of the isomorphism
+\[
+\C^n\oplus\C^n\to\H^n,\quad (\mathbf{x},\mathbf{y})\mapsto \mathbf{x}+\mathbf{j}\mathbf{y}.
+\]
+Thus, given a quaternionic matrix $M$, we may write $M=A+\mathbf{j}B$.
+Note that
+\[
+\begin{aligned}
+(A+\mathbf{j}B)(\mathbf{x}+\mathbf{j}\mathbf{y})
+&{}=A\mathbf{x}+A\mathbf{j}\mathbf{y}
++\mathbf{j}B\mathbf{x}+\mathbf{j}B\mathbf{j}\mathbf{y}\\
+&{}=(A\mathbf{x}-\bar{B}\mathbf{y})
++\mathbf{j}(\bar{A}\mathbf{y}+B\mathbf{x}).
+\end{aligned}
+\]
+Hence, quaternionic matrices can be seen as matrices of $\C^{2n}$ of the form
+\[
+A+\mathbf{j}B\mapsto
+\begin{pmatrix}
+A & -\overline{B}\\
+B & \overline{A}
+\end{pmatrix}.
+\]
 
-In particular, $\H^n$ is quaternion vector space and $(\mathbf{x},\mathbf{y})=\sum_{i=1}^n \overline{x_i}y_i$ defines a quaternion product on $\H^n$. The usual scalar product of $\R^{4n}\cong\H^n$ coincides with $\langle\mathbf{x},\mathbf{y}\rangle=\Re(\mathbf{x},\mathbf{y})$.
+Using the previous isomorphism, multiplication on the right by $\mathbf{j}$ corresponds to the anti-linear complex endomorphism $\hat{J}(\mathbf{x},\mathbf{y})=(-\overline{\mathbf{y}},\overline{\mathbf{x}})$.
+As a consequence, a complex linear endomorphism of $\C^n\oplus\C^n$ corresponds to an $\H$-linear endomorphism if and only if it commutes with $\hat{J}$. 
+(Indeed, because for all $\mathbf{v}\in\C^n\oplus\C^n$ we have $M\hat{J}\mathbf{v}=M(\mathbf{v}\mathbf{j})=(M\mathbf{v})\mathbf{j}=\hat{J}M\mathbf{v}$.)
 
+We also consider
+\[
+{J}=
+\begin{pmatrix}
+\mathbf{0} & -\id_n\\
+\id_n & \mathbf{0}
+\end{pmatrix}.
+\]
+Thus, $\hat{J}\mathbf{v}=J\bar{\mathbf{v}}$, $\mathbf{v}\in\C^n\oplus\C^n$.
+In terms of matrices $M\in\mathcal{M}_{2n\times 2n}(\C)$ corresponds to an element of $\mathcal{M}_{n\times n}(\H)$ if and only if $JM=\bar{M}J$
+(simply apply this definition and conjugate $M\hat{J}=\hat{J}M$).
 
-We define the general quaternion linear group $\mathsf{GL}(n,\H)$ as the group of invertible quaternion matrices; it is isomorphic with the group of invertible $\H$-linear endomorphisms of $\H^n$. 
-The symplectic group is defined as $\Sp(n)=\{A\in\mathsf{GL}(n,\H):A^* A=\id\}$.
-This group coincides with the group of quaternion matrices that preserve the quaternion product of $\H^n$.	
-
+Hence, with these isomorphisms, 
+\[
+\begin{aligned}
+\mathsf{GL}(n,\H)
+&{}=\{M\in\mathsf{GL}(2n,\C):M\hat{J}=\hat{J}M\}\\
+&{}=\{M\in\mathsf{GL}(2n,\C):\overline{M}J=JM\}.
+\end{aligned}
+\]
 \medskip
 
 Let $V$ be a real vector space with inner product $\langle\,\cdot\,,\,\cdot\,\rangle$.
@@ -184,6 +224,34 @@ For example, we check
 \end{aligned} \qedhere
 \]
 \end{proof}
+\medskip
+
+A quaternion product is a map $(\,\cdot\,,\,\cdot\,\,)\colon V\times V\to\H$ such that:
+\begin{enumerate}
+\item $(\mathbf{x}+\mathbf{y},\mathbf{z})
+=(\mathbf{x},\mathbf{z})+(\mathbf{y},\mathbf{z})$,
+$(\mathbf{x},\mathbf{y}+\mathbf{z})
+=(\mathbf{x},\mathbf{y})+(\mathbf{x},\mathbf{z})$,
+\item $(\mathbf{x}q,\mathbf{y})=\overline{q}(\mathbf{x},\mathbf{y})$, $(\mathbf{x},\mathbf{y}q)=(\mathbf{x},\mathbf{y}) q$,
+\item $(\mathbf{x},\mathbf{y})=\overline{(\mathbf{y},\mathbf{x})}$,
+\item $(\mathbf{x},\mathbf{x})\geq 0$, with equality if and only if $\mathbf{x}=\mathbf{0}$,
+\end{enumerate}
+for all $\mathbf{x}$, $\mathbf{y}$, $\mathbf{z}\in V$, $q\in H$.
+
+Note that $\langle\mathbf{x},\mathbf{y}\rangle=\Re(\mathbf{x},\mathbf{y})$ defines an inner product in $V$.
+
+The formula $(\mathbf{x},\mathbf{y})=\sum_{i=1}^{n+1} \overline{x_i}y_i$ defines a quaternion product on $\H^{n+1}$. The usual scalar product of $\R^{4n+4}\cong\H^{n+1}$ coincides with $\langle\mathbf{x},\mathbf{y}\rangle=\Re(\mathbf{x},\mathbf{y})$.
+
+The symplectic group is defined as $\Sp(n+1)=\{A\in\mathsf{GL}(n+1,\H):A^* A=\id\}$.
+This group coincides with the group of quaternion matrices that preserve the quaternion product of $\H^{n+1}$.	
+We have $\dim\Sp(n+1)=2(n+1)^2+n+1$.
+
+We are also interested in indefinite quaternion products, where the last property of a quaternion product is substituted by non-degeneracy.
+In particular, we are interested in $(\mathbf{x},\mathbf{y})=-\overline{x_1}y_1+\sum_{i=2}^{n+1} \overline{x_i}y_i$ on $\H^{n+1}$.
+The quaternion vector space $\H^{n+1}$ with this indefinite quaternion product is denoted by $\H^{1,n}$.
+We define $\Sp(1,n)=\{A\in\mathsf{GL}(n+1,\H):A^*I_{1,n}A=I_{1,n}\}$, where $I_{1,n}=\operatorname{diag}(-1,1,\dots,1)$.
+This group coincides with the group of quaternion matrices that preserve the indefinite quaternion product of $\H^{1,n}$.	
+
 
 \section{Quaternionic projective spaces}
 
@@ -216,13 +284,13 @@ For ${x}\in\pi^{-1}(p)$ we define the horizontal lift $v^L_{x}$ of $v$ as the un
 Note that, with the usual identifications, we have $v_{x\lambda}^L=v_x^L\lambda$, with $\lambda\in\Sp(1)$, since $(x\Im\H)^\perp$ is $\H$-invariant and $\pi_{x\lambda}(v_x^L\lambda)=\pi_{*x}(v_x^L)$.
 \medskip
 
-In order to give $\mathsf{P}(V)$ a structure of Riemannian manifold, we require $\pi$ to be a Riemannian submersion.
+In order to give $\mathsf{P}(V)$ a structure of a Riemannian manifold, we require $\pi$ to be a Riemannian submersion.
 This implies that the metric on $\mathsf{P}(V)$ is defined as 
 \[
 \langle v,w\rangle_{\mathsf{P}(V)}=\langle v^L,w^L\rangle_{\mathsf{S}(V)}
 \] 
 for each $v$, $w\in T_p\mathsf{P}(V)$.
-We will omit subindices whenever the space where were considering the Riemannian metric is clear.
+We will omit subindices whenever the space where we are considering the Riemannian metric is clear.
 We see that this definition does not depend on the point ${x}\in\pi^{-1}(p)$ used to define the lift.
 Indeed,
 \[
@@ -273,7 +341,7 @@ J_1^2(X_p)
 =-X_p,
 \end{aligned}
 \]
-using that $\mathcal{V}^\perp$ is $\H$-invariant, and this, multiplication by $\mathbf{i}$ maps horizontal vectors to horizontal vectors.
+using that $\mathcal{V}^\perp$ is $\H$-invariant, and thus, multiplication by $\mathbf{i}$ maps horizontal vectors to horizontal vectors.
 
 Similarly,
 \[
@@ -308,7 +376,7 @@ Since $\sigma(p)=\tilde{\gamma}(0)=\sigma(p)\lambda(0)$ we get $\lambda(0)=1$ an
 
 Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}(V)$. In what follows subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
 Recall that $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}(V)$.
-We also denote by $D$ the usual connection of $\H^{n+1}$.
+We also denote by $D$ the usual connection of $\H^{n+1}\cong\R^{4n+4}$.
 
 On the one hand,
 \[
@@ -384,7 +452,7 @@ The bracket relations of the Lie algebra $\g{sp}(1)=\Im\H$ imply
 [\lambda'(0),\mathbf{i}]
 =2\langle\lambda'(0),\mathbf{k}\rangle\,\mathbf{j}-2\langle\lambda'(0),\mathbf{j}\rangle\,\mathbf{k}.
 \]
-This implies,
+This yields,
 \[
 \begin{aligned}
 (\nabla_{X_p}J_1)Y
@@ -419,7 +487,7 @@ First we calculate, for $X$, $Y\in\Gamma(T\mathsf{P}(V))$ and $\lambda\in\Sp(1)$
 \end{aligned}
 \]
 
-Let $\g{q}$ be a local quaternionic structure as defined above and $J\in\g{q}$ a complex structure.
+Let $\g{q}$ be a local quaternionic structure as defined above, and $J\in\g{q}$ a complex structure.
 Let $X\in T_p\mathsf{P}(V)$ with $\lvert X\rvert=1$. 
 We have to calculate the sectional curvature of the $2$-plane spanned by $X$ and $JX$, and see that this does not depend on $p$ or $X$.
 
@@ -448,15 +516,15 @@ This action leaves the sphere $\mathsf{S}(V)$ invariant because
 =\Re(\mathbf{x},\mathbf{x})
 =\langle \mathbf{x},\mathbf{x}\rangle=1.
 \]
-Moreover $\pi(A(x\lambda))=\pi((Ax)\lambda)=\pi(Ax)$, so the action descends to $\mathsf{P}(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
+Moreover $\pi(A(\mathbf{x}\lambda))=\pi((A\mathbf{x})\lambda)=\pi(A\mathbf{x})$, so the action descends to $\mathsf{P}(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
 
 The action of $\Sp(V)$ on $\mathsf{P}(V)$ is transitive because $\Sp(V)$ acts transitively on quaternionic lines through the origin.
-It is also isometric.
+We show that it is also isometric.
 Let $p\in\mathsf{P}(V)$ and $v$, $w\in T_p\mathsf{P}(V)$.
 Let $\alpha\colon I\to\mathsf{P}(V)$ be a smooth curve such that $\alpha(0)=p$, $\alpha'(0)=v$.
-We select $x\in\pi^{-1}(p)$ and let $\tilde{\alpha}$ be the horizontal lift of $\alpha$ to $\mathsf{S}(V)$.
+We select $x\in\pi^{-1}(p)$ and let $\tilde{\alpha}$ be the horizontal lift of $\alpha$ to $\mathsf{S}(V)$ through $x$.
 Then, $\tilde{\alpha}(0)=x$ and $\tilde{\alpha}'(0)=v_x^L$.
-Since $A$ acts linearly on $V$ ,
+Since $A$ acts linearly on $V$,
 \[
 A_{*p}(v)
 =\frac{d}{dt}\Big\vert_0 A(\alpha(t))
@@ -486,9 +554,410 @@ Let $\{e_1,\dots,e_{n+1}\}$ be a quaternionic orthonormal basis of $V$.
 From now on we fix $o=\pi(e_1)$.
 We calculate the isotropy group of $\Sp(V)$ at $o$.
 If $A(\pi(e_1))=A(o)=o$ then there exists $\lambda\in\Sp(1)$ such that $Ae_1=e_1\lambda$.
-Since $A\in\Sp(V)$ we get $A=\lambda\oplus B$ where $B\in\Sp(W)$, where $W$ is the quaternionic orthogonal complement of $e_1$ in $V$.
+Since $A\in\Sp(V)$ we get $A=\lambda\oplus B$ where $\lambda\in\Sp(1)$, $B\in\Sp(W)$, and where $W$ is the quaternionic orthogonal complement of $e_1$ in $V$.
 Therefore the isotropy group of $\Sp(V)$ at $o$ is isomorphic to $\Sp(1)\times\Sp(n)$.
 
+Now we calculate the isotropy representation $\Sp(V)_o\times T_o\mathsf{P}(V)\to T_o\mathsf{P}(V)$.
+We identify $\Sp(V)_o\cong \Sp(1)\times\Sp(n)$ as before, and $T_o\mathsf{P}(V)\cong(e_1\H)^\perp\cong\H^{n}$.
+If $A=(\lambda,B)\in\Sp(1)\times\Sp(n)$, and $v\in\H^n$ we get
+\[
+\begin{aligned}
+A_{*o}(v)
+&{}=\pi_{*e_1}(Av_{e_1}^L)
+=\frac{d}{dt}\Big\vert_0 \pi(A(e_1\cos t+v_{e_1}^L\sin t))\\
+&{}=\frac{d}{dt}\Big\vert_0 \pi(e_1(\cos t) \lambda+B v_{e_1}^L\sin t)\\
+&{}=\frac{d}{dt}\Big\vert_0 \pi(e_1(\cos t)+B v_{e_1}^L\lambda^{-1}\sin t)\\[1ex]
+&{}=\pi_{*e_1}(Bv_{e_1}^L\lambda^{-1}).
+\end{aligned}
+\]
+Moreover, the effectivity kernel of this action is $\mathbb{Z}_2=\{\pm\id\}$ (similar argument to the action of $\Sp(V)$ on $\mathsf{P}(V)$).
+Thus, the isotropy representation of $\mathsf{P}(V)$ is equivalent to the representation
+\[
+\begin{array}{r@{\ }c@{\ }l}
+\Sp(1)\Sp(n)\times\H^n & \to & \H^n\\
+((\lambda,B),v) & \mapsto & Bv\lambda^{-1},
+\end{array}
+\]
+where $\Sp(1)\Sp(n)=(\Sp(1)\times\Sp(n))/\mathbb{Z}_2$.
+
+
+\section{Quaternionic hyperbolic spaces}
+
+The construction of quaternionic hyperbolic spaces is in many ways similar to the projective case.
+In this section we outline this construction and leave out the details whenever they are analogous to the previous section.
+We focus on specific properties of the hyperbolic case, though.
+
+Let $V$ be a quaternion vector space of quaternionic dimension $n+1$ endowed with an indefinite quaternion product $(\,\cdot\,,\,\cdot\,\,)$ of signature $(1,n)$.
+This means that $V$ is isomorphic to $\H^{1,n}$, that is, the quaternion vector space $\H^{n+1}$ endow with the indefinite quaternion product 
+\[
+(\mathbf{x},\mathbf{y})
+=-\overline{x}_1{y}_1+\sum_{i=2}^{n+1}\overline{x}_i {y}_i.
+\]
+This implies that $\langle\,\cdot\,,\,\cdot\,\,\rangle=\Re(\,\cdot\,,\,\cdot\,\,)$ is an scalar product of signature $(4,n)$.
+As a Riemannian manifold, $V$ is isometric to the flat pseudo-Riemannian space $\R^{4,4n}$
+
+We consider the $\mathsf{S}^{3,4n}=\mathsf{S}(V)=\{{x}\in V:\langle {x},{x}\rangle=-1\}$,
+which is a pseudo-Riemannian manifold of signature $(3,4n)$ and constant negative curvature.
+We define the proper and free right action $\mathsf{S}(V)\times\Sp(1)\to\mathsf{S}(V)$ by ${x}\cdot \lambda={x}\lambda$.
+The orbit space 
+\[
+\mathsf{H}(V)=\mathsf{S}(V)/\Sp(1)
+\]
+is a smooth manifold of real dimension $4n$, that is called the quaternion hyperbolic space of $V$.
+If $V=\H^{1,n}$, we denote this space by $\H \mathsf{H}^n$.
+
+We denote by $\pi\colon\mathsf{S}(V)\to\mathsf{H}(V)$ the quotient map, also called the Hopf map.
+For ${x}\in\mathsf{S}(V)$ we identify $T_{x}\mathsf{S}(V)=(\R{x})^\perp=V\ominus\R{x}$, the orthogonal complement of ${x}$ with respect to $\langle\,\cdot\,,\,\cdot\,\,\rangle$.
+We have $\ker\pi_{*{x}}={x}\Im\H$, and the orthogonal decomposition $T_{x}\mathsf{S}(V)=({x}\Im\H)\oplus(\H{x})^\perp$.
+We endow $\mathsf{H}(V)$ with a Riemannian metric that makes $\pi$ a pseudo-Riemannian submersion.
+Thus, $T_{\pi({x})}\mathsf{P}(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
+As before, a vector in $(\H x)^\perp$ is called horizontal, and a vector in $\ker\pi_{*x}$ is called vertical.
+
+Let $v\in T_{p}\mathsf{P}(V)$.
+For ${x}\in\pi^{-1}(p)$ we define the horizontal lift $v^L_{x}$ of $v$ as the unique vector $v_x^L\in(\H{x})^\perp$ such that $\pi_{*{x}}(v^L_{x})=v$.
+The metric on $\mathsf{H}(V)$ is defined as 
+$\langle v,w\rangle_{\mathsf{H}(V)}=\langle v^L,w^L\rangle_{\mathsf{S}(V)}$ 
+for each $v$, $w\in T_p\mathsf{H}(V)$.
+This definition does not depend on the point ${x}\in\pi^{-1}(p)$ used to define the lift.
+
+Since $\pi\colon\mathsf{S}(V)\to\mathsf{H}(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}(V)$ is determined by
+$(\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y)$,
+where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}(V)$.
+
+The quaternion K\"ahler structure on $\mathsf{P}(V)$ is defined as follows.
+Let $\sigma\colon U\to\mathsf{S}(V)$ be a section of $\pi$.
+We define, for $X\in\Gamma(T\mathsf{H}(V))$,
+\[
+\begin{aligned}
+J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
+&J_2(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{j}),
+&J_3(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{k}),
+\end{aligned}
+\]
+for $p\in U$.
+This definition depends on the choice of section $\sigma$, but the span of $\{J_1,J_2,J_3\}$ determines a quaternionic K\"ahler structure on $\mathsf{H}(V)$.
+
+A calculation similar to the projective case shows that $\mathsf{H}(V)$ has constant quaternionic sectional curvature $-4$. 
+Note that the normal vector to $\mathsf{S}(V)$ is now timelike and that $S(V)$ has constant curvature $-1$.
+\medskip
+
+In $V$ we consider the action of $\Sp(V)\cong\Sp(1,n)$ on the left as
+$A\cdot\mathbf{x}=A\mathbf{x}$, where matrix multiplication is $\H$-linear on the right.
+This action leaves $\mathsf{S}(V)$ invariant and descends to $\mathsf{P}(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
+The action of $\Sp(V)$ on $\mathsf{H}(V)$ is transitive, because $\Sp(V)$ acts transitively on quaternionic lines through the origin, and isometric because
+$A_{*p}(v)=\pi_{*x}(Av_x^L)$ for any $p\in\mathsf{H}(V)$, $x\in\pi^{-1}(p)$, and $v\in T_p\mathsf{H}(V)$, and $\pi$ is a pseudo-Riemannian submersion.
+The effectivity kernel of $\Sp(V)$ is again $\mathbb{Z}_2=\{\pm \id\}$.
+
+Let $\{e_1,\dots,e_{n+1}\}$ be a quaternionic orthonormal basis of $V$ with $(e_1,e_1)=-1$ and $(e_i,e_i)=1$ if $i>1$.
+From now on we fix $o=\pi(e_1)$.
+The isotropy group of $\Sp(V)$ at $o$ is isomorphic to $\Sp(1)\times\Sp(n)$, 
+and the isotropy representation $\Sp(V)_o\times T_o\mathsf{H}(V)\to T_o\mathsf{H}(V)$
+is equivalent to the representation
+\[
+\begin{array}{r@{\ }c@{\ }l}
+\Sp(1)\Sp(n)\times\H^n & \to & \H^n\\
+((\lambda,B),v) & \mapsto & Bv\bar{\lambda}.
+\end{array}
+\]
+
+We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}(V)$, $A\mapsto A(o)$.
+We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}(V)$, given by
+\[
+\phi_{*o}(X)
+=\frac{d}{dt}\Big\vert_{0}\phi(\Exp(tX))
+=\frac{d}{dt}\Big\vert_{0}e^{tX}(\pi(e_1))
+=\frac{d}{dt}\Big\vert_{0}\pi(e^{tX}e_1)
+=\pi_{*e_1}(Xe_1).
+\]
+Clearly, its kernel is the Lie algebra $\g{sp}(1)\oplus\g{sp}(n)$ of the isotropy group of $\Sp(V)$ at $o$.
+Thus, complementary space of $\g{sp}(1)\oplus\g{sp}(n)$ in $\g{sp}(1,n)$ is isomorphic to $T_o\mathsf{H}(V)$, which is itself isomorphic to $\H^n$.
+We will see that there are two natural choices for this complementary subspace.
+
+The Lie algebra $\g{g}=\g{sp}(1,n)$ can be viewed as the algebra of quaternionic matrices of the following form:
+\[
+\g{sp}(1,n)=\left\{
+\left(
+\begin{array}{c|c}
+\lambda & v^{*} \\
+\hline
+v & X
+\end{array}
+\right):
+\lambda \in \Im \H,v\in \H^{n}, B\in \g{sp}(n)
+\right\}.
+\]
+We use the following notation: 
+\[
+\lceil \lambda, v, X\rceil =\left(
+\begin{array}{c|c}
+\lambda & v^{*} \\
+\hline
+v & X
+\end{array}
+\right).
+\]
+We have
+\[
+\bigl[\lceil \lambda,v,X \rceil,\, \lceil \mu,w,Y \rceil\bigr]
+=\lceil \lambda\mu-\mu\lambda+v^{*}w-w^{*}v,\, v\mu-w\lambda+Xw-Yv,\, [X,Y]+vw^{*}-wv^{*} \rceil.
+\]
+
+The Cartan decomposition $\g{g}=\g{k}\oplus\g{p}$ is given by
+\[
+\begin{aligned}
+\g{k}&
+{}=\g{sp}(1)\oplus\g{sp}(n)
+=\left\{
+	\left(
+	\begin{array}{c|c}
+		\lambda & 0 \\
+		\hline
+		0 & X
+	\end{array}
+	\right):
+	\lambda \in \Im \H, B\in \g{sp}(n)
+\right\}, \\
+\g{p}&
+{}=\left\{
+\left(
+	\begin{array}{c|c}
+		0 & v^{*} \\
+		\hline
+		v & 0
+	\end{array}
+\right):
+v\in \H ^{n}
+\right\}.
+\end{aligned}
+\]
+The Cartan involution of $\g{g}$ is $\theta X = -X^{*}$.
+
+Since $\ker\phi_{*o}=\g{k}$, $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is a vector space isomorphism.
+We endow $\g{p}$ with the inner product and quaternion structure induced by $\phi_{*o}$.
+This is clearly the canonical identification $\lceil 0,v,0\rceil\mapsto \pi_{*e_1}(v)$.
+
+\begin{remark}
+	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
+	(that is, $\tr_{\C}(A)$ is the trace of $A$ regarded as a complex linear operator, see Section~\ref{sec:vector-spaces}).
+\end{remark}
+
+The Killing form of $\g{sp}(1,n)$ is given by $\mathcal{B}(X,Y)=2\pdfmarkupcomment{(n+1)}{Check this constant}\tr_{\C}(XY)$.
+Indeed, the complexification of $\g{g}$ is $\g{sp}(n+1,\C)$, whose Killing form is precisely the one given above (extended in the obvious way).
+This induces an inner product on $\g{g}$ given by 
+\[
+\mathcal{B}_{\theta}(X,Y)
+=-\mathcal{B}(\theta X, Y)
+=4(n+1)\Re\tr_{\H}(X^{*}Y).
+\]
+
+We have 
+\[
+\mathcal{B}_\theta(\lceil 0,v,0\rceil,\lceil 0,w,0\rceil)
+=4(n+1)\Re\tr_\H(\lceil v^*w,0,vw^*\rceil)
+=8(n+1)\langle v,w\rangle.
+\]
+Thus, we rescale $\mathcal{B}_\theta$ so that $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is an isometry, and set
+\[
+\langle X,Y\rangle
+=\frac{1}{8(n+1)}\mathcal{B}_\theta(X,Y)
+=\frac{1}{2}\Re\tr_\H(X^*Y),
+\]
+for $X$, $Y\in\g{g}$.
+
+We choose the maximal abelian subspace $\g{a}$ of $\g{p}$ generated by $\lceil 0,e_{1},0\rceil$.
+The root space decomposition $\g{g}=\g{g}_{-2\alpha}\oplus\g{g}_{-\alpha}\oplus\g{g}_{0}\oplus\g{g}_{\alpha}\oplus\g{g}_{2\alpha}$ is given by
+\[
+\begin{aligned}
+\g{g}_{0}={}&\left\{
+	\left(
+		\begin{array}{cc|c}
+			\lambda & t & 0 \\
+			t & \lambda & 0 \\
+			\hline
+			0 & 0 & X
+		\end{array}
+	\right)\colon \lambda\in\Im\H,t\in\R,X\in\g{sp}(n-1)
+\right\}=\g{k}_{0}\oplus \g{a}, \\
+\g{k}_{0}={}&\left\{
+\left(
+\begin{array}{cc|c}
+	\lambda & 0 & 0 \\
+	0 & \lambda & 0 \\
+	\hline
+	0 & 0 & X
+\end{array}
+\right)\colon \lambda\in\Im\H,X\in\g{sp}(n-1)
+\right\}=\g{sp}(1)\oplus \g{sp}(n-1), \\
+\g{g}_{\alpha}={}&\left\{
+	\left(
+		\begin{array}{cc|c}
+			0 & 0 & v^{*} \\
+			0 & 0 & v^{*} \\
+			\hline
+			v & -v & 0
+		\end{array}
+	\right)\colon v\in \H^{n-1}
+\right\}, \\
+\g{g}_{2\alpha}={}&\left\{
+	\left(
+		\begin{array}{cc|c}
+			\lambda & -\lambda & 0 \\
+			\lambda & -\lambda & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+	\right)\colon \lambda\in \Im \H
+\right\},
+\end{aligned}
+\]
+where $\alpha\in\g{a}^*$ is given by $\alpha(\lceil 0,e_1,0\rceil)=1$, 
+and $\g{g}_{-\alpha}=\theta\g{g}_\alpha$, $\g{g}_{-2\alpha}=\theta\g{g}_{2\alpha}$.
+Let ${K}_{0}$ be the connected subgroup of ${G}=\Sp(1,n)$ with Lie algebra $\g{k}_{0}$.
+Then we get
+\[
+{K}_{0}=\left\{
+	\left(
+		\begin{array}{cc|c}
+			q & 0 & 0 \\
+			0 & q & 0 \\
+			\hline
+			0 & 0 & B
+		\end{array}
+	\right)\colon q\in\mathsf{Sp}(1),B\in\mathsf{Sp}(n-1)
+\right\}=\mathsf{Sp}(1)\times\mathsf{Sp}(n-1).
+\]
+	Furthermore, the (effectivized) adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{\alpha}\cong\H^{n-1}$ is precisely the action of $\mathsf{Sp}(1)\mathsf{Sp}(n-1)$ on $\H^{n-1}$ via the identification $v\leftrightarrow\lceil 0,v,0 \rceil$, whereas the adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{2\alpha}$ satisfies $(q,B)\cdot \lambda=q\lambda\bar{q}$.
+	
+
+--------------------
+
+
+	We have the natural identification $\g{p}\cong T_{o}\H \mathsf{H}^{n}=\H e_{1}^{\perp}$ given by $\lceil 0,v,0 \rceil\leftrightarrow (0,v)$.
+	In particular, we may consider the endomorphisms $Q_{\lambda}\in \mathsf{End}(T_{o}\H\mathsf{H}^{n})$ (where $\lambda\in \H$) defined as follows:
+	\begin{equation}
+		Q_{\lambda}\xi=\pi_{*e_{1}}\left(\xi^{L}_{e_{1}}\lambda\right).
+	\end{equation}
+	Here, $\xi^{L}_{e_{1}}\in \{0\}\times \H^{n}$ is the horizontal lift of $\xi\in T_{o}\H\mathsf{H}^{n}$ to $e_{1}$.
+	One checks that $\mathfrak{J}=\{Q_{\lambda}\colon \lambda\in \operatorname{Im}\H\}$ defines a quaternionic structure on $T_{o}\H\mathsf{H}^{n}$.
+	In particular, we can translate this quaternionic structure to $\g{p}$, which actually satisfies
+	\begin{equation*}
+		Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,v\lambda,0 \rceil.
+	\end{equation*}
+	Let $\mathsf{A}$, $\mathsf{N}$ and $\mathsf{AN}$ be the connected subgroups of $\mathsf{Sp}(1)\times\mathsf{Sp}(n-1)$ associated with $\g{a}$, $\g{n}$ and $\g{a}\oplus \g{n}$.
+	Then it is a standard fact that $\H\mathsf{H}^{n}$ is a principal homogeneous space of $\mathsf{AN}$, so the map $g\in\mathsf{AN}\to g\cdot o\in\H\mathsf{H}^{n}$ is a diffeomorphism.
+	We consider the metric $\langle\cdot,\cdot \rangle_{\mathsf{AN}}$ that turns this map into an isometry.
+	Explicitly,
+	\begin{equation}
+		\langle X,Y \rangle_{\mathsf{AN}}=\left\langle \frac{1-\theta}{2}X,\frac{1-\theta}{2}Y \right\rangle=\langle X_{\g{a}},Y_{\g{a}} \rangle+\frac{1}{2}\langle X_{\g{n}},Y_{\g{n}}\rangle.
+	\end{equation}
+	In particular, the quaternionic structure on $\g{p}$ can be transformed into a quaternionic structure on $\g{a}\oplus\g{n}$ by making $\frac{1-\theta}{2}$ into a quaternionic vector space isomorphism.
+	Explicitly:
+	\begin{equation}
+		Q_{\lambda}\left(
+			\begin{array}{cc|c}
+				\mu & t-\mu & v^{*} \\
+				t+\mu & -\mu & v^{*} \\
+				\hline
+				v & -v & 0
+			\end{array}
+		\right)=
+		\left(
+		\begin{array}{cc|c}
+			\operatorname{Im}((t+\mu)\lambda) & \bar{\lambda}(t-\mu) & \bar{\lambda}v^{*} \\
+			(t+\mu)\lambda & -\operatorname{Im}((t+\mu)\lambda) & \bar{\lambda}v^{*} \\
+			\hline
+			v\lambda & -v\lambda & 0
+		\end{array}
+		\right)		
+	\end{equation}
+	
+	To every element $X\in\g{g}_{2\alpha}$, we associate a skew-symmetric map $J_{X}\colon\g{g}_{\alpha}\to\g{g}_{\alpha}$ as follows:
+	\begin{equation*}
+		X=\left(
+		\begin{array}{cc|c}
+			\lambda & -\lambda & 0 \\
+			\lambda & -\lambda & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right),
+		V=\left(
+			\begin{array}{cc|c}
+				0 & 0 & v^{*} \\
+				0 & 0 & v^{*} \\
+				\hline
+				v & -v & 0
+			\end{array}
+		\right)
+		\Rightarrow
+		J_{X}V=2\left(
+			\begin{array}{cc|c}
+				0 & 0 & -\lambda v^{*} \\
+				0 & 0 & -\lambda v^{*} \\
+				\hline
+				v\lambda & -v\lambda & 0
+			\end{array}
+		\right).
+	\end{equation*}
+	
+	Define vectors $B$, $X_{1}$, $X_{2}$, $X_{3}\in\g{a}\oplus \g{n}$ as
+	\begin{equation}
+		B=\left(
+			\begin{array}{cc|c}
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				\hline
+				0 & 0 & 0
+			\end{array}
+		\right),
+		X_{1}=\left(
+		\begin{array}{cc|c}
+			i & -i & 0 \\
+			i & -i & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right),
+		X_{2}=\left(
+		\begin{array}{cc|c}
+			j & -j & 0 \\
+			j & -j & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right),X_{3}=\left(
+		\begin{array}{cc|c}
+			k & -k & 0 \\
+			k & -k & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right),
+	\end{equation}
+	and define $J_{X_{1}}$, $J_{X_{2}}$ and $J_{X_{3}}$ (in $\g{a}\oplus \g{g}_{2\alpha}$) as the endomorphisms of $\g{a}\oplus \g{g}_{2\alpha}$ corresponding to right multiplication by $i$, $j$ and $k$ respectively under the identification $\g{a}\oplus \g{g}_{2\alpha}\to \H e_{2}\subseteq T_{o}\H\mathsf{H}^{n}$.
+	In particular, we have
+	\begin{equation*}
+		\begin{split}
+			J_{X_{i}}B={}&X_{i},\quad J_{X_{i}}X_{i}=-B,\quad J_{X_{i}}X_{i+1}=X_{i+2},\quad J_{X_{i}}X_{i+2}=-J_{X_{i+1}},
+		\end{split}
+	\end{equation*}
+	where the indices in the last two equations are taken modulo $3$.
+	
+	\textcolor{red}{\textbf{WARNING!!!!!} The definition of $J_{X}$ given by making $\g{a}\oplus\g{n}$ isomorphic to $T_{o}\H \mathsf{H}^{n}$ does not agree with the $J_{X}\in\mathsf{End}(\g{g}_{\alpha})$ given above.}
+	
+	This is trivially a complex structure if and only if $\lvert \lambda \rvert^{2}=\frac{1}{4}$ (that is, $\lvert X \rvert^{2}=2\lvert X \rvert^{2}_{\mathsf{AN}}=2$), and more generally, $J_{X}^{2}=-\frac{\lvert \lambda \rvert^{2}}{4}\operatorname{Id}_{\g{g}_{\alpha}}$,
+	We also have \textcolor{blue}{$\langle[U,V],X \rangle=\langle J_{X}U,V\rangle$}.
+	All in all, we conclude that $(\g{n}=\g{g}_{\alpha}\oplus \g{g}_{2\alpha},\langle \cdot ,\cdot \rangle_{\mathsf{AN}})$ becomes a generalized Heisenberg algebra with Clifford map $J\colon X\in \g{g}_{2\alpha}\mapsto J_{X}\in\mathsf{End}(\g{g}_{\alpha})$.
+	The following formulae are easy to check:
+	let $\mathfrak{J}\subseteq \mathsf{End}_{\R}(\g{g}_{\alpha})$ be the quaternionic structure induced by the maps $J_{X}$, $X\in \g{g}_{2\alpha}$.
+	Then the Lie bracket $\g{g}_{\alpha}\times\g{g}_{\alpha}\to \g{g}_{2\alpha}$ satisfies
+	\begin{equation}
+		\begin{split}
+			[U,V]={}&0 \Leftrightarrow V\in \R U\oplus (\g{g}_{\alpha}\ominus \mathfrak{J}U), \\
+			[J_{X}U,U]={}&
+		\end{split}
+	\end{equation} 
+	
 
 \begin{thebibliography}{99}
 \bibitem{ONeill}
