@@ -36,7 +36,7 @@
 \newtheorem*{remark}{Remark}
 
 \begin{document}
-\title{Quaternionic projective spaces}
+\title{Quaternionic projective and hyperbolic spaces}
 
 \begin{abstract}
 We present the construction and some properties of quaternionic projective and hyperbolic spaces.
@@ -73,13 +73,27 @@ The quaternion product is determined by the following rules:
 \end{itemize}
 where $\langle\cdot,\cdot\rangle$ is the scalar product of $\R^3\cong\Im\H$, 
 and $\cdot\times\cdot$ is the vector product. 
+From the equations above, if $\lambda\in\H$ is such that $q\lambda=\lambda q$ for any $q\in\H$, then $\lambda\in\R$, that is $Z(\H)=\R$.
+Let $q\in\H$; then, $q\in\Im\H$ if and only if $q^2\leq 0$.
 
-With the identification $\Im\H\cong\R^3$, and if $\{\mathbf{i},\mathbf{j},\mathbf{k}\}$ is identified with the canonical basis of $\R^3$ then, for any $q_1$, $q_2\in\Im{\H}\cong\R^3$, we have $q_1 q_2=-\langle q_1,q_2\rangle+q_1\times q_2$.
-
-From the equations above, if $\lambda\in\H$ is such that $q\lambda=\lambda q$ for any $q\in\H$, then $\lambda\in\R$.
+With the identification $\Im\H\cong\R^3$, and if $\{\mathbf{i},\mathbf{j},\mathbf{k}\}$ is identified with the canonical basis of $\R^3$ then, for any $q_1$, $q_2\in\Im{\H}\cong\R^3$, we have 
+\[
+\begin{aligned}
+q_1 q_2
+&{}=-\langle q_1,q_2\rangle+q_1\times q_2,
+&q_1\times q_2
+&{}=\frac{1}{2}(q_1q_2-q_2q_1).
+\end{aligned}
+\]
+For $q_1$, $q_2$, $q_3\in\Im\H$ we define the scalar triple product of $q_1$, $q_2$, and $q_3$ as $\Re(q_1q_2q_3)$.
+Then, we have
+\[
+\Re(q_1q_2q_3)=\langle q_1,q_2\times q_3\rangle=\det(q_1\vert q_2\vert q_3).
+\]
 
 \begin{remark}
 We define $\Sp(1)=\{q\in\H:\lvert q\rvert =1\}$.
+This is a Lie subgroup of $\H\setminus\{0\}$.
 We consider $\varphi\colon\Sp(1)\to\mathsf{SO}(\Im\H)$, given by $\varphi(q)(x)=qxq^{-1}$. 
 The map $\varphi(q)$ is isometric because $\lvert\varphi(q)(x)\rvert=\lvert qxq^{-1}\rvert=\lvert x\rvert$. 
 If $\lambda\in\R$ then $\varphi(q)(\lambda)=q\lambda q^{-1}=\lambda$, so $\varphi(q)(\R)=\R$, and thus, $\varphi(q)(\Im\H)=\Im\H$. 
@@ -184,6 +198,7 @@ Hence, with these isomorphisms,
 Let $V$ be a real vector space with inner product $\langle\,\cdot\,,\,\cdot\,\rangle$.
 A $3$-dimensional subspace $\g{q}$ of $\g{so}(V)$ is called a linear quaternionic structure if there are elements $J_1$, $J_2$, $J_3\in\g{q}$ such that $J_i^2=-1$ and $J_iJ_{i+1}=J_{i+2}$ (indices modulo 3).
 Then, $\g{q}$ is a subalgebra of $\g{so}(V)$ isomorphic to $\g{sp}(1)$.
+The set $\{J_1,J_2,J_3\}$ is called a canonical basis for $\g{q}$.
 
 If $V$ is a quaternionic vector space with a quaternionic product as above, we define $J_1(\mathbf{x})=-\mathbf{x}\mathbf{i}$, $J_2(\mathbf{x})=-\mathbf{x}\mathbf{j}$, $J_3(\mathbf{x})=-\mathbf{x}\mathbf{k}$.
 Then, $\g{q}=\R J_1\oplus\R J_2\oplus\R J_3$ is a linear quaternionic structure on $V$.
@@ -660,6 +675,23 @@ is equivalent to the representation
 \end{array}
 \]
 
+\begin{proposition}
+Let $\{e_1,\dots,e_n\}$ be the canonical basis of $\H^n$, and $\{J_1,J_2,J_3\}$ the canonical basis for the quaternionic structure of $\H^n$.
+Let $L\colon\H^n\to\H^n$ be an $\R$-linear map.
+Then, $L\in\Sp(1)\Sp(n)$ if and only if $L$ maps $\{J_1,J_2,J_3\}$ to a canonical basis of the quaternionic structure of $\H^n$ and $L$ maps $\{e_1,\dots,e_n\}$ to an $\H$-orthonormal basis of $\H^n$.
+\end{proposition}
+
+\begin{proof}
+Let $\{J_1',J_2',J_3'\}$ be a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ an $\H$-orthonormal basis of $\H^n$.
+Assume that $Le_i=e_i'$, $i\in\{1,\dots,n\}$, and $L\circ J_i=J_i'\circ L$, $i\in\{1,2,3\}$.
+We show that $L\in\Sp(1)\Sp(n)$.
+
+Conversely, assume $L\in\Sp(1)\Sp(n)$, and let $e_i'=Le_i$ and $J_i'=L\circ J_i\circ L^{-1}$.
+We have to show that $\{J_1',J_2',J_3'\}$ is a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ is an $\H$-orthogonal basis of $\H^n$.
+
+TO DO
+\end{proof}
+
 We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}(V)$, $A\mapsto A(o)$.
 We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}(V)$, given by
 \[
@@ -824,7 +856,8 @@ Then we get
 			0 & 0 & B
 		\end{array}
 	\right)\colon q\in\mathsf{Sp}(1),B\in\mathsf{Sp}(n-1)
-\right\}=\mathsf{Sp}(1)\times\mathsf{Sp}(n-1).
+\right\}
+\cong\mathsf{Sp}(1)\times\mathsf{Sp}(n-1).
 \]
 	Furthermore, the (effectivized) adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{\alpha}\cong\H^{n-1}$ is precisely the action of $\mathsf{Sp}(1)\mathsf{Sp}(n-1)$ on $\H^{n-1}$ via the identification $v\leftrightarrow\lceil 0,v,0 \rceil$, whereas the adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{2\alpha}$ satisfies $(q,B)\cdot \lambda=q\lambda\bar{q}$.
 	
