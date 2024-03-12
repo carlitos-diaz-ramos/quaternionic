@@ -766,7 +766,18 @@ The Cartan involution of $\g{g}$ is $\theta X = -X^{*}$.
 
 Since $\ker\phi_{*o}=\g{k}$, $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is a vector space isomorphism.
 We endow $\g{p}$ with the inner product and quaternion structure induced by $\phi_{*o}$.
-This is clearly the canonical identification $\lceil 0,v,0\rceil\mapsto \pi_{*e_1}(v)$.
+This is clearly the natural identification $\lceil 0,v,0\rceil \leftrightarrow \pi_{*e_1}(v) \leftrightarrow v$.
+
+In particular, we may consider the endomorphisms $Q_{\lambda}\in \operatorname{End}(T_{o}\mathsf{H}(V))$, $\lambda\in \H$, defined as follows:
+\[
+Q_{\lambda}v=\pi_{*e_{1}}\left(-v^{L}_{e_{1}}\lambda\right),
+\]
+where $v\in T_{o}\mathsf{H}(V)$.
+One checks that $\g{q}=\{Q_{\lambda}\colon \lambda\in \Im\H\}$ defines a quaternionic structure on $T_{o}\mathsf{H}(V)$.
+In particular, we can translate this quaternionic structure to $\g{p}$, which actually satisfies
+\begin{equation*}
+	Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,v\lambda,0 \rceil.
+\end{equation*}
 
 \begin{remark}
 	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
@@ -786,11 +797,12 @@ We have
 \[
 \mathcal{B}_\theta(\lceil 0,v,0\rceil,\lceil 0,w,0\rceil)
 =4(n+1)\Re\tr_\H(\lceil v^*w,0,vw^*\rceil)
+=8(n+1)\Re v^*w
 =8(n+1)\langle v,w\rangle.
 \]
 Thus, we rescale $\mathcal{B}_\theta$ so that $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is an isometry, and set
 \[
-\langle X,Y\rangle
+\langle X,Y\rangle_{\g{g}}
 =\frac{1}{8(n+1)}\mathcal{B}_\theta(X,Y)
 =\frac{1}{2}\Re\tr_\H(X^*Y),
 \]
@@ -859,30 +871,124 @@ Then we get
 \right\}
 \cong\mathsf{Sp}(1)\times\mathsf{Sp}(n-1).
 \]
-	Furthermore, the (effectivized) adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{\alpha}\cong\H^{n-1}$ is precisely the action of $\mathsf{Sp}(1)\mathsf{Sp}(n-1)$ on $\H^{n-1}$ via the identification $v\leftrightarrow\lceil 0,v,0 \rceil$, whereas the adjoint representation $\mathsf{K}_{0}\curvearrowright\g{g}_{2\alpha}$ satisfies $(q,B)\cdot \lambda=q\lambda\bar{q}$.
+Furthermore, the adjoint representation $\mathsf{K}_{0}=\Sp(1)\times\Sp(n)$ on $\g{g}_{\alpha}$, is given by
+\[
+\Ad(\lambda,B)\left(
+\begin{array}{cc|c}
+	0 & 0 & v^*\\
+	0 & 0 & v^*\\
+	\hline
+	v & -v & 0
+\end{array}
+\right)
+=\left(
+\begin{array}{cc|c}
+	0 & 0 & qv^*B^*\\
+	0 & 0 & qv^*B^*\\
+	\hline
+	Bv\overline{q} & -Bv\overline{q} & 0
+\end{array}
+\right).
+\]
+This corresponds precisely with natural action of $\mathsf{Sp}(1)\times\mathsf{Sp}(n-1)$ on $\H^{n-1}$, $(\lambda,B)\cdot v=Bv\overline{q}$.
+Moreover, the adjoint representation $\mathsf{K}_{0}=\Sp(1)\times\Sp(n)$ on $\g{g}_{2\alpha}$ is
+\[
+\Ad(\lambda,B)\left(
+\begin{array}{cc|c}
+	\lambda & -\lambda & 0\\
+	\lambda & -\lambda & 0\\
+	\hline
+	0 & 0 & 0
+\end{array}
+\right)
+=\left(
+\begin{array}{cc|c}
+	q\lambda\overline{q} & -q\lambda\overline{q} & 0\\
+	q\lambda\overline{q} & -q\lambda\overline{q} & 0\\
+	\hline
+	0 & 0 & 0
+\end{array}
+\right).
+\]
+This is equivalent to the action of $\Sp(1)\times\Sp(n)$ on $\Im\H$ given by $(q,B)\cdot \lambda=q\lambda\bar{q}$.
 	
+Let ${A}$, ${N}$ and ${AN}$ be the connected subgroups of $\mathsf{Sp}(1,n)$ whose Lie algebras are $\g{a}$, $\g{n}$ and $\g{a}\oplus \g{n}$, respectively.
+Then it is a standard fact that $\mathsf{H}(V)$ is a principal homogeneous space of ${AN}$, 
+so the map $\phi_{o\vert AN}\colon AN\to \mathsf{H}(V)$ is a diffeomorphism,
+and $\phi_{o*}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}(V)$ is an isomorphism of real vector spaces.
+We endow $\g{a}\oplus\g{n}$ with the metric and quaternionic structure that makes this map an isometry of quaternionic vector spaces.
+
+Indeed, recall that 
+\[
+\phi_{o*}\left(
+\begin{array}{cc|c}
+	\lambda & t-\lambda & v^*\\
+	t+\lambda & -\lambda & v^*\\
+	\hline
+	v & -v & 0
+\end{array}
+\right)
+=\pi_{*e_1}(\lambda,t+\lambda,v)
+\leftrightarrow (t+\lambda,v),
+\]
+taking into account that $T_o\mathsf{H}(V)$ is isomorphic to $(\H e_1)^\perp$.
+It follows that
+\[
+\begin{aligned}
+&\left\langle\,
+\left(
+\begin{array}{cc|c}
+	\lambda & t-\lambda & v^*\\
+	t+\lambda & -\lambda & v^*\\
+	\hline
+	v & -v & 0
+\end{array}
+\right),
+\left(
+\begin{array}{cc|c}
+	\mu & s-\mu & w^*\\
+	s+\mu & -\mu & w^*\\
+	\hline
+	w & -w & 0
+\end{array}
+\right)\,
+\right\rangle_{\g{g}}\\
+&{}\qquad=\frac{1}{2}\Re\tr_\H \left(
+\begin{array}{cc|c}
+	\lambda & t-\lambda & v^*\\
+	t+\lambda & -\lambda & v^*\\
+	\hline
+	v & -v & 0
+\end{array}
+\right)^*
+\left(
+\begin{array}{cc|c}
+	\mu & s-\mu & w^*\\
+	s+\mu & -\mu & w^*\\
+	\hline
+	w & -w & 0
+\end{array}
+\right)\\
+&{}\qquad=\frac{1}{2}\Re(2ts+4\overline{\lambda}\mu+2v^*w+w^*v)
+=ts+2\langle (\lambda,v),(\mu,w)\rangle_\H.
+\end{aligned}
+\]
+Hence, we consider the metric $\langle\cdot,\cdot \rangle_{AN}$ on $\g{a}\oplus\g{n}$ defined by
+\[
+\langle X,Y \rangle_{AN}
+%=\left\langle \frac{1-\theta}{2}X,\frac{1-\theta}{2}Y \right\rangle
+=\langle X_{\g{a}},Y_{\g{a}} \rangle+\frac{1}{2}\langle X_{\g{n}},Y_{\g{n}}\rangle.
+\]
+If $\mathsf{g}$ denotes the metric of $\mathsf{H}(V)$, then $\phi_o^*\mathsf{g}$ makes $\phi_o\colon AN\to \mathsf{H}(V)$ an isometry. 
+Since $g^{-1}\circ\phi_o\circ g=\phi_o$ para todo $g\in G$ we have $L_g^*(\phi_o^*\mathsf{g})=\phi_o^*\mathsf{g}$.
+Hence, $\phi_o^*\mathsf{g}$ is left-invariant.
+This implies that $AN$ is a Lie group with a left-invariant metric that coincides with $\langle\cdot,\cdot \rangle_{AN}$ at the identity, and with this metric it is isometric to $\mathsf{H}(V)$.
+
+Now we do a similar consideration with the quaternionic structure.
 
 --------------------
 
 
-	We have the natural identification $\g{p}\cong T_{o}\H \mathsf{H}^{n}=\H e_{1}^{\perp}$ given by $\lceil 0,v,0 \rceil\leftrightarrow (0,v)$.
-	In particular, we may consider the endomorphisms $Q_{\lambda}\in \mathsf{End}(T_{o}\H\mathsf{H}^{n})$ (where $\lambda\in \H$) defined as follows:
-	\begin{equation}
-		Q_{\lambda}\xi=\pi_{*e_{1}}\left(\xi^{L}_{e_{1}}\lambda\right).
-	\end{equation}
-	Here, $\xi^{L}_{e_{1}}\in \{0\}\times \H^{n}$ is the horizontal lift of $\xi\in T_{o}\H\mathsf{H}^{n}$ to $e_{1}$.
-	One checks that $\mathfrak{J}=\{Q_{\lambda}\colon \lambda\in \operatorname{Im}\H\}$ defines a quaternionic structure on $T_{o}\H\mathsf{H}^{n}$.
-	In particular, we can translate this quaternionic structure to $\g{p}$, which actually satisfies
-	\begin{equation*}
-		Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,v\lambda,0 \rceil.
-	\end{equation*}
-	Let $\mathsf{A}$, $\mathsf{N}$ and $\mathsf{AN}$ be the connected subgroups of $\mathsf{Sp}(1)\times\mathsf{Sp}(n-1)$ associated with $\g{a}$, $\g{n}$ and $\g{a}\oplus \g{n}$.
-	Then it is a standard fact that $\H\mathsf{H}^{n}$ is a principal homogeneous space of $\mathsf{AN}$, so the map $g\in\mathsf{AN}\to g\cdot o\in\H\mathsf{H}^{n}$ is a diffeomorphism.
-	We consider the metric $\langle\cdot,\cdot \rangle_{\mathsf{AN}}$ that turns this map into an isometry.
-	Explicitly,
-	\begin{equation}
-		\langle X,Y \rangle_{\mathsf{AN}}=\left\langle \frac{1-\theta}{2}X,\frac{1-\theta}{2}Y \right\rangle=\langle X_{\g{a}},Y_{\g{a}} \rangle+\frac{1}{2}\langle X_{\g{n}},Y_{\g{n}}\rangle.
-	\end{equation}
 	In particular, the quaternionic structure on $\g{p}$ can be transformed into a quaternionic structure on $\g{a}\oplus\g{n}$ by making $\frac{1-\theta}{2}$ into a quaternionic vector space isomorphism.
 	Explicitly:
 	\begin{equation}
