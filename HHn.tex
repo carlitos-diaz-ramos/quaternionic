@@ -970,7 +970,7 @@ It follows that
 \end{array}
 \right)\\
 &{}\qquad=\frac{1}{2}\Re(2ts+4\overline{\lambda}\mu+2v^*w+w^*v)
-=ts+2\langle (\lambda,v),(\mu,w)\rangle_\H.
+=ts+2\langle (\lambda,v),(\mu,w)\rangle_{\H^n}.
 \end{aligned}
 \]
 Hence, we consider the metric $\langle\cdot,\cdot \rangle_{AN}$ on $\g{a}\oplus\g{n}$ defined by
@@ -984,119 +984,160 @@ Since $g^{-1}\circ\phi_o\circ g=\phi_o$ para todo $g\in G$ we have $L_g^*(\phi_o
 Hence, $\phi_o^*\mathsf{g}$ is left-invariant.
 This implies that $AN$ is a Lie group with a left-invariant metric that coincides with $\langle\cdot,\cdot \rangle_{AN}$ at the identity, and with this metric it is isometric to $\mathsf{H}(V)$.
 
-Now we do a similar consideration with the quaternionic structure.
+Now we do a similar consideration with the quaternionic structure to get 
+\[
+Q_{\mu}\left(
+\begin{array}{cc|c}
+	\lambda & t-\lambda & v^{*} \\
+	t+\lambda & -\lambda & v^{*} \\
+	\hline
+	v & -v & 0
+\end{array}
+\right)
+=\left(
+\begin{array}{cc|c}
+-\lambda\times\mu-t\mu & \langle\lambda,\mu\rangle+\lambda\times\mu+t\mu & -\overline{\mu}v^{*} \\
+\langle\lambda,\mu\rangle-\lambda\times\mu-t\mu & \lambda\times\mu+t\mu & -\overline{\mu}v^{*} \\
+\hline
+-v\mu & v\mu & 0
+\end{array}
+\right).
+\]
 
---------------------
+To every element $X\in\g{g}_{2\alpha}$, we associate a map $J_{X}\colon\g{g}_{\alpha}\to\g{g}_{\alpha}$ such that 
+$\langle J_X V,J_X W\rangle_{AN}=\langle X,X\rangle_{AN} \langle V,W\rangle_{AN}$ and 
+$J_X J_Y+J_Y J_X=-2\langle X,Y\rangle_{AN}\id$.
+We define
+\begin{equation*}
+X=\left(
+\begin{array}{cc|c}
+	\lambda & -\lambda & 0 \\
+	\lambda & -\lambda & 0 \\
+	\hline
+	0 & 0 & 0
+\end{array}
+\right),
+V=\left(
+	\begin{array}{cc|c}
+		0 & 0 & v^{*} \\
+		0 & 0 & v^{*} \\
+		\hline
+		v & -v & 0
+	\end{array}
+\right)\ 
+\mapsto\
+J_{X}V=\left(
+	\begin{array}{cc|c}
+		0 & 0 & -\lambda v^{*} \\
+		0 & 0 & -\lambda v^{*} \\
+		\hline
+		v\lambda & -v\lambda & 0
+	\end{array}
+\right).
+\end{equation*}
+From the expression for the metric in $\g{a}\oplus\g{n}$ we get
+\[
+\langle J_X V,J_X V\rangle_{AN}
+=\langle -v\lambda,-v\lambda\rangle_{\H^n}
+=\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
+=\langle X,X\rangle_{AN}\langle V, V\rangle_{AN},
+\]	
+and polarization implies the first required equality.
+On the other hand, identifying $X\in\g{g}_{2\alpha}$ with $\lambda\in\Im\H$, and $Y\in\g{g}_{2\alpha}$ with $\mu\in\Im\H$, we get
+\[
+\begin{aligned}
+J_X J_Y V+J_Y J_X V
+&{}=\left(
+\begin{array}{cc|c}
+	0 & 0 & (\overline{\mu\lambda-\lambda\mu})v^{*} \\
+	0 & 0 & (\overline{\mu\lambda-\lambda\mu})v^{*} \\
+	\hline
+	v(\mu\lambda+\lambda\mu) & -v(\mu\lambda+\lambda\mu)\lambda & 0
+\end{array}
+\right)\\
+&{}=-2\langle\lambda,\mu\rangle_{\H} \left(
+\begin{array}{cc|c}
+	0 & 0 & v^{*} \\
+	0 & 0 & v^{*} \\
+	\hline
+	v  & -v & 0
+\end{array}
+\right)
+=-2\langle X,Y\rangle_{AN} V.
+\end{aligned}
+\]
 
+With this definition we also get
+\[
+\begin{aligned}
+\langle[U,V],X\rangle_{AN}
+&{}=\langle u^*v-v^*u,\lambda\rangle_{\H}
+=2\langle\lambda,\Im(u^*v)\rangle_\H,\\
+\langle J_X U,V\rangle_{AN}
+&{}=\langle -u\lambda,v\rangle_{\H^n}
+=\langle\lambda,\Im(u*v)\rangle_\H.
+\end{aligned}
+\]
+Therefore,
+\[
+\langle[U,V],X\rangle_{AN}=2\langle J_X U,V\rangle_{AN}.
+\]
 
-	In particular, the quaternionic structure on $\g{p}$ can be transformed into a quaternionic structure on $\g{a}\oplus\g{n}$ by making $\frac{1-\theta}{2}$ into a quaternionic vector space isomorphism.
-	Explicitly:
-	\begin{equation}
-		Q_{\lambda}\left(
-			\begin{array}{cc|c}
-				\mu & t-\mu & v^{*} \\
-				t+\mu & -\mu & v^{*} \\
-				\hline
-				v & -v & 0
-			\end{array}
-		\right)=
-		\left(
-		\begin{array}{cc|c}
-			\operatorname{Im}((t+\mu)\lambda) & \bar{\lambda}(t-\mu) & \bar{\lambda}v^{*} \\
-			(t+\mu)\lambda & -\operatorname{Im}((t+\mu)\lambda) & \bar{\lambda}v^{*} \\
-			\hline
-			v\lambda & -v\lambda & 0
-		\end{array}
-		\right)		
-	\end{equation}
+We define vectors $B$, $X_{1}$, $X_{2}$, $X_{3}\in\g{a}\oplus \g{n}$ as
+\[
+\begin{aligned}
+B
+&{}=\left(
+\begin{array}{cc|c}
+	0 & 1 & 0 \\
+	1 & 0 & 0 \\
+	\hline
+	0 & 0 & 0
+\end{array}
+\right),&
+X_{1}
+&{}=\left(
+\begin{array}{cc|c}
+i & -i & 0 \\
+i & -i & 0 \\
+\hline
+0 & 0 & 0
+\end{array}
+\right),&
+X_{2}
+&{}=\left(
+\begin{array}{cc|c}
+j & -j & 0 \\
+j & -j & 0 \\
+\hline
+0 & 0 & 0
+\end{array}
+\right),&
+X_{3}
+&{}=\left(
+\begin{array}{cc|c}
+k & -k & 0 \\
+k & -k & 0 \\
+\hline
+0 & 0 & 0
+\end{array}
+\right).
+\end{aligned}
+\]
+Note that $\lvert B\rvert_{AN}=\lvert X_1\rvert_{AN}=\lvert X_2\rvert_{AN}=\lvert X_3\rvert_{AN}=1$.
+We define
+\[
+\begin{aligned}
+J_{X_{i}}B&{}=X_{i},&
+J_{X_{i}}X_{i}&{}=-B,&
+J_{X_{i}}X_{i+1}&{}=X_{i+2},&
+J_{X_{i}}X_{i+2}&{}=-J_{X_{i+1}},
+\end{aligned}
+\]
+where the indices in the last two equations are taken modulo $3$.
+This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}(V)$.
 	
-	To every element $X\in\g{g}_{2\alpha}$, we associate a skew-symmetric map $J_{X}\colon\g{g}_{\alpha}\to\g{g}_{\alpha}$ as follows:
-	\begin{equation*}
-		X=\left(
-		\begin{array}{cc|c}
-			\lambda & -\lambda & 0 \\
-			\lambda & -\lambda & 0 \\
-			\hline
-			0 & 0 & 0
-		\end{array}
-		\right),
-		V=\left(
-			\begin{array}{cc|c}
-				0 & 0 & v^{*} \\
-				0 & 0 & v^{*} \\
-				\hline
-				v & -v & 0
-			\end{array}
-		\right)
-		\Rightarrow
-		J_{X}V=2\left(
-			\begin{array}{cc|c}
-				0 & 0 & -\lambda v^{*} \\
-				0 & 0 & -\lambda v^{*} \\
-				\hline
-				v\lambda & -v\lambda & 0
-			\end{array}
-		\right).
-	\end{equation*}
-	
-	Define vectors $B$, $X_{1}$, $X_{2}$, $X_{3}\in\g{a}\oplus \g{n}$ as
-	\begin{equation}
-		B=\left(
-			\begin{array}{cc|c}
-				0 & 1 & 0 \\
-				1 & 0 & 0 \\
-				\hline
-				0 & 0 & 0
-			\end{array}
-		\right),
-		X_{1}=\left(
-		\begin{array}{cc|c}
-			i & -i & 0 \\
-			i & -i & 0 \\
-			\hline
-			0 & 0 & 0
-		\end{array}
-		\right),
-		X_{2}=\left(
-		\begin{array}{cc|c}
-			j & -j & 0 \\
-			j & -j & 0 \\
-			\hline
-			0 & 0 & 0
-		\end{array}
-		\right),X_{3}=\left(
-		\begin{array}{cc|c}
-			k & -k & 0 \\
-			k & -k & 0 \\
-			\hline
-			0 & 0 & 0
-		\end{array}
-		\right),
-	\end{equation}
-	and define $J_{X_{1}}$, $J_{X_{2}}$ and $J_{X_{3}}$ (in $\g{a}\oplus \g{g}_{2\alpha}$) as the endomorphisms of $\g{a}\oplus \g{g}_{2\alpha}$ corresponding to right multiplication by $i$, $j$ and $k$ respectively under the identification $\g{a}\oplus \g{g}_{2\alpha}\to \H e_{2}\subseteq T_{o}\H\mathsf{H}^{n}$.
-	In particular, we have
-	\begin{equation*}
-		\begin{split}
-			J_{X_{i}}B={}&X_{i},\quad J_{X_{i}}X_{i}=-B,\quad J_{X_{i}}X_{i+1}=X_{i+2},\quad J_{X_{i}}X_{i+2}=-J_{X_{i+1}},
-		\end{split}
-	\end{equation*}
-	where the indices in the last two equations are taken modulo $3$.
-	
-	\textcolor{red}{\textbf{WARNING!!!!!} The definition of $J_{X}$ given by making $\g{a}\oplus\g{n}$ isomorphic to $T_{o}\H \mathsf{H}^{n}$ does not agree with the $J_{X}\in\mathsf{End}(\g{g}_{\alpha})$ given above.}
-	
-	This is trivially a complex structure if and only if $\lvert \lambda \rvert^{2}=\frac{1}{4}$ (that is, $\lvert X \rvert^{2}=2\lvert X \rvert^{2}_{\mathsf{AN}}=2$), and more generally, $J_{X}^{2}=-\frac{\lvert \lambda \rvert^{2}}{4}\operatorname{Id}_{\g{g}_{\alpha}}$,
-	We also have \textcolor{blue}{$\langle[U,V],X \rangle=\langle J_{X}U,V\rangle$}.
-	All in all, we conclude that $(\g{n}=\g{g}_{\alpha}\oplus \g{g}_{2\alpha},\langle \cdot ,\cdot \rangle_{\mathsf{AN}})$ becomes a generalized Heisenberg algebra with Clifford map $J\colon X\in \g{g}_{2\alpha}\mapsto J_{X}\in\mathsf{End}(\g{g}_{\alpha})$.
-	The following formulae are easy to check:
-	let $\mathfrak{J}\subseteq \mathsf{End}_{\R}(\g{g}_{\alpha})$ be the quaternionic structure induced by the maps $J_{X}$, $X\in \g{g}_{2\alpha}$.
-	Then the Lie bracket $\g{g}_{\alpha}\times\g{g}_{\alpha}\to \g{g}_{2\alpha}$ satisfies
-	\begin{equation}
-		\begin{split}
-			[U,V]={}&0 \Leftrightarrow V\in \R U\oplus (\g{g}_{\alpha}\ominus \mathfrak{J}U), \\
-			[J_{X}U,U]={}&
-		\end{split}
-	\end{equation} 
-	
+
 
 \begin{thebibliography}{99}
 \bibitem{ONeill}
