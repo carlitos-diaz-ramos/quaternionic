@@ -273,38 +273,38 @@ This group coincides with the group of quaternion matrices that preserve the ind
 Let $V$ be a quaternion vector space of quaternionic dimension $n+1$ endowed with a quaternion product $(\,\cdot\,,\,\cdot\,\,)$, and $\langle\,\cdot\,,\,\cdot\,\,\rangle=\Re(\,\cdot\,,\,\cdot\,\,)$.
 Then $V$ is isomorphic with $\H^{n+1}$ with the usual quaternion product.
 
-We consider the sphere $\mathsf{S}^{4n+3}=\mathsf{S}(V)=\{{x}\in V:\langle {x},{x}\rangle=1\}$.
-We define the right action $\mathsf{S}(V)\times\Sp(1)\to\mathsf{S}(V)$ by ${x}\cdot \lambda={x}\lambda$.
+We consider the sphere $\mathsf{S}^{4n+3}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=r\}$.
+We define the right action $\mathsf{S}_r(V)\times\Sp(1)\to\mathsf{S}_r(V)$ by ${x}\cdot \lambda={x}\lambda$.
 This action is obviously proper and free. 
 Hence, the orbit space 
 \[
-\mathsf{P}(V)=\mathsf{S}(V)/\Sp(1)
+\mathsf{P}_r(V)=\mathsf{S}_r(V)/\Sp(1)
 \]
 is a smooth manifold of real dimension $4n$, that is called the quaternion projective space of $V$.
-If $V=\H^{n+1}$, then we denote this space by $\H \mathsf{P}^n$.
+If $V=\H^{n+1}$, then we denote this space by $\H \mathsf{P}^n(r)$.
 
-We denote by $\pi\colon\mathsf{S}(V)\to\mathsf{P}(V)$ the quotient map.
+We denote by $\pi\colon\mathsf{S}_r(V)\to\mathsf{P}_r(V)$ the quotient map.
 This map is a submersion that is called the Hopf map.
-If ${x}\in\mathsf{S}(V)$, then we can identify $T_{x}\mathsf{S}(V)=(\R{x})^\perp=V\ominus\R{x}$, the orthogonal complement of ${x}$ with respect to $\langle\,\cdot\,,\,\cdot\,\,\rangle$.
+If ${x}\in\mathsf{S}_r(V)$, then we can identify $T_{x}\mathsf{S}_r(V)=(\R{x})^\perp=V\ominus\R{x}$, the orthogonal complement of ${x}$ with respect to $\langle\,\cdot\,,\,\cdot\,\,\rangle$.
 Thus, $\ker\pi_{*{x}}={x}\Im\H$, and we have an orthogonal decomposition 
 \[
-T_{x}\mathsf{S}(V)=({x}\Im\H)\oplus(\H{x})^\perp.
+T_{x}\mathsf{S}_r(V)=({x}\Im\H)\oplus(\H{x})^\perp.
 \]
-We endow $\mathsf{P}(V)$ with a Riemannian metric that makes $\pi$ a Riemannian submersion.
-Thus, $T_{\pi({x})}\mathsf{P}(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
+We endow $\mathsf{P}_r(V)$ with a Riemannian metric that makes $\pi$ a Riemannian submersion.
+Thus, $T_{\pi({x})}\mathsf{P}_r(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
 A vector in $(\H x)^\perp$ is called horizontal, and a vector in $\ker\pi_{*x}$ is called vertical, as it is common for Riemannian submersions~\cite{ONeill}.
 
-Let $v\in T_{p}\mathsf{P}(V)$.
+Let $v\in T_{p}\mathsf{P}_r(V)$.
 For ${x}\in\pi^{-1}(p)$ we define the horizontal lift $v^L_{x}$ of $v$ as the unique vector $v_x^L\in(\H{x})^\perp$ such that $\pi_{*{x}}(v^L_{x})=v$.
 Note that, with the usual identifications, we have $v_{x\lambda}^L=v_x^L\lambda$, with $\lambda\in\Sp(1)$, since $(x\Im\H)^\perp$ is $\H$-invariant and $\pi_{x\lambda}(v_x^L\lambda)=\pi_{*x}(v_x^L)$.
 \medskip
 
-In order to give $\mathsf{P}(V)$ a structure of a Riemannian manifold, we require $\pi$ to be a Riemannian submersion.
-This implies that the metric on $\mathsf{P}(V)$ is defined as 
+In order to give $\mathsf{P}_r(V)$ a structure of a Riemannian manifold, we require $\pi$ to be a Riemannian submersion.
+This implies that the metric on $\mathsf{P}_r(V)$ is defined as 
 \[
-\langle v,w\rangle_{\mathsf{P}(V)}=\langle v^L,w^L\rangle_{\mathsf{S}(V)}
+\langle v,w\rangle_{\mathsf{P}_r(V)}=\langle v^L,w^L\rangle_{\mathsf{S}_r(V)}
 \] 
-for each $v$, $w\in T_p\mathsf{P}(V)$.
+for each $v$, $w\in T_p\mathsf{P}_r(V)$.
 We will omit subindices whenever the space where we are considering the Riemannian metric is clear.
 We see that this definition does not depend on the point ${x}\in\pi^{-1}(p)$ used to define the lift.
 Indeed,
@@ -316,17 +316,17 @@ Indeed,
 \langle v^L_{x},w^L_{x}\rangle.
 \]
 
-Since $\pi\colon\mathsf{S}(V)\to\mathsf{P}(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}(V)$ is determined by~\cite{ONeill}
+Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{P}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}_r(V)$ is determined by~\cite{ONeill}
 \[
 (\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y),
 \]
-where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}(V)$.
+where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 \medskip
 
-Now we define a quaternion K\"ahler structure on $\mathsf{P}(V)$.
+Now we define a quaternion K\"ahler structure on $\mathsf{P}_r(V)$.
 
-Let $\sigma\colon U\to\mathsf{S}(V)$ be a section of $\pi$, that is, a smooth map such that $\pi\circ\sigma=\id$ in the open set $U$ of $\mathsf{P}(V)$.
-We define, for $X\in\Gamma(T\mathsf{P}(V))$,
+Let $\sigma\colon U\to\mathsf{S}_r(V)$ be a section of $\pi$, that is, a smooth map such that $\pi\circ\sigma=\id$ in the open set $U$ of $\mathsf{P}_r(V)$.
+We define, for $X\in\Gamma(T\mathsf{P}_r(V))$,
 \[
 \begin{aligned}
 J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
@@ -335,11 +335,11 @@ J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
 \end{aligned}
 \]
 for $p\in U$.
-The same definition can be made for $v\in T_p\mathsf{P}(V)$.
+The same definition can be made for $v\in T_p\mathsf{P}_r(V)$.
 It is important to note, however, that this definition depends on the choice of section $\sigma$.
 
 \begin{lemma}
-The above definition determines a quaternionic K\"ahler structure on $\mathsf{P}(V)$.
+The above definition determines a quaternionic K\"ahler structure on $\mathsf{P}_r(V)$.
 \end{lemma}
 
 \begin{proof}
@@ -381,16 +381,16 @@ Since $\pi$ is a Riemannian submersion,
 \]
 
 Now we show that the space $\g{q}$ generated by $\{J_1,J_2,J_3\}$ is invariant with respect to the Levi-Civita connection, that is, $\nabla_X\g{q}\subset\g{q}$.
-To that end we calculate $(\nabla_X J_1)_p Y$, $p\in \mathsf{P}(V)$, $X$, $Y\in\Gamma(TU)$.
+To that end we calculate $(\nabla_X J_1)_p Y$, $p\in \mathsf{P}_r(V)$, $X$, $Y\in\Gamma(TU)$.
 
 Let $\gamma\colon I\to U$ be a smooth curve such that $\gamma(0)=p$, $\gamma'(0)=X_p$.
-We denote by $\tilde{\gamma}$ its horizontal lift to $\sigma(U)\subset\mathsf{S}(V)$ through $\sigma(p)$.
+We denote by $\tilde{\gamma}$ its horizontal lift to $\sigma(U)\subset\mathsf{S}_r(V)$ through $\sigma(p)$.
 Thus, $\tilde{\gamma}(0)=\sigma(p)$, $\tilde{\gamma}'(0)=X_p^L$.
 We write $\tilde{\gamma}(t)=\sigma(\gamma(t))\lambda(t)$, where $\lambda$ is a smooth function in $\Sp(1)$.
 Since $\sigma(p)=\tilde{\gamma}(0)=\sigma(p)\lambda(0)$ we get $\lambda(0)=1$ and $\lambda'(0)\in T_1\Sp(1)=\Im\H$.
 
-Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}(V)$. In what follows subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
-Recall that $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}(V)$.
+Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}_r(V)$. In what follows subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
+Recall that $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 We also denote by $D$ the usual connection of $\H^{n+1}\cong\R^{4n+4}$.
 
 On the one hand,
@@ -434,7 +434,7 @@ J_1(\nabla_{X_p}Y)
 -\left(\frac{d(Y^L\circ\sigma\circ\gamma)}{dt}(0)\right)_{\mathcal{V}^\perp}\mathbf{i} -Y_{\sigma(p)}^L\lambda'(0)\mathbf{i}\right).
 \end{aligned}
 \]
-Now we take into account that for any $v\in T_p\mathsf{S}(V)$ we have 
+Now we take into account that for any $v\in T_p\mathsf{S}_r(V)$ we have 
 $(v\mathbf{i})_{\mathcal{V}^\perp}=(v_{\mathcal{V}^\perp})\mathbf{i}$, since $\mathcal{V}^\perp$ is $\H$-invariant, to get
 \[
 \begin{aligned}
@@ -482,62 +482,62 @@ With a similar argument we can get $\nabla_X J_i=-q_{i+2}(X)J_{i+1}+q_{i+1}(X)J_
 Finally we show
 
 \begin{proposition}
-$\mathsf{P}(V)$ has constant quaternionic sectional curvature $4$.
+$\mathsf{P}_r(V)$ has constant quaternionic sectional curvature $4/r^2$.
 \end{proposition}
 
 \begin{proof}
-Let $p\in\mathsf{P}(V)$.
-We have to show that any $2$-plane in a quaternionic line of $T_p\mathsf{P}(V)$ has the same sectional curvature.
+Let $p\in\mathsf{P}_r(V)$.
+We have to show that any $2$-plane in a quaternionic line of $T_p\mathsf{P}_r(V)$ has the same sectional curvature.
 As usual we denote orthogonal projection onto $\mathcal{V}=\ker\pi_*$ by a subindex.
 
-Let $N$ be the unit normal vector field of the sphere $N_x=x$, for $x\in\mathsf{S}(V)$.
-First we calculate, for $X$, $Y\in\Gamma(T\mathsf{P}(V))$ and $\lambda\in\Sp(1)$,
+Let $N$ be the unit normal vector field of the sphere $N_x=\frac{1}{r}x$, for $x\in\mathsf{S}_r(V)$.
+First we calculate, for $X$, $Y\in\Gamma(T\mathsf{P}_r(V))$ and $\lambda\in\Sp(1)$,
 \[
 \begin{aligned}
 \langle \tilde{\nabla}_{X^L} Y^L,N\lambda\rangle
 =-\langle Y^L,D_{X^L}(N\lambda)\rangle
 =-\langle Y^L,(D_{X^L}N)\lambda\rangle
-=-\langle Y^L,X^L \lambda\rangle
-=\langle X^L,Y^L \lambda\rangle.
+=-\frac{1}{r}\langle Y^L,X^L \lambda\rangle
+=\frac{1}{r}\langle X^L,Y^L \lambda\rangle.
 \end{aligned}
 \]
 
 Let $\g{q}$ be a local quaternionic structure as defined above, and $J\in\g{q}$ a complex structure.
-Let $X\in T_p\mathsf{P}(V)$ with $\lvert X\rvert=1$. 
+Let $X\in T_p\mathsf{P}_r(V)$ with $\lvert X\rvert=1$. 
 We have to calculate the sectional curvature of the $2$-plane spanned by $X$ and $JX$, and see that this does not depend on $p$ or $X$.
 
 First we have 
 \[
 \langle[X^L,(JX)^L],N\lambda\rangle
-=\langle X^L,(JX)^L\lambda\rangle-\langle(JX)^L,X^L\lambda\rangle
-=2\langle X^L,(JX)^L\lambda\rangle.
+=\frac{1}{r}\langle X^L,(JX)^L\lambda\rangle-\frac{1}{r}\langle(JX)^L,X^L\lambda\rangle
+=\frac{2}{r}\langle X^L,(JX)^L\lambda\rangle.
 \]
-This implies $\lvert[X^L,(JX)^L]_\mathcal{V}\rvert^2=4\lvert X^L\rvert^2$.
-Using~\cite[Corollary~1]{ONeill}, the formula above, and since the sphere of radius $1$ has sectional curvature $1$, we get
+This implies $\lvert[X^L,(JX)^L]_\mathcal{V}\rvert^2=\frac{4}{r^2}\lvert X^L\rvert^2$.
+Using~\cite[Corollary~1]{ONeill}, the formula above, and since the sphere of radius $1$ has sectional curvature $1/r^2$, we get
 \[
 K(X, JX)
-=1+\frac{3}{4}\bigl\lvert[X^L,JX^L]_\mathcal{V}\bigr\rvert^2
-=4,
+=\frac{1}{r^2}+\frac{3}{4}\bigl\lvert[X^L,JX^L]_\mathcal{V}\bigr\rvert^2
+=\frac{4}{r^2},
 \]
 as we wanted to show.
 \end{proof}
 
 In $V$ we can consider the action of $\Sp(V)\cong\Sp(n+1)$ on the left as
 $A\cdot\mathbf{x}=A\mathbf{x}$, where matrix multiplication is $\H$-linear on the right.
-This action leaves the sphere $\mathsf{S}(V)$ invariant because
+This action leaves the sphere $\mathsf{S}_r(V)$ invariant because
 \[
 \langle A\mathbf{x},A\mathbf{x}\rangle
 =\Re(A\mathbf{x},A\mathbf{x})
 =\Re(\mathbf{x},\mathbf{x})
 =\langle \mathbf{x},\mathbf{x}\rangle=1.
 \]
-Moreover $\pi(A(\mathbf{x}\lambda))=\pi((A\mathbf{x})\lambda)=\pi(A\mathbf{x})$, so the action descends to $\mathsf{P}(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
+Moreover $\pi(A(\mathbf{x}\lambda))=\pi((A\mathbf{x})\lambda)=\pi(A\mathbf{x})$, so the action descends to $\mathsf{P}_r(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
 
-The action of $\Sp(V)$ on $\mathsf{P}(V)$ is transitive because $\Sp(V)$ acts transitively on quaternionic lines through the origin.
+The action of $\Sp(V)$ on $\mathsf{P}_r(V)$ is transitive because $\Sp(V)$ acts transitively on quaternionic lines through the origin.
 We show that it is also isometric.
-Let $p\in\mathsf{P}(V)$ and $v$, $w\in T_p\mathsf{P}(V)$.
-Let $\alpha\colon I\to\mathsf{P}(V)$ be a smooth curve such that $\alpha(0)=p$, $\alpha'(0)=v$.
-We select $x\in\pi^{-1}(p)$ and let $\tilde{\alpha}$ be the horizontal lift of $\alpha$ to $\mathsf{S}(V)$ through $x$.
+Let $p\in\mathsf{P}_r(V)$ and $v$, $w\in T_p\mathsf{P}_r(V)$.
+Let $\alpha\colon I\to\mathsf{P}_r(V)$ be a smooth curve such that $\alpha(0)=p$, $\alpha'(0)=v$.
+We select $x\in\pi^{-1}(p)$ and let $\tilde{\alpha}$ be the horizontal lift of $\alpha$ to $\mathsf{S}_r(V)$ through $x$.
 Then, $\tilde{\alpha}(0)=x$ and $\tilde{\alpha}'(0)=v_x^L$.
 Since $A$ acts linearly on $V$,
 \[
@@ -558,35 +558,36 @@ Now, since $\pi$ is a Riemannian submersion
 \]
 
 The effectivity kernel of $\Sp(V)$ is $\mathbb{Z}_2=\{\pm \id\}$.
-Indeed, if $A\in\Sp(V)$ acts as the identity on $\mathsf{P}(V)$, for each $x\in\mathsf{S}(V)$ we have 
+Indeed, if $A\in\Sp(V)$ acts as the identity on $\mathsf{P}_r(V)$, for each $x\in\mathsf{S}_r(V)$ we have 
 $\pi(Ax)=A\pi(x)=\pi(x)$.
-Hence, for each $x\in\mathsf{S}(V)$ there exists $\lambda(x)\in\Sp(1)$ such that $Ax=x\lambda(x)$.
+Hence, for each $x\in\mathsf{S}_r(V)$ there exists $\lambda(x)\in\Sp(1)$ such that $Ax=x\lambda(x)$.
 It is not hard to see that this implies that $A$ is diagonal;
 but since the action of $A$ is on the left and the quaternions that commute with any other element are reals numbers, we get that $A$ is a diagonal matrix with real entries.
 Thus, $A=\pm\id$.
 
 Let $\{e_1,\dots,e_{n+1}\}$ be a quaternionic orthonormal basis of $V$.
-From now on we fix $o=\pi(e_1)$.
+From now on we fix $o=\pi(r e_1)$.
 We calculate the isotropy group of $\Sp(V)$ at $o$.
-If $A(\pi(e_1))=A(o)=o$ then there exists $\lambda\in\Sp(1)$ such that $Ae_1=e_1\lambda$.
+If $A(\pi(r e_1))=A(o)=o$ then there exists $\lambda\in\Sp(1)$ such that $Are_1=re_1\lambda$.
 Since $A\in\Sp(V)$ we get $A=\lambda\oplus B$ where $\lambda\in\Sp(1)$, $B\in\Sp(W)$, and where $W$ is the quaternionic orthogonal complement of $e_1$ in $V$.
 Therefore the isotropy group of $\Sp(V)$ at $o$ is isomorphic to $\Sp(1)\times\Sp(n)$.
 
-Now we calculate the isotropy representation $\Sp(V)_o\times T_o\mathsf{P}(V)\to T_o\mathsf{P}(V)$.
-We identify $\Sp(V)_o\cong \Sp(1)\times\Sp(n)$ as before, and $T_o\mathsf{P}(V)\cong(e_1\H)^\perp\cong\H^{n}$.
+Now we calculate the isotropy representation $\Sp(V)_o\times T_o\mathsf{P}_r(V)\to T_o\mathsf{P}_r(V)$.
+We identify $\Sp(V)_o\cong \Sp(1)\times\Sp(n)$ as before, and $T_o\mathsf{P}_r(V)\cong(re_1\H)^\perp\cong\H^{n}$.
 If $A=(\lambda,B)\in\Sp(1)\times\Sp(n)$, and $v\in\H^n$ we get
 \[
 \begin{aligned}
 A_{*o}(v)
-&{}=\pi_{*e_1}(Av_{e_1}^L)
-=\frac{d}{dt}\Big\vert_0 \pi(A(e_1\cos t+v_{e_1}^L\sin t))\\
-&{}=\frac{d}{dt}\Big\vert_0 \pi(e_1(\cos t) \lambda+B v_{e_1}^L\sin t)\\
-&{}=\frac{d}{dt}\Big\vert_0 \pi(e_1(\cos t)+B v_{e_1}^L\lambda^{-1}\sin t)\\[1ex]
-&{}=\pi_{*e_1}(Bv_{e_1}^L\lambda^{-1}).
+&{}=\pi_{*re_1}(Av_{re_1}^L)
+=\frac{d}{dt}\Big\vert_0 \pi\left(A
+\left(re_1\cos\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)+v_{re_1}^L\frac{r}{\lvert v_{re_1}\rvert}\sin\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)\right)\right)\\
+&{}=\frac{d}{dt}\Big\vert_0 \pi\left(r\lambda e_1\cos\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)+Bv_{re_1}^L\frac{r}{\lvert v_{re_1}\rvert}\sin\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)\right)\\
+&{}=\frac{d}{dt}\Big\vert_0 \pi\left(r e_1\cos\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)+Bv_{re_1}^L\lambda^{-1}\frac{r}{\lvert v_{re_1}\rvert}\sin\left(\frac{\lvert v_{re_1}\rvert}{r}t\right)\right)\\[1ex]
+&{}=\pi_{*re_1}(Bv_{e_1}^L\lambda^{-1}).
 \end{aligned}
 \]
-Moreover, the effectivity kernel of this action is $\mathbb{Z}_2=\{\pm\id\}$ (similar argument to the action of $\Sp(V)$ on $\mathsf{P}(V)$).
-Thus, the isotropy representation of $\mathsf{P}(V)$ is equivalent to the representation
+Moreover, the effectivity kernel of this action is $\mathbb{Z}_2=\{\pm\id\}$ (similar argument to the action of $\Sp(V)$ on $\mathsf{P}_r(V)$).
+Thus, the isotropy representation of $\mathsf{P}_r(V)$ is equivalent to the representation
 \[
 \begin{array}{r@{\ }c@{\ }l}
 \Sp(1)\Sp(n)\times\H^n & \to & \H^n\\
@@ -611,37 +612,37 @@ This means that $V$ is isomorphic to $\H^{1,n}$, that is, the quaternion vector 
 This implies that $\langle\,\cdot\,,\,\cdot\,\,\rangle=\Re(\,\cdot\,,\,\cdot\,\,)$ is an scalar product of signature $(4,n)$.
 As a Riemannian manifold, $V$ is isometric to the flat pseudo-Riemannian space $\R^{4,4n}$
 
-We consider the $\mathsf{S}^{3,4n}=\mathsf{S}(V)=\{{x}\in V:\langle {x},{x}\rangle=-1\}$,
+We consider the $\mathsf{S}^{3,4n}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=-r^2\}$,
 which is a pseudo-Riemannian manifold of signature $(3,4n)$ and constant negative curvature.
-We define the proper and free right action $\mathsf{S}(V)\times\Sp(1)\to\mathsf{S}(V)$ by ${x}\cdot \lambda={x}\lambda$.
+We define the proper and free right action $\mathsf{S}_r(V)\times\Sp(1)\to\mathsf{S}_r(V)$ by ${x}\cdot \lambda={x}\lambda$.
 The orbit space 
 \[
-\mathsf{H}(V)=\mathsf{S}(V)/\Sp(1)
+\mathsf{H}_r(V)=\mathsf{S}_r(V)/\Sp(1)
 \]
 is a smooth manifold of real dimension $4n$, that is called the quaternion hyperbolic space of $V$.
-If $V=\H^{1,n}$, we denote this space by $\H \mathsf{H}^n$.
+If $V=\H^{1,n}$, we denote this space by $\H \mathsf{H}^n(r)$.
 
-We denote by $\pi\colon\mathsf{S}(V)\to\mathsf{H}(V)$ the quotient map, also called the Hopf map.
-For ${x}\in\mathsf{S}(V)$ we identify $T_{x}\mathsf{S}(V)=(\R{x})^\perp=V\ominus\R{x}$, the orthogonal complement of ${x}$ with respect to $\langle\,\cdot\,,\,\cdot\,\,\rangle$.
-We have $\ker\pi_{*{x}}={x}\Im\H$, and the orthogonal decomposition $T_{x}\mathsf{S}(V)=({x}\Im\H)\oplus(\H{x})^\perp$.
-We endow $\mathsf{H}(V)$ with a Riemannian metric that makes $\pi$ a pseudo-Riemannian submersion.
-Thus, $T_{\pi({x})}\mathsf{P}(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
+We denote by $\pi\colon\mathsf{S}_r(V)\to\mathsf{H}_r(V)$ the quotient map, also called the Hopf map.
+For ${x}\in\mathsf{S}_r(V)$ we identify $T_{x}\mathsf{S}_r(V)=(\R{x})^\perp=V\ominus\R{x}$, the orthogonal complement of ${x}$ with respect to $\langle\,\cdot\,,\,\cdot\,\,\rangle$.
+We have $\ker\pi_{*{x}}={x}\Im\H$, and the orthogonal decomposition $T_{x}\mathsf{S}_r(V)=({x}\Im\H)\oplus(\H{x})^\perp$.
+We endow $\mathsf{H}_r(V)$ with a Riemannian metric that makes $\pi$ a pseudo-Riemannian submersion.
+Thus, $T_{\pi({x})}\mathsf{H}_r(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
 As before, a vector in $(\H x)^\perp$ is called horizontal, and a vector in $\ker\pi_{*x}$ is called vertical.
 
-Let $v\in T_{p}\mathsf{P}(V)$.
+Let $v\in T_{p}\mathsf{H}_r(V)$.
 For ${x}\in\pi^{-1}(p)$ we define the horizontal lift $v^L_{x}$ of $v$ as the unique vector $v_x^L\in(\H{x})^\perp$ such that $\pi_{*{x}}(v^L_{x})=v$.
-The metric on $\mathsf{H}(V)$ is defined as 
-$\langle v,w\rangle_{\mathsf{H}(V)}=\langle v^L,w^L\rangle_{\mathsf{S}(V)}$ 
-for each $v$, $w\in T_p\mathsf{H}(V)$.
+The metric on $\mathsf{H}_r(V)$ is defined as 
+$\langle v,w\rangle_{\mathsf{H}_r(V)}=\langle v^L,w^L\rangle_{\mathsf{S}_r(V)}$ 
+for each $v$, $w\in T_p\mathsf{H}_r(V)$.
 This definition does not depend on the point ${x}\in\pi^{-1}(p)$ used to define the lift.
 
-Since $\pi\colon\mathsf{S}(V)\to\mathsf{H}(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}(V)$ is determined by
+Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{H}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}_r(V)$ is determined by
 $(\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y)$,
-where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}(V)$.
+where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 
-The quaternion K\"ahler structure on $\mathsf{P}(V)$ is defined as follows.
-Let $\sigma\colon U\to\mathsf{S}(V)$ be a section of $\pi$.
-We define, for $X\in\Gamma(T\mathsf{H}(V))$,
+The quaternion K\"ahler structure on $\mathsf{H}_r(V)$ is defined as follows.
+Let $\sigma\colon U\to\mathsf{S}_r(V)$ be a section of $\pi$.
+We define, for $X\in\Gamma(T\mathsf{H}_r(V))$,
 \[
 \begin{aligned}
 J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
@@ -650,23 +651,23 @@ J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
 \end{aligned}
 \]
 for $p\in U$.
-This definition depends on the choice of section $\sigma$, but the span of $\{J_1,J_2,J_3\}$ determines a quaternionic K\"ahler structure on $\mathsf{H}(V)$.
+This definition depends on the choice of section $\sigma$, but the span of $\{J_1,J_2,J_3\}$ determines a quaternionic K\"ahler structure on $\mathsf{H}_r(V)$.
 
-A calculation similar to the projective case shows that $\mathsf{H}(V)$ has constant quaternionic sectional curvature $-4$. 
-Note that the normal vector to $\mathsf{S}(V)$ is now timelike and that $S(V)$ has constant curvature $-1$.
+A calculation similar to the projective case shows that $\mathsf{H}_r(V)$ has constant quaternionic sectional curvature $-4/r^2$. 
+Note that the normal vector to $\mathsf{S}_r(V)$ is now timelike and that $\mathsf{S}_r(V)$ has constant curvature $-1/r^2$.
 \medskip
 
 In $V$ we consider the action of $\Sp(V)\cong\Sp(1,n)$ on the left as
 $A\cdot\mathbf{x}=A\mathbf{x}$, where matrix multiplication is $\H$-linear on the right.
-This action leaves $\mathsf{S}(V)$ invariant and descends to $\mathsf{P}(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
-The action of $\Sp(V)$ on $\mathsf{H}(V)$ is transitive, because $\Sp(V)$ acts transitively on quaternionic lines through the origin, and isometric because
-$A_{*p}(v)=\pi_{*x}(Av_x^L)$ for any $p\in\mathsf{H}(V)$, $x\in\pi^{-1}(p)$, and $v\in T_p\mathsf{H}(V)$, and $\pi$ is a pseudo-Riemannian submersion.
+This action leaves $\mathsf{S}_r(V)$ invariant and descends to $\mathsf{P}_r(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
+The action of $\Sp(V)$ on $\mathsf{H}_r(V)$ is transitive, because $\Sp(V)$ acts transitively on quaternionic lines through the origin, and isometric because
+$A_{*p}(v)=\pi_{*x}(Av_x^L)$ for any $p\in\mathsf{H}_r(V)$, $x\in\pi^{-1}(p)$, and $v\in T_p\mathsf{H}_r(V)$, and $\pi$ is a pseudo-Riemannian submersion.
 The effectivity kernel of $\Sp(V)$ is again $\mathbb{Z}_2=\{\pm \id\}$.
 
 Let $\{e_1,\dots,e_{n+1}\}$ be a quaternionic orthonormal basis of $V$ with $(e_1,e_1)=-1$ and $(e_i,e_i)=1$ if $i>1$.
 From now on we fix $o=\pi(e_1)$.
 The isotropy group of $\Sp(V)$ at $o$ is isomorphic to $\Sp(1)\times\Sp(n)$, 
-and the isotropy representation $\Sp(V)_o\times T_o\mathsf{H}(V)\to T_o\mathsf{H}(V)$
+and the isotropy representation $\Sp(V)_o\times T_o\mathsf{H}_r(V)\to T_o\mathsf{H}_r(V)$
 is equivalent to the representation
 \[
 \begin{array}{r@{\ }c@{\ }l}
@@ -692,8 +693,8 @@ We have to show that $\{J_1',J_2',J_3'\}$ is a canonical basis of the quaternion
 TO DO
 \end{proof}
 
-We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}(V)$, $A\mapsto A(o)$.
-We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}(V)$, given by
+We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}_r(V)$, $A\mapsto A(o)$.
+We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}_r(V)$, given by
 \[
 \phi_{*o}(X)
 =\frac{d}{dt}\Big\vert_{0}\phi(\Exp(tX))
@@ -702,7 +703,7 @@ We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}(V)$, given
 =\pi_{*e_1}(Xe_1).
 \]
 Clearly, its kernel is the Lie algebra $\g{sp}(1)\oplus\g{sp}(n)$ of the isotropy group of $\Sp(V)$ at $o$.
-Thus, complementary space of $\g{sp}(1)\oplus\g{sp}(n)$ in $\g{sp}(1,n)$ is isomorphic to $T_o\mathsf{H}(V)$, which is itself isomorphic to $\H^n$.
+Thus, complementary space of $\g{sp}(1)\oplus\g{sp}(n)$ in $\g{sp}(1,n)$ is isomorphic to $T_o\mathsf{H}_r(V)$, which is itself isomorphic to $\H^n$.
 We will see that there are two natural choices for this complementary subspace.
 
 The Lie algebra $\g{g}=\g{sp}(1,n)$ can be viewed as the algebra of quaternionic matrices of the following form:
@@ -764,16 +765,16 @@ v\in \H ^{n}
 \]
 The Cartan involution of $\g{g}$ is $\theta X = -X^{*}$.
 
-Since $\ker\phi_{*o}=\g{k}$, $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is a vector space isomorphism.
+Since $\ker\phi_{*o}=\g{k}$, $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}_r(V)$ is a vector space isomorphism.
 We endow $\g{p}$ with the inner product and quaternion structure induced by $\phi_{*o}$.
 This is clearly the natural identification $\lceil 0,v,0\rceil \leftrightarrow \pi_{*e_1}(v) \leftrightarrow v$.
 
-In particular, we may consider the endomorphisms $Q_{\lambda}\in \operatorname{End}(T_{o}\mathsf{H}(V))$, $\lambda\in \H$, defined as follows:
+In particular, we may consider the endomorphisms $Q_{\lambda}\in \operatorname{End}(T_{o}\mathsf{H}_r(V))$, $\lambda\in \H$, defined as follows:
 \[
 Q_{\lambda}v=\pi_{*e_{1}}\left(-v^{L}_{e_{1}}\lambda\right),
 \]
-where $v\in T_{o}\mathsf{H}(V)$.
-One checks that $\g{q}=\{Q_{\lambda}\colon \lambda\in \Im\H\}$ defines a quaternionic structure on $T_{o}\mathsf{H}(V)$.
+where $v\in T_{o}\mathsf{H}_r(V)$.
+One checks that $\g{q}=\{Q_{\lambda}\colon \lambda\in \Im\H\}$ defines a quaternionic structure on $T_{o}\mathsf{H}_r(V)$.
 In particular, we can translate this quaternionic structure to $\g{p}$, which actually satisfies
 \begin{equation*}
 	Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,v\lambda,0 \rceil.
@@ -800,13 +801,13 @@ We have
 =8(n+1)\Re v^*w
 =8(n+1)\langle v,w\rangle.
 \]
-Thus, we rescale $\mathcal{B}_\theta$ so that $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}(V)$ is an isometry, and set
+Thus, we rescale $\mathcal{B}_\theta$ so that $\phi_{*o}\colon\g{p}\to T_o\mathsf{H}_r(V)$ is a homothecy, and set
 \[
 \langle X,Y\rangle_{\g{g}}
-=\frac{1}{8(n+1)}\mathcal{B}_\theta(X,Y)
-=\frac{1}{2}\Re\tr_\H(X^*Y),
+=\frac{c}{4(n+1)}\mathcal{B}_\theta(X,Y)
+=c\Re\tr_\H(X^*Y),
 \]
-for $X$, $Y\in\g{g}$.
+for $X$, $Y\in\g{g}$, and $c>0$.
 
 We choose the maximal abelian subspace $\g{a}$ of $\g{p}$ generated by $\lceil 0,e_{1},0\rceil$.
 The root space decomposition $\g{g}=\g{g}_{-2\alpha}\oplus\g{g}_{-\alpha}\oplus\g{g}_{0}\oplus\g{g}_{\alpha}\oplus\g{g}_{2\alpha}$ is given by
@@ -913,9 +914,9 @@ Moreover, the adjoint representation $\mathsf{K}_{0}=\Sp(1)\times\Sp(n)$ on $\g{
 This is equivalent to the action of $\Sp(1)\times\Sp(n)$ on $\Im\H$ given by $(q,B)\cdot \lambda=q\lambda\bar{q}$.
 	
 Let ${A}$, ${N}$ and ${AN}$ be the connected subgroups of $\mathsf{Sp}(1,n)$ whose Lie algebras are $\g{a}$, $\g{n}$ and $\g{a}\oplus \g{n}$, respectively.
-Then it is a standard fact that $\mathsf{H}(V)$ is a principal homogeneous space of ${AN}$, 
-so the map $\phi_{o\vert AN}\colon AN\to \mathsf{H}(V)$ is a diffeomorphism,
-and $\phi_{o*}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}(V)$ is an isomorphism of real vector spaces.
+Then it is a standard fact that $\mathsf{H}_r(V)$ is a principal homogeneous space of ${AN}$, 
+so the map $\phi_{o\vert AN}\colon AN\to \mathsf{H}_r(V)$ is a diffeomorphism,
+and $\phi_{o*}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}_r(V)$ is an isomorphism of real vector spaces.
 We endow $\g{a}\oplus\g{n}$ with the metric and quaternionic structure that makes this map an isometry of quaternionic vector spaces.
 
 Indeed, recall that 
@@ -931,7 +932,7 @@ Indeed, recall that
 =\pi_{*e_1}(\lambda,t+\lambda,v)
 \leftrightarrow (t+\lambda,v),
 \]
-taking into account that $T_o\mathsf{H}(V)$ is isomorphic to $(\H e_1)^\perp$.
+taking into account that $T_o\mathsf{H}_r(V)$ is isomorphic to $(\H e_1)^\perp$.
 It follows that
 \[
 \begin{aligned}
@@ -979,10 +980,10 @@ Hence, we consider the metric $\langle\cdot,\cdot \rangle_{AN}$ on $\g{a}\oplus\
 %=\left\langle \frac{1-\theta}{2}X,\frac{1-\theta}{2}Y \right\rangle
 =\langle X_{\g{a}},Y_{\g{a}} \rangle+\frac{1}{2}\langle X_{\g{n}},Y_{\g{n}}\rangle.
 \]
-If $\mathsf{g}$ denotes the metric of $\mathsf{H}(V)$, then $\phi_o^*\mathsf{g}$ makes $\phi_o\colon AN\to \mathsf{H}(V)$ an isometry. 
+If $\mathsf{g}$ denotes the metric of $\mathsf{H}_r(V)$, then $\phi_o^*\mathsf{g}$ makes $\phi_o\colon AN\to \mathsf{H}_r(V)$ an isometry. 
 Since $g^{-1}\circ\phi_o\circ g=\phi_o$ for all $g\in G$ we have $L_g^*(\phi_o^*\mathsf{g})=\phi_o^*\mathsf{g}$.
 Hence, $\phi_o^*\mathsf{g}$ is left-invariant.
-This implies that $AN$ is a Lie group with a left-invariant metric that coincides with $\langle\cdot,\cdot \rangle_{AN}$ at the identity, and with this metric it is isometric to $\mathsf{H}(V)$.
+This implies that $AN$ is a Lie group with a left-invariant metric that coincides with $\langle\cdot,\cdot \rangle_{AN}$ at the identity, and with this metric it is isometric to $\mathsf{H}_r(V)$.
 
 Now we do a similar consideration with the quaternionic structure to get 
 \[
@@ -1135,7 +1136,7 @@ J_{X_{i}}X_{i+2}&{}=-J_{X_{i+1}},
 \end{aligned}
 \]
 where the indices in the last two equations are taken modulo $3$.
-This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}(V)$.
+This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}_r(V)$.
 	
 
 
