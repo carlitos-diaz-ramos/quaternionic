@@ -33,7 +33,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}{Remark}
 
 \begin{document}
 \title{Quaternionic projective and hyperbolic spaces}
@@ -91,7 +91,7 @@ Then, we have
 \Re(q_1q_2q_3)=\langle q_1,q_2\times q_3\rangle=\det(q_1\vert q_2\vert q_3).
 \]
 
-\begin{remark}
+\begin{remark}\label{remark:Sp1}
 We define $\Sp(1)=\{q\in\H:\lvert q\rvert =1\}$.
 This is a Lie subgroup of $\H\setminus\{0\}$.
 We consider $\varphi\colon\Sp(1)\to\mathsf{SO}(\Im\H)$, given by $\varphi(q)(x)=qxq^{-1}$. 
@@ -112,6 +112,16 @@ This map is clearly an isomorphism of Lie algebras.
 Therefore, $\varphi$ is a covering of Lie groups.
 Moreover, it follows easily that $\ker\varphi={\pm 1}$, and hence, $\mathsf{SO}(3)=\Sp(1)/\mathbb{Z}_2\cong\R\mathsf{P}^3$.
 \end{remark}
+
+\begin{lemma}\label{lemma:canonical-triple}
+Let $a$, $b$, $c\in\H$ such that $a^2=b^2=c^2=-1$, $ab=-ba=c$.
+Then, there exist a unique $q\in\Sp(1)$ such that $a=q\mathbf{i}q^{-1}$, $b=q\mathbf{j}q^{-1}$, $c=q\mathbf{k}q^{-1}$.
+\end{lemma}
+
+\begin{proof}
+It follows from $q_1 q_2=-\langle q_1,q_2\rangle+q_1\times q_2$ that $(a,b,c)$ is a positively oriented orthonormal basis of $\Im\H$, and the rest follows from Remark~\ref{remark:Sp1}.
+\end{proof}
+
 
 \section{Quaternionic vector spaces}\label{sec:vector-spaces}
 
@@ -196,9 +206,12 @@ Hence, with these isomorphisms,
 \medskip
 
 Let $V$ be a real vector space with inner product $\langle\,\cdot\,,\,\cdot\,\rangle$.
-A $3$-dimensional subspace $\g{q}$ of $\g{so}(V)$ is called a linear quaternionic structure if there are elements $J_1$, $J_2$, $J_3\in\g{q}$ such that $J_i^2=-1$ and $J_iJ_{i+1}=J_{i+2}$ (indices modulo 3).
+A $3$-dimensional subspace $\g{q}$ of $\g{so}(V)$ is called a linear quaternionic structure if there are elements $J_1$, $J_2$, $J_3\in\g{q}$ such that $J_i^2=-\id$ and $J_iJ_{i+1}=J_{i+2}$ (indices modulo 3).
 Then, $\g{q}$ is a subalgebra of $\g{so}(V)$ isomorphic to $\g{sp}(1)$.
 The set $\{J_1,J_2,J_3\}$ is called a canonical basis for $\g{q}$.
+Note that $\g{q}$ is a subalgebra of $\g{so}(V)$ isomorphic to $\g{sp}(1)$.
+The  connected subgroup $Q$ of $\mathsf{SO}(V)$ whose Lie algebra is $\g{q}$ is then
+$A=\{a_0\id+a_1 J_1+a_2 J_2+a_3 J_3\}$ with the usual rule of composition.
 
 If $V$ is a quaternionic vector space with a quaternionic product as above, we define $J_1(\mathbf{x})=-\mathbf{x}\mathbf{i}$, $J_2(\mathbf{x})=-\mathbf{x}\mathbf{j}$, $J_3(\mathbf{x})=-\mathbf{x}\mathbf{k}$.
 Then, $\g{q}=\R J_1\oplus\R J_2\oplus\R J_3$ is a linear quaternionic structure on $V$.
@@ -273,7 +286,7 @@ This group coincides with the group of quaternion matrices that preserve the ind
 Let $V$ be a quaternion vector space of quaternionic dimension $n+1$ endowed with a quaternion product $(\,\cdot\,,\,\cdot\,\,)$, and $\langle\,\cdot\,,\,\cdot\,\,\rangle=\Re(\,\cdot\,,\,\cdot\,\,)$.
 Then $V$ is isomorphic with $\H^{n+1}$ with the usual quaternion product.
 
-We consider the sphere $\mathsf{S}^{4n+3}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=r\}$.
+We consider the sphere $\mathsf{S}^{4n+3}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=r^2\}$.
 We define the right action $\mathsf{S}_r(V)\times\Sp(1)\to\mathsf{S}_r(V)$ by ${x}\cdot \lambda={x}\lambda$.
 This action is obviously proper and free. 
 Hence, the orbit space 
@@ -419,9 +432,9 @@ On the other hand,
 J_1(\nabla_{X_p}Y)
 &{}=\pi_{*\sigma(p)}\Bigl(-(\nabla_X Y)_{\sigma(p)}^L\mathbf{i}\Bigr)
 =\pi_{*\sigma(p)}\Bigl(
--\Bigl(\pi_{*\sigma(p)}(\tilde{\nabla}_{X_{\sigma(p)}}^L Y^L)\Bigr)_{\sigma(p)}^L\mathbf{i}\Bigr)\\
+-\Bigl(\pi_{*\sigma(p)}(\tilde{\nabla}_{X_{\sigma(p)}^L} Y^L)\Bigr)_{\sigma(p)}^L\mathbf{i}\Bigr)\\
 &{}=\pi_{*\sigma(p)}\Bigl(
--\Bigl(\tilde{\nabla}_{X_{\sigma(p)}}^L Y^L\Bigr)_{\mathcal{V}^\perp}\mathbf{i}\Bigr)
+-\Bigl(\tilde{\nabla}_{X_{\sigma(p)}^L} Y^L\Bigr)_{\mathcal{V}^\perp}\mathbf{i}\Bigr)
 =\pi_{*\sigma(p)}\left(
 -\left(\frac{d}{dt}\Big\vert_0 Y_{\tilde{\gamma}(t)}^L\right)_{\mathcal{V}^\perp}\mathbf{i}\right)\\
 &{}=\pi_{*\sigma(p)}\left(
@@ -449,14 +462,14 @@ $X_{\sigma(p)}^L=\tilde{\gamma}'(0)=\sigma_{*p}(X_p)+\sigma(p)\lambda'(0)$.
 Thus, we define, taking into account that $X_{\sigma(p)}^L$ is horizontal,
 \[
 \begin{aligned}
-q_1(X)&{}=\frac{1}{2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{i}\rangle
-=-\frac{1}{2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{i}\rangle
+q_1(X)&{}=\frac{1}{2r^2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{i}\rangle
+=-\frac{1}{2r^2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{i}\rangle
 =-\frac{1}{2}\langle \lambda'(0),\mathbf{i}\rangle,\\
-q_2(X)&{}=\frac{1}{2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{j}\rangle
-=-\frac{1}{2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{j}\rangle
+q_2(X)&{}=\frac{1}{2r^2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{j}\rangle
+=-\frac{1}{2r^2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{j}\rangle
 =-\frac{1}{2}\langle \lambda'(0),\mathbf{j}\rangle,\\
-q_3(X)&{}=\frac{1}{2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{k}\rangle
-=-\frac{1}{2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{k}\rangle
+q_3(X)&{}=\frac{1}{2r^2}\langle\sigma_{*p}(X_p),\sigma(p)\mathbf{k}\rangle
+=-\frac{1}{2r^2}\langle \sigma(p)\lambda'(0),\sigma(p)\mathbf{k}\rangle
 =-\frac{1}{2}\langle \lambda'(0),\mathbf{k}\rangle,
 \end{aligned}
 \]
@@ -659,7 +672,7 @@ Note that the normal vector to $\mathsf{S}_r(V)$ is now timelike and that $\math
 
 In $V$ we consider the action of $\Sp(V)\cong\Sp(1,n)$ on the left as
 $A\cdot\mathbf{x}=A\mathbf{x}$, where matrix multiplication is $\H$-linear on the right.
-This action leaves $\mathsf{S}_r(V)$ invariant and descends to $\mathsf{P}_r(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
+This action leaves $\mathsf{S}_r(V)$ invariant and descends to $\mathsf{H}_r(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
 The action of $\Sp(V)$ on $\mathsf{H}_r(V)$ is transitive, because $\Sp(V)$ acts transitively on quaternionic lines through the origin, and isometric because
 $A_{*p}(v)=\pi_{*x}(Av_x^L)$ for any $p\in\mathsf{H}_r(V)$, $x\in\pi^{-1}(p)$, and $v\in T_p\mathsf{H}_r(V)$, and $\pi$ is a pseudo-Riemannian submersion.
 The effectivity kernel of $\Sp(V)$ is again $\mathbb{Z}_2=\{\pm \id\}$.
@@ -684,13 +697,64 @@ Then, $L\in\Sp(1)\Sp(n)$ if and only if $L$ maps $\{J_1,J_2,J_3\}$ to a canonica
 
 \begin{proof}
 Let $\{J_1',J_2',J_3'\}$ be a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ an $\H$-orthonormal basis of $\H^n$.
-Assume that $Le_i=e_i'$, $i\in\{1,\dots,n\}$, and $L\circ J_i=J_i'\circ L$, $i\in\{1,2,3\}$.
+Assume that $Le_i=e_i'$, $i\in\{1,\dots,n\}$, and $L J_i=J_i' L$, $i\in\{1,2,3\}$.
 We show that $L\in\Sp(1)\Sp(n)$.
+
+Recall that $J_1(v)=-v\mathbf{i}$, $J_2(v)=-v\mathbf{j}$, $J_3(v)=-v\mathbf{k}$.
+Since $J_1'$, $J_2'$, $J_3'$ generate the same linear quaternionic structure, $J_1'(v)=-va$, $J_2'(v)=-vb$, $J_3'(v)=-vc$, with $a$, $b$, $c\in\H$.
+Since $(J_i')^2=-\id$ and $J_i'J_{i+1}'=J_{i+2}'=-J_{i+1}'J_i'$, we get $a^2=b^2=c^2=-1$, $ab=-ba=c$.
+By Lemma~\ref{lemma:canonical-triple} there exists $\lambda\in\Sp(1)$ such that $a=\lambda\mathbf{i}\overline{\lambda}$, $b=\lambda\mathbf{j}\overline{\lambda}$, $c=\lambda\mathbf{k}\overline{\lambda}$.
+We define $B(v)=(Lv)\lambda$.
+For each $v\in\H^n$, we have
+\[
+B(v\mathbf{i})
+=(L(v\mathbf{i}))\lambda
+=-(LJ_1v)\lambda
+=-(J_1'Lv)\lambda
+=(Lv)a\lambda
+=(Lv)\lambda\mathbf{i}
+=(Bv)\mathbf{i},
+\]
+and similarly, $B(v\mathbf{j})=(Bv)\mathbf{j}$, $B(v\mathbf{k})=(Bv)\mathbf{k}$.
+Hence, $B$ is $\H$-linear.
+Moreover, $Be_i=(Le_i)\lambda=e_i'\lambda$, for each $i$.
+Thus, $B$ maps the $\H$-orthonormal basis $\{e_1,\dots,e_n\}$ to the $\H$-orthonormal basis $\{e_1'\lambda,\dots,e_n'\lambda\}$.
+Therefore, $B\in\Sp(n)$.
+Since $Lv=Bv\overline{\lambda}$ for each $v\in\H^n$, the assertion follows.
 
 Conversely, assume $L\in\Sp(1)\Sp(n)$, and let $e_i'=Le_i$ and $J_i'=L\circ J_i\circ L^{-1}$.
 We have to show that $\{J_1',J_2',J_3'\}$ is a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ is an $\H$-orthogonal basis of $\H^n$.
-
-TO DO
+We write $Lv=Bv\overline{\lambda}$, with $B\in\Sp(n)$, $\lambda\in\Sp(1)$.
+We have
+\[
+\begin{aligned}
+(J_i')^2(Lv)
+&{}=(L J_i^2)(v)
+=L(-v)=-Lv,\\
+J_i'J_j'(Lv)
+&{}=(L J_i\ J_j)(v)
+=L(-J_j J_i v)
+=-J_j' L J_i v
+=-J_j' J_i' Lv,
+\end{aligned}
+\]
+from where it follows that $\{J_1',J_2',J_3'\}$ is a canonical basis.
+We also have
+\[
+\begin{aligned}
+\langle e_i',e_j'\rangle
+&{}=\langle Le_i,Le_j\rangle
+=\langle Be_i\overline{\lambda},Be_j\overline{\lambda}\rangle
+=\langle e_i\overline{\lambda},e_j\overline{\lambda}\rangle
+=\lvert\lambda\rvert^2\langle e_i,e_j\rangle
+=\langle e_i,e_j\rangle,\\
+\langle J_k'e_i',e_j'\rangle
+&{}=\langle L J_k e_i,L e_j\rangle
+=\langle BJ_k e_i\overline{\lambda},B e_j\overline{\lambda}\rangle
+=\lvert\lambda\rvert^2\langle J_k e_i,e_j\rangle=0,
+\end{aligned}
+\]
+so the basis $\{e_1',\dots,e_n'\}$ is $\H$-orthonormal.
 \end{proof}
 
 We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}_r(V)$, $A\mapsto A(o)$.
