@@ -11,7 +11,7 @@
 (function() {
     window.MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\(', '\)']],
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
             processEscapes: true,
             macros: {
                 "R": "{\\mathbb{R}}",
@@ -38,10 +38,30 @@
         margin: 0 auto;
         background: lightgrey;
         font-family: "Open sans", sans-serif;
+        text-align: justify;
     }
     main {
         background: white;
         padding: 1em;
+    }
+    .remark, .lemma, .proof {
+        
+    }
+    .remark > p:first-of-type::before {
+        font-weight: bold;
+        content: "Remark. ";
+    }
+    .proposition > p:first-of-type::before {
+        font-weight: bold;
+        content: "Proposition. ";
+    }
+    .lemma > p:first-of-type::before {
+        font-weight: bold;
+        content: "Lemma. ";
+    }
+    .proof > p:first-of-type::before {
+        font-weight: bold;
+        content: "Proof. ";
     }
 </style>
 <title>Quaternionic projective and hyperbolic spaces</title>
@@ -69,21 +89,22 @@ Product is associative, has identity element $1$, and any nonzero element has an
 <p>Let $q=t+\mathbf{i}x+\mathbf{j}y+\mathbf{k}z$ be a quaternion. 
 The real or scalar part is $\Re{q}=t$ and the imaginary or vector part is 
 $\Im{q}=\mathbf{i}x+\mathbf{j}y+\mathbf{k}z$. 
-The {conjugate} of $q$ is the quaternion $\overline{q}=t-\mathbf{i}x-\mathbf{j}y-\mathbf{k}z$. 
+The conjugate of $q$ is the quaternion $\overline{q}=t-\mathbf{i}x-\mathbf{j}y-\mathbf{k}z$. 
 We have $\overline{q_1 q_2}=\overline{q_2}\,\overline{q_1}$. 
 The absolute value or norm of a quaternion is given by
 $\lvert q\rvert^2=q\overline{q}=\overline{q}q=t^2+x^2+y^2+z^2$, 
 which is the same as the usual norm of $\R^4$. 
 An important fact is that norm is multiplicative, that is,
-$\lvert pq\rvert=\lvert p\rvert\lvert q\rvert$ for all $p$,~$q\in\H$. 
+$\lvert pq\rvert=\lvert p\rvert\lvert q\rvert$ for all $p$, $q\in\H$. 
 Moreover, if $q\neq 0$ we have $q^{-1}=\frac{\overline{q}}{\lvert q\rvert^2}$.
 </p>
 
 <p>The quaternion product is determined by the following rules:
-\begin{itemize}
-\item $\Re{(q_1 q_2)}=(\Re{q_1})(\Re{q_2})-\langle \Im{q_1},\Im{q_2}\rangle$,
-\item $\Im{(q_1 q_2)}=(\Re{q_1})(\Im{q_2})+(\Re{q_2})(\Im{q_1})+\Im{q_1}\times\Im{q_2}$,
-\end{itemize}
+<ul>
+<li>$\Re{(q_1 q_2)}=(\Re{q_1})(\Re{q_2})-\langle \Im{q_1},\Im{q_2}\rangle$,
+<li>$\Im{(q_1 q_2)}=(\Re{q_1})(\Im{q_2})+(\Re{q_2})(\Im{q_1})+\Im{q_1}\times\Im{q_2}$,
+</ul>
+
 where $\langle\cdot,\cdot\rangle$ is the scalar product of $\R^3\cong\Im\H$, 
 and $\cdot\times\cdot$ is the vector product. 
 From the equations above, if $\lambda\in\H$ is such that $q\lambda=\lambda q$ for any $q\in\H$, then $\lambda\in\R$, that is $Z(\H)=\R$.
@@ -106,8 +127,8 @@ Then, we have
 \]
 </p>
 
-<p>\begin{remark}\label{remark:Sp1}
-We define $\Sp(1)=\{q\in\H:\lvert q\rvert =1\}$.
+<div class="remark">
+<p>We define $\Sp(1)=\{q\in\H:\lvert q\rvert =1\}$.
 This is a Lie subgroup of $\H\setminus\{0\}$.
 We consider $\varphi\colon\Sp(1)\to\mathsf{SO}(\Im\H)$, given by $\varphi(q)(x)=qxq^{-1}$. 
 The map $\varphi(q)$ is isometric because $\lvert\varphi(q)(x)\rvert=\lvert qxq^{-1}\rvert=\lvert x\rvert$. 
@@ -127,18 +148,21 @@ Then,
 This map is clearly an isomorphism of Lie algebras. 
 Therefore, $\varphi$ is a covering of Lie groups.
 Moreover, it follows easily that $\ker\varphi={\pm 1}$, and hence, $\mathsf{SO}(3)=\Sp(1)/\mathbb{Z}_2\cong\R\mathsf{P}^3$.
-\end{remark}
+</div>
+
 </p>
 
-<p>\begin{lemma}\label{lemma:canonical-triple}
-Let $a$, $b$, $c\in\H$ such that $a^2=b^2=c^2=-1$, $ab=-ba=c$.
+<div class="lemma">
+<p>Let $a$, $b$, $c\in\H$ such that $a^2=b^2=c^2=-1$, $ab=-ba=c$.
 Then, there exist a unique $q\in\Sp(1)$ such that $a=q\mathbf{i}q^{-1}$, $b=q\mathbf{j}q^{-1}$, $c=q\mathbf{k}q^{-1}$.
-\end{lemma}
+</div>
+
 </p>
 
-<p>\begin{proof}
-It follows from $q_1 q_2=-\langle q_1,q_2\rangle+q_1\times q_2$ that $(a,b,c)$ is a positively oriented orthonormal basis of $\Im\H$, and the rest follows from Remark~\ref{remark:Sp1}.
-\end{proof}
+<div class="proof">
+<p>It follows from $q_1 q_2=-\langle q_1,q_2\rangle+q_1\times q_2$ that $(a,b,c)$ is a positively oriented orthonormal basis of $\Im\H$, and the rest follows from Remark \ref{remark:Sp1}.
+</div>
+
 </p>
 
 <h2>Quaternionic vector spaces</h2>
@@ -227,9 +251,6 @@ In terms of matrices $M\in\mathcal{M}_{2n\times 2n}(\C)$ corresponds to an eleme
 &{}=\{M\in\mathsf{GL}(2n,\C):\overline{M}J=JM\}.
 \end{aligned}
 \]
-\medskip
-</p>
-
 <p>Let $V$ be a real vector space with inner product $\langle\,\cdot\,,\,\cdot\,\rangle$.
 A $3$-dimensional subspace $\g{q}$ of $\g{so}(V)$ is called a linear quaternionic structure if there are elements $J_1$, $J_2$, $J_3\in\g{q}$ such that $J_i^2=-\id$ and $J_iJ_{i+1}=J_{i+2}$ (indices modulo 3).
 Then, $\g{q}$ is a subalgebra of $\g{so}(V)$ isomorphic to $\g{sp}(1)$.
@@ -243,8 +264,8 @@ $A=\{a_0\id+a_1 J_1+a_2 J_2+a_3 J_3\}$ with the usual rule of composition.
 Then, $\g{q}=\R J_1\oplus\R J_2\oplus\R J_3$ is a linear quaternionic structure on $V$.
 </p>
 
-<p>\begin{proof}
-For example,
+<div class="proof">
+<p>For example,
 \[
 J_1 J_2(\mathbf{v})
 =J_1(-\mathbf{v}\mathbf{j})
@@ -260,16 +281,17 @@ We also show as an example,
 &{}=\Re -\mathbf{i} (\mathbf{v},\mathbf{w}) \mathbf{i}
 =\Re (\mathbf{v},\mathbf{w}) (-\mathbf{i}\mathbf{i})
 =\Re (\mathbf{v},\mathbf{w})
-=\langle \mathbf{v},\mathbf{w}\rangle.\qedhere
+=\langle \mathbf{v},\mathbf{w}\rangle.
 \end{align*}
-\end{proof}
+</div>
+
 </p>
 
 <p>Conversely, if $\g{q}$ is a linear quaternionic structure on $V$, then we can define a right quaternionic vector space structure on $V$ as $\mathbf{v}(t+x\mathbf{i}+y\mathbf{j}+z\mathbf{k})=t\mathbf{v}+xJ_1(\mathbf{v})+yJ_2(\mathbf{v})+zJ_3(\mathbf{v})$.
 </p>
 
-<p>\begin{proof}
-For example, we check
+<div class="proof">
+<p>For example, we check
 \[
 \begin{aligned}
 \mathbf{v}\mathbf{i}\mathbf{j}
@@ -278,22 +300,21 @@ For example, we check
 =-J_1 J_2(\mathbf{v})
 =-J_3(\mathbf{v})
 =\mathbf{v}\mathbf{k}.
-\end{aligned} \qedhere
+\end{aligned} 
 \]
-\end{proof}
-\medskip
-</p>
+</div>
 
 <p>A quaternion product is a map $(\,\cdot\,,\,\cdot\,\,)\colon V\times V\to\H$ such that:
-\begin{enumerate}
-\item $(\mathbf{x}+\mathbf{y},\mathbf{z})
+<ol>
+<li>$(\mathbf{x}+\mathbf{y},\mathbf{z})
 =(\mathbf{x},\mathbf{z})+(\mathbf{y},\mathbf{z})$,
 $(\mathbf{x},\mathbf{y}+\mathbf{z})
 =(\mathbf{x},\mathbf{y})+(\mathbf{x},\mathbf{z})$,
-\item $(\mathbf{x}q,\mathbf{y})=\overline{q}(\mathbf{x},\mathbf{y})$, $(\mathbf{x},\mathbf{y}q)=(\mathbf{x},\mathbf{y}) q$,
-\item $(\mathbf{x},\mathbf{y})=\overline{(\mathbf{y},\mathbf{x})}$,
-\item $(\mathbf{x},\mathbf{x})\geq 0$, with equality if and only if $\mathbf{x}=\mathbf{0}$,
-\end{enumerate}
+<li>$(\mathbf{x}q,\mathbf{y})=\overline{q}(\mathbf{x},\mathbf{y})$, $(\mathbf{x},\mathbf{y}q)=(\mathbf{x},\mathbf{y}) q$,
+<li>$(\mathbf{x},\mathbf{y})=\overline{(\mathbf{y},\mathbf{x})}$,
+<li>$(\mathbf{x},\mathbf{x})\geq 0$, with equality if and only if $\mathbf{x}=\mathbf{0}$,
+</ol>
+
 for all $\mathbf{x}$, $\mathbf{y}$, $\mathbf{z}\in V$, $q\in H$.
 </p>
 
@@ -341,15 +362,12 @@ T_{x}\mathsf{S}_r(V)=({x}\Im\H)\oplus(\H{x})^\perp.
 \]
 We endow $\mathsf{P}_r(V)$ with a Riemannian metric that makes $\pi$ a Riemannian submersion.
 Thus, $T_{\pi({x})}\mathsf{P}_r(V)$ becomes isometric to $(\H{x})^\perp$ through $\pi_{*{x}}$.
-A vector in $(\H x)^\perp$ is called horizontal, and a vector in $\ker\pi_{*x}$ is called vertical, as it is common for Riemannian submersions~\cite{ONeill}.
+A vector in $(\H x)^\perp$ is called horizontal, and a vector in $\ker\pi_{*x}$ is called vertical, as it is common for Riemannian submersions \cite{ONeill}.
 </p>
 
 <p>Let $v\in T_{p}\mathsf{P}_r(V)$.
 For ${x}\in\pi^{-1}(p)$ we define the horizontal lift $v^L_{x}$ of $v$ as the unique vector $v_x^L\in(\H{x})^\perp$ such that $\pi_{*{x}}(v^L_{x})=v$.
 Note that, with the usual identifications, we have $v_{x\lambda}^L=v_x^L\lambda$, with $\lambda\in\Sp(1)$, since $(x\Im\H)^\perp$ is $\H$-invariant and $\pi_{x\lambda}(v_x^L\lambda)=\pi_{*x}(v_x^L)$.
-\medskip
-</p>
-
 <p>In order to give $\mathsf{P}_r(V)$ a structure of a Riemannian manifold, we require $\pi$ to be a Riemannian submersion.
 This implies that the metric on $\mathsf{P}_r(V)$ is defined as 
 \[
@@ -368,15 +386,12 @@ Indeed,
 \]
 </p>
 
-<p>Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{P}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}_r(V)$ is determined by~\cite{ONeill}
+<p>Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{P}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}_r(V)$ is determined by \cite{ONeill}
 \[
 (\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y),
 \]
 where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
-\medskip
-</p>
-
-<p>Now we define a quaternion K\"ahler structure on $\mathsf{P}_r(V)$.
+<p>Now we define a quaternion K&auml;hler structure on $\mathsf{P}_r(V)$.
 </p>
 
 <p>Let $\sigma\colon U\to\mathsf{S}_r(V)$ be a section of $\pi$, that is, a smooth map such that $\pi\circ\sigma=\id$ in the open set $U$ of $\mathsf{P}_r(V)$.
@@ -393,13 +408,14 @@ The same definition can be made for $v\in T_p\mathsf{P}_r(V)$.
 It is important to note, however, that this definition depends on the choice of section $\sigma$.
 </p>
 
-<p>\begin{lemma}
-The above definition determines a quaternionic K\"ahler structure on $\mathsf{P}_r(V)$.
-\end{lemma}
+<div class="lemma">
+<p>The above definition determines a quaternionic K&auml;hler structure on $\mathsf{P}_r(V)$.
+</div>
+
 </p>
 
-<p>\begin{proof}
-In order to shorten the notation we define $\mathcal{V}=\ker\pi_{*\sigma(p)}=\sigma(p)\Im\H$, and $\mathcal{V}^\perp$ its quaternionic orthogonal complement.
+<div class="proof">
+<p>In order to shorten the notation we define $\mathcal{V}=\ker\pi_{*\sigma(p)}=\sigma(p)\Im\H$, and $\mathcal{V}^\perp$ its quaternionic orthogonal complement.
 Note that ${\mathcal{V}}^\perp$ is $\H$-invariant, a fact that we will use often in this proof.
 </p>
 
@@ -542,20 +558,22 @@ This yields,
 \]
 </p>
 
-<p>With a similar argument we can get $\nabla_X J_i=-q_{i+2}(X)J_{i+1}+q_{i+1}(X)J_{i+2}$, indices modulo~3, from where the result follows.
-\end{proof}
+<p>With a similar argument we can get $\nabla_X J_i=-q_{i+2}(X)J_{i+1}+q_{i+1}(X)J_{i+2}$, indices modulo 3, from where the result follows.
+</div>
+
 </p>
 
 <p>Finally we show
 </p>
 
-<p>\begin{proposition}
-$\mathsf{P}_r(V)$ has constant quaternionic sectional curvature $4/r^2$.
-\end{proposition}
+<div class="proposition">
+<p>$\mathsf{P}_r(V)$ has constant quaternionic sectional curvature $4/r^2$.
+</div>
+
 </p>
 
-<p>\begin{proof}
-Let $p\in\mathsf{P}_r(V)$.
+<div class="proof">
+<p>Let $p\in\mathsf{P}_r(V)$.
 We have to show that any $2$-plane in a quaternionic line of $T_p\mathsf{P}_r(V)$ has the same sectional curvature.
 As usual we denote orthogonal projection onto $\mathcal{V}=\ker\pi_*$ by a subindex.
 </p>
@@ -585,14 +603,15 @@ We have to calculate the sectional curvature of the $2$-plane spanned by $X$ and
 =\frac{2}{r}\langle X^L,(JX)^L\lambda\rangle.
 \]
 This implies $\lvert[X^L,(JX)^L]_\mathcal{V}\rvert^2=\frac{4}{r^2}\lvert X^L\rvert^2$.
-Using~\cite[Corollary~1]{ONeill}, the formula above, and since the sphere of radius $1$ has sectional curvature $1/r^2$, we get
+Using \cite[Corollary 1]{ONeill}, the formula above, and since the sphere of radius $1$ has sectional curvature $1/r^2$, we get
 \[
 K(X, JX)
 =\frac{1}{r^2}+\frac{3}{4}\bigl\lvert[X^L,JX^L]_\mathcal{V}\bigr\rvert^2
 =\frac{4}{r^2},
 \]
 as we wanted to show.
-\end{proof}
+</div>
+
 </p>
 
 <p>In $V$ we can consider the action of $\Sp(V)\cong\Sp(n+1)$ on the left as
@@ -723,7 +742,7 @@ $(\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y)$,
 where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 </p>
 
-<p>The quaternion K\"ahler structure on $\mathsf{H}_r(V)$ is defined as follows.
+<p>The quaternion K&auml;hler structure on $\mathsf{H}_r(V)$ is defined as follows.
 Let $\sigma\colon U\to\mathsf{S}_r(V)$ be a section of $\pi$.
 We define, for $X\in\Gamma(T\mathsf{H}_r(V))$,
 \[
@@ -734,14 +753,11 @@ J_1(X_p)&{}=\pi_{*\sigma(p)}(-X_{\sigma(p)}^L\mathbf{i}),
 \end{aligned}
 \]
 for $p\in U$.
-This definition depends on the choice of section $\sigma$, but the span of $\{J_1,J_2,J_3\}$ determines a quaternionic K\"ahler structure on $\mathsf{H}_r(V)$.
+This definition depends on the choice of section $\sigma$, but the span of $\{J_1,J_2,J_3\}$ determines a quaternionic K&auml;hler structure on $\mathsf{H}_r(V)$.
 </p>
 
 <p>A calculation similar to the projective case shows that $\mathsf{H}_r(V)$ has constant quaternionic sectional curvature $-4/r^2$. 
 Note that the normal vector to $\mathsf{S}_r(V)$ is now timelike and that $\mathsf{S}_r(V)$ has constant curvature $-1/r^2$.
-\medskip
-</p>
-
 <p>In $V$ we consider the action of $\Sp(V)\cong\Sp(1,n)$ on the left as
 $A\cdot\mathbf{x}=A\mathbf{x}$, where matrix multiplication is $\H$-linear on the right.
 This action leaves $\mathsf{S}_r(V)$ invariant and descends to $\mathsf{H}_r(V)$ as $A\cdot\pi(\mathbf{x})=\pi(A\cdot\mathbf{x})$.
@@ -763,15 +779,16 @@ is equivalent to the representation
 \]
 </p>
 
-<p>\begin{proposition}
-Let $\{e_1,\dots,e_n\}$ be the canonical basis of $\H^n$, and $\{J_1,J_2,J_3\}$ the canonical basis for the quaternionic structure of $\H^n$.
+<div class="proposition">
+<p>Let $\{e_1,\dots,e_n\}$ be the canonical basis of $\H^n$, and $\{J_1,J_2,J_3\}$ the canonical basis for the quaternionic structure of $\H^n$.
 Let $L\colon\H^n\to\H^n$ be an $\R$-linear map.
 Then, $L\in\Sp(1)\Sp(n)$ if and only if $L$ maps $\{J_1,J_2,J_3\}$ to a canonical basis of the quaternionic structure of $\H^n$ and $L$ maps $\{e_1,\dots,e_n\}$ to an $\H$-orthonormal basis of $\H^n$.
-\end{proposition}
+</div>
+
 </p>
 
-<p>\begin{proof}
-Let $\{J_1',J_2',J_3'\}$ be a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ an $\H$-orthonormal basis of $\H^n$.
+<div class="proof">
+<p>Let $\{J_1',J_2',J_3'\}$ be a canonical basis of the quaternionic structure of $\H^n$, and $\{e_1',\dots,e_n'\}$ an $\H$-orthonormal basis of $\H^n$.
 Assume that $Le_i=e_i'$, $i\in\{1,\dots,n\}$, and $L J_i=J_i' L$, $i\in\{1,2,3\}$.
 We show that $L\in\Sp(1)\Sp(n)$.
 </p>
@@ -779,7 +796,7 @@ We show that $L\in\Sp(1)\Sp(n)$.
 <p>Recall that $J_1(v)=-v\mathbf{i}$, $J_2(v)=-v\mathbf{j}$, $J_3(v)=-v\mathbf{k}$.
 Since $J_1'$, $J_2'$, $J_3'$ generate the same linear quaternionic structure, $J_1'(v)=-va$, $J_2'(v)=-vb$, $J_3'(v)=-vc$, with $a$, $b$, $c\in\H$.
 Since $(J_i')^2=-\id$ and $J_i'J_{i+1}'=J_{i+2}'=-J_{i+1}'J_i'$, we get $a^2=b^2=c^2=-1$, $ab=-ba=c$.
-By Lemma~\ref{lemma:canonical-triple} there exists $\lambda\in\Sp(1)$ such that $a=\lambda\mathbf{i}\overline{\lambda}$, $b=\lambda\mathbf{j}\overline{\lambda}$, $c=\lambda\mathbf{k}\overline{\lambda}$.
+By Lemma \ref{lemma:canonical-triple} there exists $\lambda\in\Sp(1)$ such that $a=\lambda\mathbf{i}\overline{\lambda}$, $b=\lambda\mathbf{j}\overline{\lambda}$, $c=\lambda\mathbf{k}\overline{\lambda}$.
 We define $B(v)=(Lv)\lambda$.
 For each $v\in\H^n$, we have
 \[
@@ -832,7 +849,8 @@ We also have
 \end{aligned}
 \]
 so the basis $\{e_1',\dots,e_n'\}$ is $\H$-orthonormal.
-\end{proof}
+</div>
+
 </p>
 
 <p>We consider the map $\phi_o\colon \Sp(1,n)\to\mathsf{H}_r(V)$, $A\mapsto A(o)$.
@@ -927,10 +945,11 @@ Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,-v\lambda,0 \rceil.
 \]
 </p>
 
-<p>\begin{remark}
-	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
-	(that is, $\tr_{\C}(A)$ is the trace of $A$ regarded as a complex linear operator, see Section~\ref{sec:vector-spaces}).
-\end{remark}
+<div class="remark">
+<p>	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
+	(that is, $\tr_{\C}(A)$ is the trace of $A$ regarded as a complex linear operator, see Section \ref{sec:vector-spaces}).
+</div>
+
 </p>
 
 <p>The Killing form of $\g{sp}(1,n)$ is given by $\mathcal{B}(X,Y)=2(n+1)\tr_{\C}(XY)$.
@@ -1295,10 +1314,6 @@ where the indices in the last two equations are taken modulo $3$.
 This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}_r(V)$.
 </p>
 
-<p>\begin{thebibliography}{99}
-\bibitem{ONeill}
-B.~O'Neill: The fundamental equations of a submersion, \textit{Michigan Math.\ J.}\ \textbf{13} (1966), 459--469.
-\end{thebibliography}
-\end{document}</main>
+</main>
 </body>
 </html>
