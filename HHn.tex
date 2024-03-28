@@ -1103,7 +1103,7 @@ J_{X}V=r\left(
 From the expression for the metric in $\g{a}\oplus\g{n}$ we get
 \[
 \langle J_X V,J_X V\rangle_{AN}
-=r^4\langle -v\lambda,-v\lambda\rangle_{\H^n}
+=r^4\langle v\lambda,v\lambda\rangle_{\H^n}
 =r^4\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
 =\langle X,X\rangle_{AN}\langle V, V\rangle_{AN},
 \]	
@@ -1146,63 +1146,74 @@ With this definition we also get
 Therefore,
 \[
 \langle[U,V],X\rangle_{AN}=\frac{2}{r}\langle J_X U,V\rangle_{AN}.
-\]
-
-We define vectors $B$, $X_{1}$, $X_{2}$, $X_{3}\in\g{a}\oplus \g{n}$ as
+\]	
+In particular, when $r=2$ we get the equality
 \[
-\begin{aligned}
-B
-&{}=\left(
-\begin{array}{cc|c}
-	0 & 1 & 0 \\
-	1 & 0 & 0 \\
-	\hline
-	0 & 0 & 0
-\end{array}
-\right),&
-X_{1}
-&{}=\left(
-\begin{array}{cc|c}
-i & -i & 0 \\
-i & -i & 0 \\
-\hline
-0 & 0 & 0
-\end{array}
-\right),&
-X_{2}
-&{}=\left(
-\begin{array}{cc|c}
-j & -j & 0 \\
-j & -j & 0 \\
-\hline
-0 & 0 & 0
-\end{array}
-\right),&
-X_{3}
-&{}=\left(
-\begin{array}{cc|c}
-k & -k & 0 \\
-k & -k & 0 \\
-\hline
-0 & 0 & 0
-\end{array}
-\right).
-\end{aligned}
+	\langle [U,V],X\rangle_{AN}=\langle J_{X}U,V\rangle_{AN}.
 \]
-Note that $\lvert B\rvert_{AN}=\lvert X_1\rvert_{AN}=\lvert X_2\rvert_{AN}=\lvert X_3\rvert_{AN}=1$.
-We define
-\[
-\begin{aligned}
-J_{X_{i}}B&{}=X_{i},&
-J_{X_{i}}X_{i}&{}=-B,&
-J_{X_{i}}X_{i+1}&{}=X_{i+2},&
-J_{X_{i}}X_{i+2}&{}=-J_{X_{i+1}},
-\end{aligned}
-\]
-where the indices in the last two equations are taken modulo $3$.
-This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}_r(V)$.
-	
+This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=1$.
 
+\begin{remark}
+	Under the identification $\phi_{*o}\colon \g{a}\oplus\g{n}\to T_{o}\H \mathsf{H}^{n}(r)$, the vector $X\in \g{g}_{2\alpha}$ corresponds to $\pi_{*e_{1}r}(e_{2}\lambda r)$, so $J_{X}$ is merely the right quaternionic multiplication by $\lambda r$.
+	In particular, one can extend $J_{X}$ to $\g{a}\oplus \g{n}$ by declaring that it corresponds to the same multiplication.
+	Similarly, for $X\in \g{a}$ we have
+	\[
+		X=\left(
+			\begin{array}{cc|c}
+				0 & t & 0 \\
+				t & 0 & 0 \\
+				\hline
+				0 & 0 & 0
+			\end{array}
+		\right),\quad t\in \R,
+	\]
+	which gives $\phi_{*o}(X)=\pi_{*e_{1}r}(e_{2}tr)$, so we may define $J_{X}= rt\operatorname{Id}_{\g{a}\oplus\g{n}}$.
+	This gives us a map $J\colon \g{a}\oplus \g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$.
+\end{remark}
+We now define the vectors
+\[
+	B=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			0 & 1 & 0 \\
+			1 & 0 & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+	\right),\quad
+	X_{1}=\frac{1}{r}\left(
+	\begin{array}{cc|c}
+		i & -i & 0 \\
+		i & -i & 0 \\
+		\hline
+		0 & 0 & 0
+	\end{array}
+	\right),\quad
+	X_{2}=\frac{1}{r}\left(
+	\begin{array}{cc|c}
+		j & -j & 0 \\
+		j & -j & 0 \\
+		\hline
+		0 & 0 & 0
+	\end{array}
+	\right),\quad
+	X_{3}=\frac{1}{r}\left(
+	\begin{array}{cc|c}
+		k & -k & 0 \\
+		k & -k & 0 \\
+		\hline
+		0 & 0 & 0
+	\end{array}
+	\right).
+\]
+Observe that $\lvert B \rvert_{AN}^{2}=\lvert X_{1} \rvert_{AN}^{2}=\lvert X_{2} \rvert_{AN}^{2}=\lvert X_{3} \rvert_{AN}^{2}=1$.
+Furthermore, we have the identities
+\begin{align*}
+	J_{B}={}&\operatorname{Id}_{\g{a}\oplus\g{n}}, & J_{X_{i}}B={}&X_{i}, & J_{X_{i}}X_{i}={}&-B, & J_{X_{i}}X_{i+1}={}&-X_{i+2},
+\end{align*}
+where the last indices are taken modulo $3$.
+As a consequence, the set $\{-J_{X_{1}},-J_{X_{2}},-J_{X_{3}}\}$ is a canonical basis for a quaternionic structure on $\g{a}\oplus\g{n}$, which is actually the one induced by the isomorphism $\phi_{*o}$ and the standard quaternionic structure of $T_{o}\H\mathsf{H}^{n}(r)\cong (e_{1}\H)^{\perp}$.
+
+We compute for each $X\in \g{p}$ the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
 
 \begin{thebibliography}{99}
 \bibitem{ONeill}
