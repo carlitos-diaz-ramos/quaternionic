@@ -1213,7 +1213,54 @@ Furthermore, we have the identities
 where the last indices are taken modulo $3$.
 As a consequence, the set $\{-J_{X_{1}},-J_{X_{2}},-J_{X_{3}}\}$ is a canonical basis for a quaternionic structure on $\g{a}\oplus\g{n}$, which is actually the one induced by the isomorphism $\phi_{*o}$ and the standard quaternionic structure of $T_{o}\H\mathsf{H}^{n}(r)\cong (e_{1}\H)^{\perp}$.
 
-We compute for each $X\in \g{p}$ the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
+We compute for each nonzero $X\in \g{p}$ the spectrum of the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
+Since $\H\mathsf{H}^{n}(r)$ is a symmetric space, its curvature tensor is given (at $T_{o}\H\mathsf{H}^{n}(r)\cong \g{p}$) by
+\begin{equation*}
+	R(X,Y)Z=-[[X,Y],Z].
+\end{equation*}
+Thus, we deduce that $R_{X}=-\operatorname{ad}(X)^{2}$.
+If
+\[
+X=\left(
+\begin{array}{c|c}
+	0 & u^{*} \\
+	\hline
+	u & 0
+\end{array}
+\right),
+Y=\left(
+\begin{array}{c|c}
+	0 & v^{*} \\
+	\hline
+	v & 0
+\end{array}
+\right),
+\]
+we have $\lvert X\rvert^{2}=r^{2}\lvert u \rvert^{2}_{\H^{n}}$, $\lvert Y\rvert^{2}=r^{2}\lvert v \rvert^{2}_{\H^{n}}$, and
+\[
+	R_{X}Y=\left(
+	\begin{array}{c|c}
+		0 & -(u,u)v^{*}+2(u,v)u^{*}-(v,u)u^{*} \\
+		\hline
+		-u(u,v)+2u(v,u)-v(u,u) & 0
+	\end{array}
+	\right).
+\]
+Therefore,
+\[
+	R_{X}Y=
+	\begin{cases}
+		0, & v\in u\R, \\
+		-\frac{\lvert X \rvert^{2}}{r^{2}}Y, & v\in (u\H)^{\perp}, \\
+		-\frac{4 \lvert X \rvert^{2}}{r^{2}} Y, & v\in u\operatorname{Im}\H.
+	\end{cases}
+\]
+Observe that this yields an alternative computation of the quaternionic sectional curvature of $\H\mathsf{H}^{n}$.
+Indeed, if $X$ and $Y$ are orthonormal vectors such that $v\in u \operatorname{Im}\H$ (keeping the notation above), we obtain
+\[
+	\operatorname{sec}(X,Y)=\langle R_{Y}X,X \rangle=-\frac{4}{r^{2}},
+\]
+so $\H\mathsf{H}^{n}(r)$ has constant quaternionic sectional curvature equal to $-\frac{4}{r^{2}}$.
 
 \begin{thebibliography}{99}
 \bibitem{ONeill}
