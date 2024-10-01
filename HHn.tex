@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{amsart}
+\documentclass[12pt, a4paper,draft]{amsart}
 
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage[top=3cm,right=2.5cm,bottom=3cm,left=2.5cm]{geometry}
@@ -402,7 +402,7 @@ Thus, $\tilde{\gamma}(0)=\sigma(p)$, $\tilde{\gamma}'(0)=X_p^L$.
 We write $\tilde{\gamma}(t)=\sigma(\gamma(t))\lambda(t)$, where $\lambda$ is a smooth function in $\Sp(1)$.
 Since $\sigma(p)=\tilde{\gamma}(0)=\sigma(p)\lambda(0)$ we get $\lambda(0)=1$ and $\lambda'(0)\in T_1\Sp(1)=\Im\H$.
 
-Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}_r(V)$. In what follows subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
+Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}_r(V)$. In what follows, subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
 Recall that $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 We also denote by $D$ the usual connection of $\H^{n+1}\cong\R^{4n+4}$.
 
@@ -1069,10 +1069,24 @@ Q_{\mu}\left(
 \right).
 \]
 
-To every element $X\in\g{g}_{2\alpha}$, we associate a map $J_{X}\colon\g{g}_{\alpha}\to\g{g}_{\alpha}$ such that 
-$\langle J_X V,J_X W\rangle_{AN}=\langle X,X\rangle_{AN} \langle V,W\rangle_{AN}$ and 
-$J_X J_Y+J_Y J_X=-2\langle X,Y\rangle_{AN}\id$.
-We define
+To every element $X\in\g{g}_{2\alpha}$, we will associate a map $J_{X}\colon\g{a}\oplus\g{n}\to\g{a}\oplus\g{n}$ that works as the quaternionic structure induced by a corresponding imaginary quaternion.
+To this end, we consider the linear isometry $\beta\colon\Im\H\to\g{g}_{2\alpha}$ given by
+\begin{equation*}
+	\beta(\lambda)=\frac{1}{r}\left(
+	\begin{array}{cc|c}
+		\lambda & -\lambda & 0 \\
+		\lambda & -\lambda & 0 \\
+		\hline
+		0 & 0 & 0
+	\end{array}
+	\right),
+\end{equation*}
+and we define.
+\begin{equation*}
+	J_{X}=-Q_{\beta^{-1}(X)}, \quad X\in\g{g}_{2\alpha}.
+\end{equation*}
+
+Observe that if $X=\beta(\lambda)\in\g{g}_{2\alpha}$ and $V\in\g{g}_{\alpha}$, we see that
 \begin{equation*}
 X=\left(
 \begin{array}{cc|c}
@@ -1100,6 +1114,7 @@ J_{X}V=r\left(
 	\end{array}
 \right).
 \end{equation*}
+
 From the expression for the metric in $\g{a}\oplus\g{n}$ we get
 \[
 \langle J_X V,J_X V\rangle_{AN}
@@ -1107,8 +1122,11 @@ From the expression for the metric in $\g{a}\oplus\g{n}$ we get
 =r^4\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
 =\langle X,X\rangle_{AN}\langle V, V\rangle_{AN},
 \]	
-and polarization implies the first required equality.
-On the other hand, identifying $X\in\g{g}_{2\alpha}$ with $\lambda\in\Im\H$, and $Y\in\g{g}_{2\alpha}$ with $\mu\in\Im\H$, we get
+and polarizing this formula we obtain that
+\[
+	\langle J_{X}V,J_{Y}V\rangle_{AN}+\langle J_{Y}V,J_{X}V\rangle_{AN}=2\langle X,Y\rangle_{AN}\langle V,V\rangle_{AN}.
+\]
+On the other hand, if $X=\beta(\lambda)$ and $Y=\beta(\mu)$ are in $\g{g}_{2\alpha}$, we get
 \[
 \begin{aligned}
 J_X J_Y V+J_Y J_X V
@@ -1151,67 +1169,69 @@ In particular, when $r=2$ we get the equality
 \[
 	\langle [U,V],X\rangle_{AN}=\langle J_{X}U,V\rangle_{AN}.
 \]
-This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=1$.
+This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=2$.
 
-\begin{remark}
-	Under the identification $\phi_{*o}\colon \g{a}\oplus\g{n}\to T_{o}\H \mathsf{H}^{n}(r)$, the vector $X\in \g{g}_{2\alpha}$ corresponds to $\pi_{*e_{1}r}(e_{2}\lambda r)$, so $J_{X}$ is merely the right quaternionic multiplication by $\lambda r$.
-	In particular, one can extend $J_{X}$ to $\g{a}\oplus \g{n}$ by declaring that it corresponds to the same multiplication.
-	Similarly, for $X\in \g{a}$ we have
-	\[
-		X=\left(
+Let us define the following four vectors in $\g{a}\oplus\g{g}_{2\alpha}$:
+\begin{equation*}
+		B=\frac{1}{r}\left(
 			\begin{array}{cc|c}
-				0 & t & 0 \\
-				t & 0 & 0 \\
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
 				\hline
 				0 & 0 & 0
 			\end{array}
-		\right),\quad t\in \R,
-	\]
-	which gives $\phi_{*o}(X)=\pi_{*e_{1}r}(e_{2}rt)$, so we may define $J_{X}= rt\operatorname{Id}_{\g{a}\oplus\g{n}}$.
-	This gives us a map $J\colon \g{a}\oplus \g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$.
-\end{remark}
-We now define the vectors
-\[
-	B=\frac{1}{r}\left(
+		\right),\enspace
+		X_{1}=\frac{1}{r}\left(
 		\begin{array}{cc|c}
-			0 & 1 & 0 \\
-			1 & 0 & 0 \\
+			\mathbf{i} & -\mathbf{i} & 0 \\
+			\mathbf{i} & -\mathbf{i} & 0 \\
 			\hline
 			0 & 0 & 0
 		\end{array}
-	\right),\quad
-	X_{1}=\frac{1}{r}\left(
-	\begin{array}{cc|c}
-		\mathbf{i} & -\mathbf{i} & 0 \\
-		\mathbf{i} & -\mathbf{i} & 0 \\
-		\hline
-		0 & 0 & 0
-	\end{array}
-	\right),\quad
-	X_{2}=\frac{1}{r}\left(
-	\begin{array}{cc|c}
-		\mathbf{j} & -\mathbf{j} & 0 \\
-		\mathbf{j} & -\mathbf{j} & 0 \\
-		\hline
-		0 & 0 & 0
-	\end{array}
-	\right),\quad
-	X_{3}=\frac{1}{r}\left(
-	\begin{array}{cc|c}
-		\mathbf{k} & -\mathbf{k} & 0 \\
-		\mathbf{k} & -\mathbf{k} & 0 \\
-		\hline
-		0 & 0 & 0
-	\end{array}
-	\right).
-\]
-Observe that $\lvert B \rvert_{AN}^{2}=\lvert X_{1} \rvert_{AN}^{2}=\lvert X_{2} \rvert_{AN}^{2}=\lvert X_{3} \rvert_{AN}^{2}=1$.
-Furthermore, we have the identities
-\begin{align*}
-	J_{B}={}&\operatorname{Id}_{\g{a}\oplus\g{n}}, & J_{X_{i}}B={}&X_{i}, & J_{X_{i}}X_{i}={}&-B, & J_{X_{i}}X_{i+1}={}&-X_{i+2},
-\end{align*}
-where the last indices are taken modulo $3$.
-As a consequence, the set $\{-J_{X_{1}},-J_{X_{2}},-J_{X_{3}}\}$ is a canonical basis for a quaternionic structure on $\g{a}\oplus\g{n}$, which is actually the one induced by the isomorphism $\phi_{*o}$ and the standard quaternionic structure of $T_{o}\H\mathsf{H}^{n}(r)\cong (e_{1}\H)^{\perp}$.
+		\right), \enspace
+		X_{2}=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			\mathbf{j} & -\mathbf{j} & 0 \\
+			\mathbf{j} & -\mathbf{j} & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right), \enspace
+		X_{3}=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			\mathbf{k} & -\mathbf{k} & 0 \\
+			\mathbf{k} & -\mathbf{k} & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right).
+\end{equation*}
+
+From the definition of the map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$, the following equations are immediate:
+\begin{equation*}
+	J_{X_{i}}B=X_{i}, \quad J_{X_{i}}X_{i}=-B,\quad J_{X_{i}}X_{i+1}=-X_{i+2}.
+\end{equation*}
+We also note that the action of $B$ on $\g{n}$ satisfies
+\begin{equation*}
+	\ad(B)\vert_{\g{g}_{\alpha}}=\operatorname{Id}_{\g{g}_{\alpha}}, \quad \ad(B)\vert_{\g{g}_{2\alpha}}=2\operatorname{Id}_{\g{g}_{2\alpha}}.
+\end{equation*}
+
+In a similar manner, one can define operators $J_{X}\colon \g{p}\to\g{p}$ for each $X\in\g{g}_{2\alpha}$ by letting $J_{X}=-Q_{\beta^{-1}(X)}$.
+Because $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_{o}\mathsf{H}_{r}(V)\equiv\g{p}$ is an isometry of quaternionic vector spaces and it coincides with $\frac{1-\theta}{2}$, we obtain the formula
+\begin{equation*}
+	J_{X}(1-\theta)V=(1-\theta)J_{X}V, \quad X\in\g{g}_{2\alpha},  V\in\g{a}\oplus\g{n}.
+\end{equation*}
+We also derive a formula for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ by means of the Cartan involution.
+Note that $\langle\cdot,\cdot\rangle_{\g{g}}$ satisfies the equality $\langle[X,Y],Z\rangle_{\g{g}}=\langle X,[\theta Y,Z]\rangle_{\g{g}}$ for all $X$, $Y$, $Z\in\g{g}$.
+In particular, if we take $X$, $Y\in \g{g}_{\alpha}$ and $Z\in\g{g}_{2\alpha}$, we have
+\begin{equation*}
+	\langle J_{Z}X,Y\rangle_{\g{g}}=2\langle J_{Z}X,Y\rangle_{AN}=r\langle [X,Y],Z\rangle_{AN}=\frac{r}{2}\langle[X,Y],Z\rangle_{\g{g}}=-\frac{r}{2}\langle Y,[\theta X,Z] \rangle_{\g{g}},
+\end{equation*}
+so we obtain the equality
+\begin{equation}\label{eq:J-from-theta}
+	J_{Z}X=\frac{r}{2}[Z,\theta X].
+\end{equation}
+In particular, if $r=2$, \eqref{eq:J-from-theta} coincides with the formula obtained in~\cite[Proposition~5.9]{CowlingDooleyKoranyiRicci}.
 
 We compute for each nonzero $X\in \g{p}$ the spectrum of the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
 Since $\H\mathsf{H}^{n}(r)$ is a symmetric space, its curvature tensor is given (at $T_{o}\H\mathsf{H}^{n}(r)\cong \g{p}$) by
@@ -1265,5 +1285,7 @@ so $\H\mathsf{H}^{n}(r)$ has constant quaternionic sectional curvature equal to 
 \begin{thebibliography}{99}
 \bibitem{ONeill}
 B.~O'Neill: The fundamental equations of a submersion, \textit{Michigan Math.\ J.}\ \textbf{13} (1966), 459--469.
+
+\bibitem{CowlingDooleyKoranyiRicci} M.~Cowling, A.~Dooley, A.~Kor\'{a}nyi, F.~Ricci: An approach to symmetric spaces of rank one via groups of Heisenberg type, \textit{J. Geom. Anal.} \textbf{8} (1998), no.2, 199--237.
 \end{thebibliography}
 \end{document}
