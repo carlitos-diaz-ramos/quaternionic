@@ -237,14 +237,14 @@ We also show as an example,
 \end{align*}
 \end{proof}
 
-Conversely, if $\g{q}$ is a linear quaternionic structure on $V$, then we can define a right quaternionic vector space structure on $V$ as $\mathbf{v}(t+x\mathbf{i}+y\mathbf{j}+z\mathbf{k})=t\mathbf{v}+xJ_1(\mathbf{v})+yJ_2(\mathbf{v})+zJ_3(\mathbf{v})$.
+Conversely, if $\g{q}$ is a linear quaternionic structure on $V$, then we can define a right quaternionic vector space structure on $V$ as $\mathbf{v}(t+x\mathbf{i}+y\mathbf{j}+z\mathbf{k})=t\mathbf{v}-xJ_1(\mathbf{v})-yJ_2(\mathbf{v})-zJ_3(\mathbf{v})$.
 
 \begin{proof}
 For example, we check
 \[
 \begin{aligned}
 \mathbf{v}\mathbf{i}\mathbf{j}
-=J_1(\mathbf{v})\mathbf{j}
+=-J_1(\mathbf{v})\mathbf{j}
 =J_2 J_1(\mathbf{v})
 =-J_1 J_2(\mathbf{v})
 =-J_3(\mathbf{v})
@@ -845,7 +845,7 @@ Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,-v\lambda,0 \rceil.
 \]
 
 \begin{remark}
-	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
+	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} (A))$ 
 	(that is, $\tr_{\C}(A)$ is the trace of $A$ regarded as a complex linear operator, see Section~\ref{sec:vector-spaces}).
 \end{remark}
 
@@ -1122,9 +1122,13 @@ From the expression for the metric in $\g{a}\oplus\g{n}$ we get
 =r^4\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
 =\langle X,X\rangle_{AN}\langle V, V\rangle_{AN},
 \]	
-and polarizing this formula we obtain that
+and polarizing this formula with respect to $X$ we obtain that
+\begin{equation}\label{eq:j-norm}
+	\langle J_{X}V,J_{Y}V\rangle_{AN}=\langle X,Y\rangle_{AN}\langle V,V\rangle_{AN},
+\end{equation}
+while polarizing with respect to $V$ gives
 \[
-	\langle J_{X}V,J_{Y}V\rangle_{AN}+\langle J_{Y}V,J_{X}V\rangle_{AN}=2\langle X,Y\rangle_{AN}\langle V,V\rangle_{AN}.
+	\langle J_{X}U,J_{X}V\rangle_{AN}=\langle X,X\rangle_{AN}\langle U,V\rangle_{AN}.
 \]
 On the other hand, if $X=\beta(\lambda)$ and $Y=\beta(\mu)$ are in $\g{g}_{2\alpha}$, we get
 \[
@@ -1146,9 +1150,14 @@ J_X J_Y V+J_Y J_X V
 	v  & -v & 0
 \end{array}
 \right)
-=-2\langle X,Y\rangle_{AN} V.
+=-2\langle X,Y\rangle_{AN} V,
 \end{aligned}
 \]
+which yields that on $\g{g}_{\alpha}$,
+\[
+	J_{X}J_{Y}+J_{Y}J_{X}=-2\langle X,Y\rangle_{AN} \operatorname{Id}_{\g{g}_{\alpha}}.
+\]
+In other words, the map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{g}_{\alpha})$ is Clifford.
 
 With this definition we also get
 \[
@@ -1162,14 +1171,14 @@ With this definition we also get
 \end{aligned}
 \]
 Therefore,
-\[
+\begin{equation}\label{eq:damek-ricci-r}
 \langle[U,V],X\rangle_{AN}=\frac{2}{r}\langle J_X U,V\rangle_{AN}.
-\]	
+\end{equation}
 In particular, when $r=2$ we get the equality
 \[
 	\langle [U,V],X\rangle_{AN}=\langle J_{X}U,V\rangle_{AN}.
 \]
-This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=2$.
+This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=2$ (see~\cite{BerndtTricerriVanhecke}).
 
 Let us define the following four vectors in $\g{a}\oplus\g{g}_{2\alpha}$:
 \begin{equation*}
@@ -1219,17 +1228,17 @@ We also note that the action of $B$ on $\g{n}$ satisfies
 In a similar manner, one can define operators $J_{X}\colon \g{p}\to\g{p}$ for each $X\in\g{g}_{2\alpha}$ by letting $J_{X}=-Q_{\beta^{-1}(X)}$.
 Because $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_{o}\mathsf{H}_{r}(V)\equiv\g{p}$ is an isometry of quaternionic vector spaces and it coincides with $\frac{1-\theta}{2}$, we obtain the formula
 \begin{equation*}
-	J_{X}(1-\theta)V=(1-\theta)J_{X}V, \quad X\in\g{g}_{2\alpha},  V\in\g{a}\oplus\g{n}.
+	J_{X}(1-\theta)V=(1-\theta)J_{X}V, \quad X\in\g{g}_{2\alpha},\enspace V\in\g{a}\oplus\g{n}.
 \end{equation*}
 We also derive a formula for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ by means of the Cartan involution.
 Note that $\langle\cdot,\cdot\rangle_{\g{g}}$ satisfies the equality $\langle[X,Y],Z\rangle_{\g{g}}=\langle X,[\theta Y,Z]\rangle_{\g{g}}$ for all $X$, $Y$, $Z\in\g{g}$.
-In particular, if we take $X$, $Y\in \g{g}_{\alpha}$ and $Z\in\g{g}_{2\alpha}$, we have
+In particular, if we take $U$, $V\in \g{g}_{\alpha}$ and $X\in\g{g}_{2\alpha}$, we have
 \begin{equation*}
-	\langle J_{Z}X,Y\rangle_{\g{g}}=2\langle J_{Z}X,Y\rangle_{AN}=r\langle [X,Y],Z\rangle_{AN}=\frac{r}{2}\langle[X,Y],Z\rangle_{\g{g}}=-\frac{r}{2}\langle Y,[\theta X,Z] \rangle_{\g{g}},
+	\langle J_{X}U,V\rangle_{\g{g}}=2\langle J_{X}U,V\rangle_{AN}=r\langle [U,V],X\rangle_{AN}=\frac{r}{2}\langle[U,V],X\rangle_{\g{g}}=-\frac{r}{2}\langle V,[\theta U,X] \rangle_{\g{g}},
 \end{equation*}
 so we obtain the equality
 \begin{equation}\label{eq:J-from-theta}
-	J_{Z}X=\frac{r}{2}[Z,\theta X].
+	J_{X}U=\frac{r}{2}[X,\theta U].
 \end{equation}
 In particular, if $r=2$, \eqref{eq:J-from-theta} coincides with the formula obtained in~\cite[Proposition~5.9]{CowlingDooleyKoranyiRicci}.
 
@@ -1282,10 +1291,89 @@ Indeed, if $X$ and $Y$ are orthonormal vectors such that $v\in u \operatorname{I
 \]
 so $\H\mathsf{H}^{n}(r)$ has constant quaternionic sectional curvature equal to $-\frac{4}{r^{2}}$.
 
+\subsection{Some Damek-Ricci type formulae for $\mathsf{H}_{r}(V)$}
+
+We now derive some equations involving the operators $J_{X}$ based on~\eqref{eq:damek-ricci-r} and the fact that $J$ is a Clifford map.
+Similar calculations can be found in~\cite[Chapter~3]{BerndtTricerriVanhecke} for arbitrary generalized Heisenberg algebras.
+Some of them have been already obtained throughout this section.
+
+We start by giving a direct proof of the so-called \textit{$J^2$ condition} (for a general proof see for example~\cite[Theorem~8.5]{CowlingDooleyKoranyiRicci}).
+\begin{theorem}
+	Let $X=\beta(\lambda)$ and $Y=\beta(\mu)$ be two orthogonal elements in $\g{g}_{2\alpha}$.
+	Then we have $J_{X}J_{Y}=J_{Z}$, where $Z=\beta^{-1}(\mu\lambda)$ is orthogonal to both $X$ and $Y$.
+\end{theorem}
+\begin{proof}
+	Simply note that $J_{X}J_{Y}=(-Q_{\lambda})(-Q_{\mu})=Q_{\lambda}Q_{\mu}=-Q_{\mu\lambda}$.
+	Now, note that $\langle X,Y\rangle_{AN}=0$ implies that $0=\langle \lambda,\mu\rangle_{\H^n}=\Re(\bar{\lambda}\mu)=-\Re(\lambda\mu)$, so $\lambda\mu\in\Im\H$ and thus the element $Z=\beta^{-1}(\mu\lambda)$ satisfies $J_{Z}=-Q_{\mu\lambda}=J_{X}J_{Y}$.
+\end{proof}
+
+Similarly, because the map $\bigwedge^2\Im\H\to\Im\H$ defined by $\lambda\wedge\mu\mapsto\Im(\lambda\mu)$ is a vector space isomorphism (indeed, it coincides with the usual cross product of $\Im\H\equiv\R^{3}$), we deduce a ``reverse'' $J^{2}$ condition:
+\begin{proposition}
+	Let $Z\in\g{g}_{2\alpha}$.
+	Then there exist vectors $X$, $Y\in\g{g}_{2\alpha}$ such that $\{X,Y,Z\}$ is an orthogonal basis of $\g{g}_{2\alpha}$ and $J_{Z}=J_{X}J_{Y}$.
+\end{proposition}
+
+Consider $X$, $Y\in\g{g}_{2\alpha}$ and $U$, $V\in\g{g}_{\alpha}$.
+We have on one hand that
+\[
+	\langle J_{X}V,V\rangle_{AN}=\frac{r}{2}\langle [V,V],X \rangle_{AN}=0,
+\] 
+so $J_{X}V$ is always orthogonal to $V$ (in particular, the maps $J_{X}$ are always skew-symmetric on $\g{g}_{\alpha}$, and this is also clear from the fact that multiplication by an imaginary quaternion yields a skew-symmetric map).
+Now, note that
+\[
+	\langle [U,J_{X}U],Y\rangle_{AN}=\frac{2}{r}\langle J_{X}U,J_{Y}U \rangle_{AN}=\frac{2}{r}\langle X,Y\rangle_{AN}\langle U,U\rangle_{AN},
+\]
+giving us
+\[
+	[U,J_{X}U]=\frac{2}{r}\langle U,U\rangle_{AN}X.
+\]
+More generally, from polarizing~\eqref{eq:j-norm} twice we deduce that
+\[
+	\langle J_{X}U,J_{Y}V \rangle_{AN}+\langle J_{Y}U,J_{X}V\rangle_{AN}=2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN}.
+\]
+Equivalently, one has
+\[
+	\frac{r}{2}(\langle [V,J_{X}U],Y \rangle_{AN}+\langle [U,J_{X}V],Y\rangle_{AN})=2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN},
+\]
+which means that
+\[
+	[U,J_{X}V]+[V,J_{X}U]=\frac{4}{r}\langle U,V \rangle_{AN} X.
+\]
+Replacing $V$ by $J_{X}V$, we get
+\[
+	-\langle X,X\rangle_{AN} [U,V]+[J_{X}V,J_{X}U]=\frac{4}{r}\langle U,J_{X}V\rangle_{AN} X,
+\]
+so
+\[
+	[J_{X}U,J_{X}V]=-\langle X,X\rangle_{AN}[U,V]-\frac{4}{r}\langle U,J_{X}V\rangle_{AN}X.
+\]
+Recall that $\langle \cdot,\cdot \rangle_{\g{g}}$ and $\langle \cdot,\cdot \rangle_{AN}$ differ by a factor of $2$ on $\g{n}$, so all the previous formulae can also be written in terms of the inner product in $\g{g}$.
+We summarize this discussion as follows:
+\begin{proposition}
+	The map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{g}_{\alpha})$ satisfies the following identities for $U$, $V\in\g{g}_{\alpha}$ and $X$, $Y\in\g{g}_{2\alpha}$:
+	\begin{equation*}
+		\begin{split}
+			J_{X}U={}&\frac{r}{2}[X,\theta U],\\
+			\langle [U,V],X\rangle_{AN}={}&\frac{2}{r}\langle J_{X}U,V\rangle_{AN},\\
+			\langle [U,V],X\rangle_{\g{g}}={}&\frac{2}{r}\langle J_{X}U,V\rangle_{\g{g}}, \\
+			J_{X}J_{Y}+J_{Y}J_{X}={}&-2\langle X,Y\rangle_{AN}\operatorname{Id}_{\g{g}_{\alpha}}=-\langle X,Y\rangle_{\g{g}}\operatorname{Id}_{\g{g}_{\alpha}},\\
+			[U,J_{X}U]={}&\frac{2}{r}\langle U,U\rangle_{AN}X=\frac{1}{r}\langle U,U\rangle_{\g{g}}X,\\
+			2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN}={}&\langle J_{X}U,J_{Y}V \rangle_{AN}+\langle J_{Y}U,J_{X}V\rangle_{AN}, \\
+			\langle U,V\rangle_{\g{g}}\langle X,Y\rangle_{\g{g}}={}&\langle J_{X}U,J_{Y}V \rangle_{\g{g}}+\langle J_{Y}U,J_{X}V\rangle_{\g{g}},\\
+			\frac{4}{r}\langle U,V \rangle_{AN} X={}&\frac{2}{r}\langle U,V\rangle_{\g{g}}X=[U,J_{X}V]+[V,J_{X}U],\\
+			[J_{X}U,J_{X}V]={}&-\langle X,X\rangle_{AN}[U,V]-\frac{4}{r}\langle U,J_{X}V\rangle_{AN}X\\
+			={}&-\frac{1}{2}\langle X,X\rangle_{\g{g}}[U,V]-\frac{2}{r}\langle U,J_{X}V\rangle_{\g{g}}X.
+		\end{split}
+	\end{equation*}
+\end{proposition}
+
 \begin{thebibliography}{99}
-\bibitem{ONeill}
-B.~O'Neill: The fundamental equations of a submersion, \textit{Michigan Math.\ J.}\ \textbf{13} (1966), 459--469.
+\bibitem{BerndtTricerriVanhecke}
+J.~Berndt, F.~Tricerri, L.~Vanhecke: \textit{Generalized Heisenberg groups and Damek-Ricci harmonic spaces}. Lecture Notes in Math., 1598, Springer-Verlag, Berlin, 1995.
 
 \bibitem{CowlingDooleyKoranyiRicci} M.~Cowling, A.~Dooley, A.~Kor\'{a}nyi, F.~Ricci: An approach to symmetric spaces of rank one via groups of Heisenberg type, \textit{J. Geom. Anal.} \textbf{8} (1998), no.2, 199--237.
+
+\bibitem{ONeill}
+B.~O'Neill: The fundamental equations of a submersion, \textit{Michigan Math.\ J.}\ \textbf{13} (1966), 459--469.
 \end{thebibliography}
 \end{document}
