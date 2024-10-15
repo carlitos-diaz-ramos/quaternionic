@@ -1219,9 +1219,14 @@ $\lvert X_i\rvert_{AN}=1$, but $\lvert X_i\rvert_{\g{g}}=\sqrt{2}$):
 \end{equation*}
 
 From the definition of the map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$, the following equations are immediate:
-\begin{equation*}
-	J_{X_{i}}B=X_{i}, \quad J_{X_{i}}X_{i}=-B,\quad J_{X_{i}}X_{i+1}=-X_{i+2}.
-\end{equation*}
+\begin{align*}
+J_{X_{i}}B&{}=X_{i}, 
+&J_{X_{i}}X_{i}&{}=-B, 
+&J_{X_{i}}X_{i+1}&{}=-X_{i+2},\\
+J_{X_i}^2&{}=-\operatorname{Id},
+&J_{X_i}J_{X_{i+1}}&{}=-J_{X_{i+2}}, 
+&J_{X_i}J_{X_{i+2}}&{}=J_{X_{i+1}}.
+\end{align*}
 We also note that the action of $B$ on $\g{n}$ satisfies
 \begin{equation*}
 	\ad(B)\vert_{\g{g}_{\alpha}}=\frac{1}{r}\operatorname{Id}_{\g{g}_{\alpha}}, \quad \ad(B)\vert_{\g{g}_{2\alpha}}=\frac{2}{r}\operatorname{Id}_{\g{g}_{2\alpha}}.
@@ -1237,7 +1242,7 @@ In particular, if $X\in\g{g}_{2\alpha}$,
 J_X B=J_X\Bigl(\frac{1}{2}(1-\theta)B\Bigr)=\frac{1}{2}(1-\theta)J_X B=\frac{1}{2}(1-\theta)X.
 \]
 
-We also derive a formula for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ by means of the Cartan involution.
+We also derive a couple of formulas for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ by means of the Cartan involution.
 Note that $\langle\cdot,\cdot\rangle_{\g{g}}$ satisfies the equality $\langle[X,Y],Z\rangle_{\g{g}}=\langle X,[\theta Y,Z]\rangle_{\g{g}}$ for all $X$, $Y$, $Z\in\g{g}$.
 In particular, if we take $U$, $V\in \g{g}_{\alpha}$ and $X\in\g{g}_{2\alpha}$, we have
 \begin{equation*}
@@ -1248,6 +1253,20 @@ so we obtain the equality
 	J_{X}U=\frac{r}{2}[X,\theta U].
 \end{equation}
 In particular, if $r=2$, \eqref{eq:J-from-theta} coincides with the formula obtained in~\cite[Proposition~5.9]{CowlingDooleyKoranyiRicci}.
+
+We make the usual identifications $U\equiv u$ and $V\equiv v$.
+Then, we have $[U,[U,\theta V]]\equiv 4\langle u,v\rangle_{\H^{n}}u+4u\Im u^* v-2\lvert u\rvert^2_{\H^n}v$,
+$[U,V]\equiv U^*v-v^*u=2\Im u^*v$,
+$J_{[U,V]}U\equiv 2ru\Im u^*v$,
+$\langle U,V\rangle_{\g{g}}=2r^2\langle u,v\rangle_{\H^n}$,
+and $\lvert u\rvert^2_{\g{g}}=2r^2\lvert u\rvert^2_{\H^n}$.
+Combining all these equations yields
+\[
+\ad(U)^2(\theta V)=
+\frac{2}{r^2}\langle U,V\rangle_{\g{g}}U
+-\frac{1}{r^2}\lvert U\rvert^2_{\g{g}} V
++\frac{2}{r}J_{[U,V]}U.
+\]
 
 We compute for each nonzero $X\in \g{p}$ the spectrum of the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
 Since $\H\mathsf{H}^{n}(r)$ is a symmetric space, its curvature tensor is given (at $T_{o}\H\mathsf{H}^{n}(r)\cong \g{p}$) by
