@@ -1242,7 +1242,7 @@ In particular, if $X\in\g{g}_{2\alpha}$,
 J_X B=J_X\Bigl(\frac{1}{2}(1-\theta)B\Bigr)=\frac{1}{2}(1-\theta)J_X B=\frac{1}{2}(1-\theta)X.
 \]
 
-We also derive a couple of formulas for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ by means of the Cartan involution.
+We also derive some formulas for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ in terms of the Cartan involution.
 Note that $\langle\cdot,\cdot\rangle_{\g{g}}$ satisfies the equality $\langle[X,Y],Z\rangle_{\g{g}}=\langle X,[\theta Y,Z]\rangle_{\g{g}}$ for all $X$, $Y$, $Z\in\g{g}$.
 In particular, if we take $U$, $V\in \g{g}_{\alpha}$ and $X\in\g{g}_{2\alpha}$, we have
 \begin{equation*}
@@ -1254,19 +1254,49 @@ so we obtain the equality
 \end{equation}
 In particular, if $r=2$, \eqref{eq:J-from-theta} coincides with the formula obtained in~\cite[Proposition~5.9]{CowlingDooleyKoranyiRicci}.
 
-We make the usual identifications $U\equiv u$ and $V\equiv v$.
-Then, we have $[U,[U,\theta V]]\equiv 4\langle u,v\rangle_{\H^{n}}u+4u\Im u^* v-2\lvert u\rvert^2_{\H^n}v$,
+We make the usual identifications $U\equiv u$, $V\equiv v$ and $W\equiv w$.
+Then, we have 
+\[
+[W,[U,\theta V]]\equiv 
+2\langle u,v\rangle_{\H^{n}}w-2w\Im u^*v
++2\langle v,w\rangle_{\H^{n}}u-2u\Im v^*w
+-2\langle u,w\rangle_{\H^{n}}v-2v\Im u^*w,
+\]
 $[U,V]\equiv u^*v-v^*u=-2\Im u^*v$,
-$J_{[U,V]}U\equiv 2ru\Im u^*v$,
-$\langle U,V\rangle_{\g{g}}=2r^2\langle u,v\rangle_{\H^n}$,
-and $\lvert u\rvert^2_{\g{g}}=2r^2\lvert u\rvert^2_{\H^n}$.
+$J_{[U,V]}W\equiv 2rw\Im u^*v$,
+and $\langle U,V\rangle_{\g{g}}=2r^2\langle u,v\rangle_{\H^n}$.
 Combining all these equations yields
+\[
+[W,[U,\theta V]]=
+\frac{1}{r^2}\Bigl(\langle U,V\rangle_{\g{g}} W+\langle V,W\rangle_{\g{g}} U-\langle U,W\rangle_{\g{g}} V\Bigr)
++\frac{1}{r}\Bigl(-J_{[U,V]}W+J_{[V,W]}U-J_{[U,W]}V\Bigr).
+\]
+In particular, if $W=U$ we get
 \[
 \ad(U)^2(\theta V)=
 \frac{2}{r^2}\langle U,V\rangle_{\g{g}}U
 -\frac{1}{r^2}\lvert U\rvert^2_{\g{g}} V
 -\frac{2}{r}J_{[U,V]}U.
 \]
+
+We also identify $X\equiv\lambda$, $Y\equiv\mu$, and $Z\equiv\nu$.
+By direct calculation,
+\[
+[[X,\theta Y],Z]\equiv
+4\lambda\mu\nu+4\nu\mu\lambda
+=-8\langle\mu,\nu\rangle_\H\lambda+8\langle\lambda,\nu\rangle_\H\mu-8\langle\lambda,\mu\rangle_\H\nu.
+\]
+We also have $\langle X,Y\rangle_{\g{g}}=2r^2\langle\lambda,\mu\rangle_\H$. 
+Combining this equalities yields
+\[
+[[X,\theta Y],Z]=\frac{4}{r^2}\Bigl(
+-\langle Y,Z\rangle_{\g{g}} X
++\langle X,Z\rangle_{\g{g}} Y
+-\langle X,Y\rangle_{\g{g}} Z
+\Bigr).
+\]
+In particular, 
+$\ad(X)^2(\theta Y)=\frac{8}{r^2}\langle X,Y\rangle_{\g{g}} X-\frac{4}{r^2}\lvert X\rvert_{\g{g}}^2 Y$.
 
 We compute for each nonzero $X\in \g{p}$ the spectrum of the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
 Since $\H\mathsf{H}^{n}(r)$ is a symmetric space, its curvature tensor is given (at $T_{o}\H\mathsf{H}^{n}(r)\cong \g{p}$) by

@@ -51,6 +51,10 @@
         font-weight: bold;
         content: "Remark. ";
     }
+    .theorem > p:first-of-type::before {
+        font-weight: bold;
+        content: "Theorem. ";
+    }
     .proposition > p:first-of-type::before {
         font-weight: bold;
         content: "Proposition. ";
@@ -79,7 +83,7 @@
 <h2>Quaternions</h2>
 
 <p>Quaternions are a normed real division algebra,  
-$\H=\{t+\mathbf{i}x+\mathbf{j}y+\mathbf{k}z:t,x,y,z\in\R\}$, that can be understood as the vector space $\R^4$. 
+{$\H=\{t+\mathbf{i}x+\mathbf{j}y+\mathbf{k}z:t,x,y,z\in\R\}$}, that can be understood as the vector space $\R^4$. 
 Product consists in applying asociative and distributive properties to expressions as before, 
 taking into account that $\mathbf{i}^2=\mathbf{j}^2=\mathbf{k}^2=-1$, $\mathbf{i}\mathbf{j}=\mathbf{k}=-\mathbf{j}\mathbf{i}$, and real numbers commute with the symbols 
 $\mathbf{i}$, $\mathbf{j}$, $\mathbf{k}$. 
@@ -89,7 +93,7 @@ Product is associative, has identity element $1$, and any nonzero element has an
 <p>Let $q=t+\mathbf{i}x+\mathbf{j}y+\mathbf{k}z$ be a quaternion. 
 The real or scalar part is $\Re{q}=t$ and the imaginary or vector part is 
 $\Im{q}=\mathbf{i}x+\mathbf{j}y+\mathbf{k}z$. 
-The conjugate of $q$ is the quaternion $\overline{q}=t-\mathbf{i}x-\mathbf{j}y-\mathbf{k}z$. 
+The {conjugate} of $q$ is the quaternion $\overline{q}=t-\mathbf{i}x-\mathbf{j}y-\mathbf{k}z$. 
 We have $\overline{q_1 q_2}=\overline{q_2}\,\overline{q_1}$. 
 The absolute value or norm of a quaternion is given by
 $\lvert q\rvert^2=q\overline{q}=\overline{q}q=t^2+x^2+y^2+z^2$, 
@@ -287,7 +291,7 @@ We also show as an example,
 
 </p>
 
-<p>Conversely, if $\g{q}$ is a linear quaternionic structure on $V$, then we can define a right quaternionic vector space structure on $V$ as $\mathbf{v}(t+x\mathbf{i}+y\mathbf{j}+z\mathbf{k})=t\mathbf{v}+xJ_1(\mathbf{v})+yJ_2(\mathbf{v})+zJ_3(\mathbf{v})$.
+<p>Conversely, if $\g{q}$ is a linear quaternionic structure on $V$, then we can define a right quaternionic vector space structure on $V$ as $\mathbf{v}(t+x\mathbf{i}+y\mathbf{j}+z\mathbf{k})=t\mathbf{v}-xJ_1(\mathbf{v})-yJ_2(\mathbf{v})-zJ_3(\mathbf{v})$.
 </p>
 
 <div class="proof">
@@ -295,7 +299,7 @@ We also show as an example,
 \[
 \begin{aligned}
 \mathbf{v}\mathbf{i}\mathbf{j}
-=J_1(\mathbf{v})\mathbf{j}
+=-J_1(\mathbf{v})\mathbf{j}
 =J_2 J_1(\mathbf{v})
 =-J_1 J_2(\mathbf{v})
 =-J_3(\mathbf{v})
@@ -467,7 +471,7 @@ We write $\tilde{\gamma}(t)=\sigma(\gamma(t))\lambda(t)$, where $\lambda$ is a s
 Since $\sigma(p)=\tilde{\gamma}(0)=\sigma(p)\lambda(0)$ we get $\lambda(0)=1$ and $\lambda'(0)\in T_1\Sp(1)=\Im\H$.
 </p>
 
-<p>Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}_r(V)$. In what follows subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
+<p>Recall that $\sigma(p)^\perp=T_{\sigma(p)}\mathsf{S}_r(V)$. In what follows, subspaces of $\sigma(p)^\perp$ written as subindices mean orthogonal projection to that subspace.
 Recall that $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 We also denote by $D$ the usual connection of $\H^{n+1}\cong\R^{4n+4}$.
 </p>
@@ -701,7 +705,7 @@ We focus on specific properties of the hyperbolic case, though.
 </p>
 
 <p>Let $V$ be a quaternion vector space of quaternionic dimension $n+1$ endowed with an indefinite quaternion product $(\,\cdot\,,\,\cdot\,\,)$ of signature $(1,n)$.
-This means that $V$ is isomorphic to $\H^{1,n}$, that is, the quaternion vector space $\H^{n+1}$ endow with the indefinite quaternion product 
+This means that $V$ is isomorphic to $\H^{1,n}$, that is, the quaternion vector space $\H^{n+1}$ endowed with the indefinite quaternion product 
 \[
 (\mathbf{x},\mathbf{y})
 =-\overline{x}_1{y}_1+\sum_{i=2}^{n+1}\overline{x}_i {y}_i.
@@ -710,7 +714,7 @@ This implies that $\langle\,\cdot\,,\,\cdot\,\,\rangle=\Re(\,\cdot\,,\,\cdot\,\,
 As a Riemannian manifold, $V$ is isometric to the flat pseudo-Riemannian space $\R^{4,4n}$
 </p>
 
-<p>We consider the $\mathsf{S}^{3,4n}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=-r^2\}$,
+<p>We consider $\mathsf{S}^{3,4n}(r)=\mathsf{S}_r(V)=\{{x}\in V:\langle {x},{x}\rangle=-r^2\}$,
 which is a pseudo-Riemannian manifold of signature $(3,4n)$ and constant negative curvature.
 We define the proper and free right action $\mathsf{S}_r(V)\times\Sp(1)\to\mathsf{S}_r(V)$ by ${x}\cdot \lambda={x}\lambda$.
 The orbit space 
@@ -737,7 +741,7 @@ for each $v$, $w\in T_p\mathsf{H}_r(V)$.
 This definition does not depend on the point ${x}\in\pi^{-1}(p)$ used to define the lift.
 </p>
 
-<p>Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{H}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{P}_r(V)$ is determined by
+<p>Since $\pi\colon\mathsf{S}_r(V)\to\mathsf{H}_r(V)$ is a Riemannian submersion, the Levi-Civita connection $\nabla$ of $\mathsf{H}_r(V)$ is determined by
 $(\nabla_X Y)_{\pi(x)}=\pi_{*x}(\tilde{\nabla}_X Y)$,
 where $\tilde{\nabla}$ is the Levi-Civita connection of $\mathsf{S}_r(V)$.
 </p>
@@ -863,7 +867,7 @@ We have its differential $\phi_{o*}\colon\g{sp}(1,n)\to T_o\mathsf{H}_r(V)$, giv
 =\pi_{*re_1}(rXe_1).
 \]
 Clearly, its kernel is the Lie algebra $\g{sp}(1)\oplus\g{sp}(n)$ of the isotropy group of $\Sp(V)$ at $o$.
-Thus, complementary space of $\g{sp}(1)\oplus\g{sp}(n)$ in $\g{sp}(1,n)$ is isomorphic to $T_o\mathsf{H}_r(V)$, which is itself isomorphic to $\H^n$.
+Thus, any complementary space of $\g{sp}(1)\oplus\g{sp}(n)$ in $\g{sp}(1,n)$ is isomorphic to $T_o\mathsf{H}_r(V)$, which is itself isomorphic to $\H^n$.
 We will see that there are two natural choices for this complementary subspace.
 </p>
 
@@ -946,7 +950,7 @@ Q_{\lambda}\lceil 0,v,0\rceil=\lceil 0,-v\lambda,0 \rceil.
 </p>
 
 <div class="remark">
-<p>	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} A)$ 
+<p>	The trace of a quaternionic matrix $A\in \g{gl}(n,\H)$ is defined as $\tr_{\C}(A)=2 \Re\tr_{\H} (A))$ 
 	(that is, $\tr_{\C}(A)$ is the trace of $A$ regarded as a complex linear operator, see Section \ref{sec:vector-spaces}).
 </div>
 
@@ -1178,12 +1182,27 @@ Q_{\mu}\left(
 \]
 </p>
 
-<p>To every element $X\in\g{g}_{2\alpha}$, we associate a map $J_{X}\colon\g{g}_{\alpha}\to\g{g}_{\alpha}$ such that 
-$\langle J_X V,J_X W\rangle_{AN}=\langle X,X\rangle_{AN} \langle V,W\rangle_{AN}$ and 
-$J_X J_Y+J_Y J_X=-2\langle X,Y\rangle_{AN}\id$.
-We define
+<p>To every element $X\in\g{g}_{2\alpha}$, we will associate a map $J_{X}\colon\g{a}\oplus\g{n}\to\g{a}\oplus\g{n}$ that works as the quaternionic structure induced by a corresponding imaginary quaternion.
+To this end, we consider the linear isometry $\beta\colon\Im\H\to\g{g}_{2\alpha}$ given by
 \begin{equation*}
-X=\left(
+	\beta(\lambda)=\frac{1}{r}\left(
+	\begin{array}{cc|c}
+		\lambda & -\lambda & 0 \\
+		\lambda & -\lambda & 0 \\
+		\hline
+		0 & 0 & 0
+	\end{array}
+	\right),
+\end{equation*}
+and we define $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ as
+\begin{equation*}
+	J_{X}=-Q_{\beta^{-1}(X)}, \quad X\in\g{g}_{2\alpha}.
+\end{equation*}
+</p>
+
+<p>Observe that if $X=\beta(\lambda)\in\g{g}_{2\alpha}$ and $V\in\g{g}_{\alpha}$, we see that
+\begin{equation*}
+X=\frac{1}{r}\left(
 \begin{array}{cc|c}
 	\lambda & -\lambda & 0 \\
 	\lambda & -\lambda & 0 \\
@@ -1200,7 +1219,7 @@ V=\left(
 	\end{array}
 \right)\ 
 \mapsto\
-J_{X}V=r\left(
+J_{X}V=\left(
 	\begin{array}{cc|c}
 		0 & 0 & -\lambda v^{*} \\
 		0 & 0 & -\lambda v^{*} \\
@@ -1209,19 +1228,28 @@ J_{X}V=r\left(
 	\end{array}
 \right).
 \end{equation*}
-From the expression for the metric in $\g{a}\oplus\g{n}$ we get
+</p>
+
+<p>From the expression for the metric in $\g{a}\oplus\g{n}$ we get
 \[
 \langle J_X V,J_X V\rangle_{AN}
-=r^4\langle -v\lambda,-v\lambda\rangle_{\H^n}
-=r^4\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
+=r^2\langle v\lambda,v\lambda\rangle_{\H^n}
+=r^2\lvert\lambda\rvert_{\H}^2\langle v, v\rangle_{\H^n}
 =\langle X,X\rangle_{AN}\langle V, V\rangle_{AN},
 \]	
-and polarization implies the first required equality.
-On the other hand, identifying $X\in\g{g}_{2\alpha}$ with $\lambda\in\Im\H$, and $Y\in\g{g}_{2\alpha}$ with $\mu\in\Im\H$, we get
+and polarizing this formula with respect to $X$ we obtain that
+\begin{equation}\label{eq:j-norm}
+	\langle J_{X}V,J_{Y}V\rangle_{AN}=\langle X,Y\rangle_{AN}\langle V,V\rangle_{AN},
+\end{equation}
+while polarizing with respect to $V$ gives
+\[
+	\langle J_{X}U,J_{X}V\rangle_{AN}=\langle X,X\rangle_{AN}\langle U,V\rangle_{AN}.
+\]
+On the other hand, if $X=\beta(\lambda)$ and $Y=\beta(\mu)$ are in $\g{g}_{2\alpha}$, we get
 \[
 \begin{aligned}
 J_X J_Y V+J_Y J_X V
-&{}=r^2\left(
+&{}=\left(
 \begin{array}{cc|c}
 	0 & 0 & (\overline{\mu\lambda-\lambda\mu})v^{*} \\
 	0 & 0 & (\overline{\mu\lambda-\lambda\mu})v^{*} \\
@@ -1229,7 +1257,7 @@ J_X J_Y V+J_Y J_X V
 	v(\mu\lambda+\lambda\mu) & -v(\mu\lambda+\lambda\mu)\lambda & 0
 \end{array}
 \right)\\
-&{}=-2r^2\langle\lambda,\mu\rangle_{\H} \left(
+&{}=-2\langle\lambda,\mu\rangle_{\H} \left(
 \begin{array}{cc|c}
 	0 & 0 & v^{*} \\
 	0 & 0 & v^{*} \\
@@ -1237,81 +1265,296 @@ J_X J_Y V+J_Y J_X V
 	v  & -v & 0
 \end{array}
 \right)
-=-2\langle X,Y\rangle_{AN} V.
+=-2\langle X,Y\rangle_{AN} V,
 \end{aligned}
 \]
+which yields that on $\g{g}_{\alpha}$,
+\[
+	J_{X}J_{Y}+J_{Y}J_{X}=-2\langle X,Y\rangle_{AN} \operatorname{Id}_{\g{g}_{\alpha}}.
+\]
+In other words, the map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{g}_{\alpha})$ is Clifford.
 </p>
 
 <p>With this definition we also get
 \[
 \begin{aligned}
 \langle[U,V],X\rangle_{AN}
-&{}=r^2\langle u^*v-v^*u,\lambda\rangle_{\H}
-=2r^2\langle\lambda,\Im(u^*v)\rangle_\H,\\
+&{}=r\langle u^*v-v^*u,\lambda\rangle_{\H}
+=2r\langle\lambda,u^*v\rangle_\H,\\
 \langle J_X U,V\rangle_{AN}
-&{}=r^3\langle -u\lambda,v\rangle_{\H^n}
-=r^3\langle\lambda,\Im(u^*v)\rangle_\H.
+&{}=r^2\langle -u\lambda,v\rangle_{\H^n}
+=r^2\langle\lambda,u^*v\rangle_\H.
 \end{aligned}
 \]
 Therefore,
-\[
+\begin{equation}\label{eq:damek-ricci-r}
 \langle[U,V],X\rangle_{AN}=\frac{2}{r}\langle J_X U,V\rangle_{AN}.
+\end{equation}
+In particular, when $r=2$ we get the equality
+\[
+	\langle [U,V],X\rangle_{AN}=\langle J_{X}U,V\rangle_{AN}.
+\]
+This implies that $\g{n}$ becomes a generalized Heisenberg algebra when $r=2$ (see \cite{BerndtTricerriVanhecke}).
+</p>
+
+<p>Let us define the following four vectors in $\g{a}\oplus\g{g}_{2\alpha}$ 
+(note that $\lvert B\rvert_{AN}=\lvert B\rvert_{\g{g}}=1$, 
+$\lvert X_i\rvert_{AN}=1$, but $\lvert X_i\rvert_{\g{g}}=\sqrt{2}$):
+\begin{equation*}
+		B=\frac{1}{r}\left(
+			\begin{array}{cc|c}
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				\hline
+				0 & 0 & 0
+			\end{array}
+		\right),\enspace
+		X_{1}=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			\mathbf{i} & -\mathbf{i} & 0 \\
+			\mathbf{i} & -\mathbf{i} & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right), \enspace
+		X_{2}=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			\mathbf{j} & -\mathbf{j} & 0 \\
+			\mathbf{j} & -\mathbf{j} & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right), \enspace
+		X_{3}=\frac{1}{r}\left(
+		\begin{array}{cc|c}
+			\mathbf{k} & -\mathbf{k} & 0 \\
+			\mathbf{k} & -\mathbf{k} & 0 \\
+			\hline
+			0 & 0 & 0
+		\end{array}
+		\right).
+\end{equation*}
+</p>
+
+<p>From the definition of the map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$, the following equations are immediate:
+\begin{align*}
+J_{X_{i}}B&{}=X_{i}, 
+&J_{X_{i}}X_{i}&{}=-B, 
+&J_{X_{i}}X_{i+1}&{}=-X_{i+2},\\
+J_{X_i}^2&{}=-\operatorname{Id},
+&J_{X_i}J_{X_{i+1}}&{}=-J_{X_{i+2}}, 
+&J_{X_i}J_{X_{i+2}}&{}=J_{X_{i+1}}.
+\end{align*}
+We also note that the action of $B$ on $\g{n}$ satisfies
+\begin{equation*}
+	\ad(B)\vert_{\g{g}_{\alpha}}=\frac{1}{r}\operatorname{Id}_{\g{g}_{\alpha}}, \quad \ad(B)\vert_{\g{g}_{2\alpha}}=\frac{2}{r}\operatorname{Id}_{\g{g}_{2\alpha}}.
+\end{equation*}
+</p>
+
+<p>In a similar manner, one can define operators $J_{X}\colon \g{p}\to\g{p}$ for each $X\in\g{g}_{2\alpha}$ by letting $J_{X}=-Q_{\beta^{-1}(X)}$.
+Because $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_{o}\mathsf{H}_{r}(V)\equiv\g{p}$ is an isometry of quaternionic vector spaces and it coincides with $\frac{1-\theta}{2}$, we obtain the formula
+\begin{equation*}
+	J_{X}(1-\theta)V=(1-\theta)J_{X}V, \quad X\in\g{g}_{2\alpha},\enspace V\in\g{a}\oplus\g{n}.
+\end{equation*}
+In particular, if $X\in\g{g}_{2\alpha}$,
+\[
+J_X B=J_X\Bigl(\frac{1}{2}(1-\theta)B\Bigr)=\frac{1}{2}(1-\theta)J_X B=\frac{1}{2}(1-\theta)X.
 \]
 </p>
 
-<p>We define vectors $B$, $X_{1}$, $X_{2}$, $X_{3}\in\g{a}\oplus \g{n}$ as
+<p>We also derive some formulas for the maps $J_{X}\colon \g{g}_{\alpha}\to\g{g}_{\alpha}$ in terms of the Cartan involution.
+Note that $\langle\cdot,\cdot\rangle_{\g{g}}$ satisfies the equality $\langle[X,Y],Z\rangle_{\g{g}}=\langle X,[\theta Y,Z]\rangle_{\g{g}}$ for all $X$, $Y$, $Z\in\g{g}$.
+In particular, if we take $U$, $V\in \g{g}_{\alpha}$ and $X\in\g{g}_{2\alpha}$, we have
+\begin{equation*}
+	\langle J_{X}U,V\rangle_{\g{g}}=2\langle J_{X}U,V\rangle_{AN}=r\langle [U,V],X\rangle_{AN}=\frac{r}{2}\langle[U,V],X\rangle_{\g{g}}=-\frac{r}{2}\langle V,[\theta U,X] \rangle_{\g{g}},
+\end{equation*}
+so we obtain the equality
+\begin{equation}\label{eq:J-from-theta}
+	J_{X}U=\frac{r}{2}[X,\theta U].
+\end{equation}
+In particular, if $r=2$, \eqref{eq:J-from-theta} coincides with the formula obtained in \cite[Proposition 5.9]{CowlingDooleyKoranyiRicci}.
+</p>
+
+<p>We make the usual identifications $U\equiv u$, $V\equiv v$ and $W\equiv w$.
+Then, we have 
 \[
-\begin{aligned}
-B
-&{}=\left(
-\begin{array}{cc|c}
-	0 & 1 & 0 \\
-	1 & 0 & 0 \\
+[W,[U,\theta V]]\equiv 
+2\langle u,v\rangle_{\H^{n}}w-2w\Im u^*v
++2\langle v,w\rangle_{\H^{n}}u-2u\Im v^*w
+-2\langle u,w\rangle_{\H^{n}}v-2v\Im u^*w,
+\]
+$[U,V]\equiv u^*v-v^*u=-2\Im u^*v$,
+$J_{[U,V]}W\equiv 2rw\Im u^*v$,
+and $\langle U,V\rangle_{\g{g}}=2r^2\langle u,v\rangle_{\H^n}$.
+Combining all these equations yields
+\[
+[W,[U,\theta V]]=
+\frac{1}{r^2}\Bigl(\langle U,V\rangle_{\g{g}} W+\langle V,W\rangle_{\g{g}} U-\langle U,W\rangle_{\g{g}} V\Bigr)
++\frac{1}{r}\Bigl(-J_{[U,V]}W+J_{[V,W]}U-J_{[U,W]}V\Bigr).
+\]
+In particular, if $W=U$ we get
+\[
+\ad(U)^2(\theta V)=
+\frac{2}{r^2}\langle U,V\rangle_{\g{g}}U
+-\frac{1}{r^2}\lvert U\rvert^2_{\g{g}} V
+-\frac{2}{r}J_{[U,V]}U.
+\]
+</p>
+
+<p>We also identify $X\equiv\lambda$, $Y\equiv\mu$, and $Z\equiv\nu$.
+By direct calculation,
+\[
+[[X,\theta Y],Z]\equiv
+4\lambda\mu\nu+4\nu\mu\lambda
+=-8\langle\mu,\nu\rangle_\H\lambda+8\langle\lambda,\nu\rangle_\H\mu-8\langle\lambda,\mu\rangle_\H\nu.
+\]
+We also have $\langle X,Y\rangle_{\g{g}}=2r^2\langle\lambda,\mu\rangle_\H$. 
+Combining this equalities yields
+\[
+[[X,\theta Y],Z]=\frac{4}{r^2}\Bigl(
+-\langle Y,Z\rangle_{\g{g}} X
++\langle X,Z\rangle_{\g{g}} Y
+-\langle X,Y\rangle_{\g{g}} Z
+\Bigr).
+\]
+In particular, 
+$\ad(X)^2(\theta Y)=\frac{8}{r^2}\langle X,Y\rangle_{\g{g}} X-\frac{4}{r^2}\lvert X\rvert_{\g{g}}^2 Y$.
+</p>
+
+<p>We compute for each nonzero $X\in \g{p}$ the spectrum of the Jacobi operator $R_{X}\colon \g{p}\to \g{p}$ defined by the equation $R_{X}Y=R(Y,X)X$.
+Since $\H\mathsf{H}^{n}(r)$ is a symmetric space, its curvature tensor is given (at $T_{o}\H\mathsf{H}^{n}(r)\cong \g{p}$) by
+\begin{equation*}
+	R(X,Y)Z=-[[X,Y],Z].
+\end{equation*}
+Thus, we deduce that $R_{X}=-\operatorname{ad}(X)^{2}$.
+If
+\[
+X=\left(
+\begin{array}{c|c}
+	0 & u^{*} \\
 	\hline
-	0 & 0 & 0
+	u & 0
 \end{array}
-\right),&
-X_{1}
-&{}=\left(
-\begin{array}{cc|c}
-i & -i & 0 \\
-i & -i & 0 \\
-\hline
-0 & 0 & 0
+\right),
+Y=\left(
+\begin{array}{c|c}
+	0 & v^{*} \\
+	\hline
+	v & 0
 \end{array}
-\right),&
-X_{2}
-&{}=\left(
-\begin{array}{cc|c}
-j & -j & 0 \\
-j & -j & 0 \\
-\hline
-0 & 0 & 0
-\end{array}
-\right),&
-X_{3}
-&{}=\left(
-\begin{array}{cc|c}
-k & -k & 0 \\
-k & -k & 0 \\
-\hline
-0 & 0 & 0
-\end{array}
-\right).
-\end{aligned}
+\right),
 \]
-Note that $\lvert B\rvert_{AN}=\lvert X_1\rvert_{AN}=\lvert X_2\rvert_{AN}=\lvert X_3\rvert_{AN}=1$.
-We define
+we have $\lvert X\rvert^{2}=r^{2}\lvert u \rvert^{2}_{\H^{n}}$, $\lvert Y\rvert^{2}=r^{2}\lvert v \rvert^{2}_{\H^{n}}$, and
 \[
-\begin{aligned}
-J_{X_{i}}B&{}=X_{i},&
-J_{X_{i}}X_{i}&{}=-B,&
-J_{X_{i}}X_{i+1}&{}=X_{i+2},&
-J_{X_{i}}X_{i+2}&{}=-X_{i+1},
-\end{aligned}
+	R_{X}Y=\left(
+	\begin{array}{c|c}
+		0 & -(u,u)v^{*}+2(u,v)u^{*}-(v,u)u^{*} \\
+		\hline
+		-u(u,v)+2u(v,u)-v(u,u) & 0
+	\end{array}
+	\right).
 \]
-where the indices in the last two equations are taken modulo $3$.
-This definition makes $J\colon\g{g}_{2\alpha}\to\operatorname{End}(\g{a}\oplus\g{n})$ a quaternionic structure that corresponds to the quaternionic structure of $\H^n$ under the isometry of quaternionic spaces $\phi_{*o}\colon\g{a}\oplus\g{n}\to T_o\mathsf{H}_r(V)$.
+Therefore,
+\[
+	R_{X}Y=
+	\begin{cases}
+		0, & Y\in \R X, \\
+		-\frac{\lvert X \rvert^{2}}{r^{2}}Y, & Y\in (\H X)^{\perp}, \\
+		-\frac{4 \lvert X \rvert^{2}}{r^{2}} Y, & v\in (\operatorname{Im}\H)X.
+	\end{cases}
+\]
+Observe that this yields an alternative computation of the quaternionic sectional curvature of $\H\mathsf{H}^{n}(r)$.
+Indeed, if $X$ and $Y$ are orthonormal vectors such that $Y\in (\operatorname{Im}\H)X$ (keeping the notation above), we obtain
+\[
+	\operatorname{sec}(X,Y)=\langle R_{Y}X,X \rangle=-\frac{4}{r^{2}},
+\]
+so $\H\mathsf{H}^{n}(r)$ has constant quaternionic sectional curvature equal to $-\frac{4}{r^{2}}$.
+</p>
+
+<h3>Some Damek-Ricci type formulae for $\mathsf{H</h3>
+
+<p>We now derive some equations involving the operators $J_{X}$ based on \eqref{eq:damek-ricci-r} and the fact that $J$ is a Clifford map.
+Similar calculations can be found in \cite[Chapter 3]{BerndtTricerriVanhecke} for arbitrary generalized Heisenberg algebras.
+Some of them have been already obtained throughout this section.
+</p>
+
+<p>We start by giving a direct proof of the so-called \textit{$J^2$ condition} (for a general proof see for example \cite[Theorem 8.5]{CowlingDooleyKoranyiRicci}).
+<div class="theorem">
+	Let $X=\beta(\lambda)$ and $Y=\beta(\mu)$ be two orthogonal elements in $\g{g}_{2\alpha}$.
+	Then we have $J_{X}J_{Y}=J_{Z}$, where $Z=\beta^{-1}(\mu\lambda)$ is orthogonal to both $X$ and $Y$.
+</div>
+
+<div class="proof">
+	Simply note that $J_{X}J_{Y}=(-Q_{\lambda})(-Q_{\mu})=Q_{\lambda}Q_{\mu}=-Q_{\mu\lambda}$.
+	Now, note that $\langle X,Y\rangle_{AN}=0$ implies that $0=\langle \lambda,\mu\rangle_{\H^n}=\Re(\bar{\lambda}\mu)=-\Re(\lambda\mu)$, so $\lambda\mu\in\Im\H$ and thus the element $Z=\beta^{-1}(\mu\lambda)$ satisfies $J_{Z}=-Q_{\mu\lambda}=J_{X}J_{Y}$.
+</div>
+
+</p>
+
+<p>Similarly, because the map $\bigwedge^2\Im\H\to\Im\H$ defined by $\lambda\wedge\mu\mapsto\Im(\lambda\mu)$ is a vector space isomorphism (indeed, it coincides with the usual cross product of $\Im\H\equiv\R^{3}$), we deduce a ``reverse'' $J^{2}$ condition:
+<div class="proposition">
+	Let $Z\in\g{g}_{2\alpha}$.
+	Then there exist vectors $X$, $Y\in\g{g}_{2\alpha}$ such that $\{X,Y,Z\}$ is an orthogonal basis of $\g{g}_{2\alpha}$ and $J_{Z}=J_{X}J_{Y}$.
+</div>
+
+</p>
+
+<p>Consider $X$, $Y\in\g{g}_{2\alpha}$ and $U$, $V\in\g{g}_{\alpha}$.
+We have on one hand that
+\[
+	\langle J_{X}V,V\rangle_{AN}=\frac{r}{2}\langle [V,V],X \rangle_{AN}=0,
+\] 
+so $J_{X}V$ is always orthogonal to $V$ (in particular, the maps $J_{X}$ are always skew-symmetric on $\g{g}_{\alpha}$, and this is also clear from the fact that multiplication by an imaginary quaternion yields a skew-symmetric map).
+Now, note that
+\[
+	\langle [U,J_{X}U],Y\rangle_{AN}=\frac{2}{r}\langle J_{X}U,J_{Y}U \rangle_{AN}=\frac{2}{r}\langle X,Y\rangle_{AN}\langle U,U\rangle_{AN},
+\]
+giving us
+\[
+	[U,J_{X}U]=\frac{2}{r}\langle U,U\rangle_{AN}X.
+\]
+More generally, from polarizing \eqref{eq:j-norm} twice we deduce that
+\[
+	\langle J_{X}U,J_{Y}V \rangle_{AN}+\langle J_{Y}U,J_{X}V\rangle_{AN}=2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN}.
+\]
+Equivalently, one has
+\[
+	\frac{r}{2}(\langle [V,J_{X}U],Y \rangle_{AN}+\langle [U,J_{X}V],Y\rangle_{AN})=2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN},
+\]
+which means that
+\[
+	[U,J_{X}V]+[V,J_{X}U]=\frac{4}{r}\langle U,V \rangle_{AN} X.
+\]
+Replacing $V$ by $J_{X}V$, we get
+\[
+	-\langle X,X\rangle_{AN} [U,V]+[J_{X}V,J_{X}U]=\frac{4}{r}\langle U,J_{X}V\rangle_{AN} X,
+\]
+so
+\[
+	[J_{X}U,J_{X}V]=-\langle X,X\rangle_{AN}[U,V]-\frac{4}{r}\langle U,J_{X}V\rangle_{AN}X.
+\]
+Recall that $\langle \cdot,\cdot \rangle_{\g{g}}$ and $\langle \cdot,\cdot \rangle_{AN}$ differ by a factor of $2$ on $\g{n}$, so all the previous formulae can also be written in terms of the inner product in $\g{g}$.
+We summarize this discussion as follows:
+<div class="proposition">
+	The map $J\colon \g{g}_{2\alpha}\to\operatorname{End}(\g{g}_{\alpha})$ satisfies the following identities for $U$, $V\in\g{g}_{\alpha}$ and $X$, $Y\in\g{g}_{2\alpha}$:
+	\begin{equation*}
+		\begin{split}
+			J_{X}U={}&\frac{r}{2}[X,\theta U],\\
+			\langle [U,V],X\rangle_{AN}={}&\frac{2}{r}\langle J_{X}U,V\rangle_{AN},\\
+			\langle [U,V],X\rangle_{\g{g}}={}&\frac{2}{r}\langle J_{X}U,V\rangle_{\g{g}}, \\
+			J_{X}J_{Y}+J_{Y}J_{X}={}&-2\langle X,Y\rangle_{AN}\operatorname{Id}_{\g{g}_{\alpha}}=-\langle X,Y\rangle_{\g{g}}\operatorname{Id}_{\g{g}_{\alpha}},\\
+			[U,J_{X}U]={}&\frac{2}{r}\langle U,U\rangle_{AN}X=\frac{1}{r}\langle U,U\rangle_{\g{g}}X,\\
+			[U,J_X V]+[V,J_X U]={}&\frac{4}{r}\langle U,V\rangle_{AN}X
+				=\frac{2}{r}\langle U,V\rangle_{\g{g}}X\\[1ex]
+			2\langle U,V\rangle_{AN}\langle X,Y\rangle_{AN}={}&\langle J_{X}U,J_{Y}V \rangle_{AN}+\langle J_{Y}U,J_{X}V\rangle_{AN}, \\[1ex]
+			\langle U,V\rangle_{\g{g}}\langle X,Y\rangle_{\g{g}}={}&\langle J_{X}U,J_{Y}V \rangle_{\g{g}}+\langle J_{Y}U,J_{X}V\rangle_{\g{g}},\\
+			\frac{4}{r}\langle U,V \rangle_{AN} X={}&\frac{2}{r}\langle U,V\rangle_{\g{g}}X=[U,J_{X}V]+[V,J_{X}U],\\
+			[J_{X}U,J_{X}V]={}&-\langle X,X\rangle_{AN}[U,V]-\frac{4}{r}\langle U,J_{X}V\rangle_{AN}X\\
+			={}&-\frac{1}{2}\langle X,X\rangle_{\g{g}}[U,V]-\frac{2}{r}\langle U,J_{X}V\rangle_{\g{g}}X.
+		\end{split}
+	\end{equation*}
+</div>
+
 </p>
 
 </main>
